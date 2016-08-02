@@ -1,0 +1,10 @@
+package com.newings.aco;
+
+public class hellojh {
+
+  public static void main(String[] args) {
+    System.out.println("hello jh");
+  }
+
+}
+
