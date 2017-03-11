@@ -9,6 +9,6 @@ public class DemoController {
 
     @RequestMapping("/index")
     public String index(){
-        return "demo";
+        return "logo";
     }
 }

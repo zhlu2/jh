@@ -21,7 +21,7 @@ import com.aco.model.User;
 import com.aco.service.UserService;
 
 public class UserRealm extends AuthorizingRealm{
-	
+
 	@Autowired
 	private UserService userService;
 
@@ -41,8 +41,9 @@ public class UserRealm extends AuthorizingRealm{
 		
 		Iterator<Role> it = roleSet.iterator();
 		while(it.hasNext()){
-			roles.add(it.next().getRoleName());
-			for(Permission per:it.next().getPermissionSet()){
+			Role role=it.next();
+			roles.add(role.getRoleName());
+			for(Permission per:role.getPermissionSet()){
 				permissions.add(per.getPermissionName());
 			}
 		}
