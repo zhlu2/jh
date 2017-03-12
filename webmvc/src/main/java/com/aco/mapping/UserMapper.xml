@@ -7,6 +7,20 @@
 		<result column="PASSWORD" property="password" jdbcType="CHAR" />
 		<result column="STATE" property="state" jdbcType="VARCHAR" />
 		<result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+		<collection property="roleSet" column="roleid" ofType="com.aco.model.Role">
+			<id property="id" column="ID" />
+			<result property="roleName" column="ROLE_NAME" />
+			<result property="roleSign" column="ROLE_SIGN" />
+			<result property="description" column="DESCRIPTION" />
+			<!-- 再在role中关联role和permission -->
+			<collection property="permissionSet" column="permissionid"
+				ofType="com.aco.model.Permission">
+				<id property="id" column="ID" />
+				<result property="permissionName" column="PERMISSION_NAME" />
+				<result property="permissionSign" column="PERMISSION_SIGN" />
+				<result property="description" column="DESCRIPTION" />
+			</collection>
+		</collection>
 	</resultMap>
 	<sql id="Base_Column_List">
 		ID, USERNAME, PASSWORD, STATE, CREATE_TIME
@@ -23,9 +37,11 @@
 		where ID = #{id,jdbcType=VARCHAR}
 	</delete>
 	<insert id="insert" parameterType="com.aco.model.User">
-		insert into TUSER (ID, USERNAME, PASSWORD,
+		insert into TUSER (ID,
+		USERNAME, PASSWORD,
 		STATE, CREATE_TIME)
-		values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR},
+		values (#{id,jdbcType=VARCHAR},
+		#{username,jdbcType=VARCHAR},
 		#{password,jdbcType=CHAR},
 		#{state,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
 	</insert>
@@ -86,29 +102,18 @@
 	</update>
 	<update id="updateByPrimaryKey" parameterType="com.aco.model.User">
 		update TUSER
-		set USERNAME = #{username,jdbcType=VARCHAR},
-		PASSWORD = #{password,jdbcType=CHAR},
+		set
+		USERNAME = #{username,jdbcType=VARCHAR},
+		PASSWORD =
+		#{password,jdbcType=CHAR},
 		STATE = #{state,jdbcType=VARCHAR},
 		CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
-		where ID = #{id,jdbcType=VARCHAR}
+		where ID =
+		#{id,jdbcType=VARCHAR}
 	</update>
 
 	<resultMap type="com.aco.model.User" id="BaseResultMap2"
 		extends="BaseResultMap">
-		<collection property="roleSet" column="roleid" ofType="com.aco.model.Role">
-			<id property="id" column="ID" />
-			<result property="roleName" column="ROLE_NAME" />
-			<result property="roleSign" column="ROLE_SIGN" />
-			<result property="description" column="DESCRIPTION" />
-			<!-- 再在role中关联role和permission -->
-			<collection property="permissionSet" column="permissionid"
-				ofType="com.aco.model.Permission">
-				<id property="id" column="ID" />
-				<result property="permissionName" column="PERMISSION_NAME" />
-				<result property="permissionSign" column="PERMISSION_SIGN" />
-				<result property="description" column="DESCRIPTION" />
-			</collection>
-		</collection>
 	</resultMap>
 	<select id="findUserByUsername" resultMap="BaseResultMap2">
 		select

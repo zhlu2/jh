@@ -1,5 +1,7 @@
 package com.aco.dao;
 
+import java.util.List;
+
 import com.aco.model.User;
 
 public interface UserMapper {
@@ -9,7 +11,7 @@ public interface UserMapper {
 
     int insertSelective(User record);
 
-    User selectByPrimaryKey(String id);
+    List<User> selectByPrimaryKey(String id);
 
     int updateByPrimaryKeySelective(User record);
 
