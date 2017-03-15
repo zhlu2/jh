@@ -3,7 +3,7 @@ package com.aco.service;
 import java.util.List;
 
 import com.aco.model.User;
-import com.github.pagehelper.PageInfo;
+import com.aco.util.PagedResult;
 
 public interface UserService {
 
@@ -11,5 +11,7 @@ public interface UserService {
 	
 	public List<User> findUser();
 	
-	PageInfo<User> queryByPage(String userName,Integer pageNo,Integer pageSize); 
+	PagedResult<User> queryByPage(String userName,Integer pageNo,Integer pageSize); 
+	
+	String addUser(User user);
 }

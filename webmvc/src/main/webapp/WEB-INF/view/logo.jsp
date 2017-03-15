@@ -29,6 +29,15 @@ td {
 </style>
 </head>
 <body>
+            <div class="actions">
+                <div class="btn-group">
+                    <a class="btn btn-default btn-sm"
+                     href="<%=request.getContextPath()%>/user/addPage"
+                    >
+                        <i class="fa fa-plus-square"></i> 新增
+                    </a>
+                </div>
+            </div>
 	<div id = "queryDiv">
 		<input id = "textInput" type="text" placeholder="请输入用户名" >
 		<button id = "queryButton" class="btn btn-primary" type="button">查询</button>

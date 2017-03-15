@@ -8,8 +8,9 @@ import org.springframework.stereotype.Service;
 import com.aco.dao.UserMapper;
 import com.aco.model.User;
 import com.aco.service.UserService;
+import com.aco.util.BeanUtil;
+import com.aco.util.PagedResult;
 import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
@@ -28,25 +29,18 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public PageInfo<User> queryByPage(String userName, Integer pageNo, Integer pageSize) {
+	public PagedResult<User> queryByPage(String userName, Integer pageNo, Integer pageSize) {
 		pageNo = pageNo == null ? 1 : pageNo;
 		pageSize = pageSize == null ? 10 : pageSize;
 		PageHelper.startPage(pageNo, pageSize);
-		List<User> list = userMapper.selectByPrimaryKey("21");
-		// 用PageInfo对结果进行包装
-		PageInfo<User> page = new PageInfo<User>(list);
-		// 测试PageInfo全部属性
-		System.out.println(page.getPageNum());
-		System.out.println(page.getPageSize());
-		System.out.println(page.getStartRow());
-		System.out.println(page.getEndRow());
-		System.out.println(page.getTotal());
-		System.out.println(page.getPages());
-		System.out.println(page.getFirstPage());
-		System.out.println(page.getLastPage());
-		System.out.println(page.isHasPreviousPage());
-		System.out.println(page.isHasNextPage());
-		return page;
+		return BeanUtil.toPagedResult(userMapper.selectByPrimaryKey(userName));
+	}
+
+	@Override
+	public String addUser(User user) {
+		// TODO Auto-generated method stub
+		 userMapper.insert(user);
+		 return user.getId();
 	}
 
 }

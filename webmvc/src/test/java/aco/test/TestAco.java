@@ -11,8 +11,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.aco.model.User;
 import com.aco.service.UserService;
+import com.aco.util.PagedResult;
 import com.alibaba.fastjson.JSON;
-import com.github.pagehelper.PageInfo;
 
 
 
@@ -35,15 +35,15 @@ public class TestAco {
 		return uerservice;
 	}
 
-//	@Test
-//	public void test2() {
-//		List<User> u = uerservice.findUser();
-//		log.info(JSON.toJSONStringWithDateFormat(u.get(0), "yyyy-MM-dd HH:mm:ss"));
-//	}
+	@Test
+	public void test2() {
+		List<User> u = uerservice.findUser();
+		log.info(JSON.toJSONStringWithDateFormat(u.get(0), "yyyy-MM-dd HH:mm:ss"));
+	}
 	
 	@Test
 	public void test3() {
-        PageInfo<User> page =  uerservice.queryByPage(null, 1, 1);
-        System.out.println(page);
+		PagedResult<User>  pagedResult = uerservice.queryByPage(null,1,10);
+		log.debug("11111" + pagedResult);
 	}
 }
