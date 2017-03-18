@@ -43,4 +43,18 @@ public class UserServiceImpl implements UserService {
 		 return user.getId();
 	}
 
+	@Override
+	public String updateUser(User user) {
+		// TODO Auto-generated method stub
+		 userMapper.updateByPrimaryKey(user);
+		 return user.getId();
+	}
+
+	@Override
+	public String deleteUser(User user) {
+		// TODO Auto-generated method stub
+		userMapper.deleteByPrimaryKey(user.getId());
+		return user.getId();
+	}
+
 }

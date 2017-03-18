@@ -70,4 +70,14 @@ public class UserController extends BaseController{
     public String add(User user){
     	return userService.addUser(user);
     }
+    
+    @RequestMapping("/edit")
+    @ResponseBody
+    public String update(User user){
+    	return userService.updateUser(user);
+    }
+          
+    public String delete(User user){
+    	return userService.deleteUser(user);
+    }
 }
