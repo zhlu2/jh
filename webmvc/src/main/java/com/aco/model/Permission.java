@@ -1,9 +1,8 @@
 package com.aco.model;
 
-import java.math.BigDecimal;
 
 public class Permission {
-    private BigDecimal id;
+    private String id;
 
     private String permissionName;
 
@@ -11,11 +10,11 @@ public class Permission {
 
     private String description;
 
-    public BigDecimal getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(BigDecimal id) {
+    public void setId(String id) {
         this.id = id;
     }
 

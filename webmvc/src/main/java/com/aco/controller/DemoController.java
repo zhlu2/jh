@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/demoController")
 public class DemoController {
 
-    @RequestMapping("/index")
-    public String index(){
-        return "logo";
-    }
+	@RequestMapping("/index")
+	public String index() {
+		return "logo";
+	}
 }

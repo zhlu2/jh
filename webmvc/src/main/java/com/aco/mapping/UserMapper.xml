@@ -30,7 +30,10 @@
 		select
 		<include refid="Base_Column_List" />
 		from TUSER
-		where ID = #{id,jdbcType=VARCHAR}
+		where 1=1
+		<if test="id != null and id !=''">
+		and ID = #{id,jdbcType=VARCHAR}
+		</if>
 	</select>
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
 		delete from TUSER

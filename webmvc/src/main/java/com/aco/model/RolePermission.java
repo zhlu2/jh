@@ -1,35 +1,34 @@
 package com.aco.model;
 
-import java.math.BigDecimal;
 
 public class RolePermission {
-    private BigDecimal id;
+    private String id;
 
-    private BigDecimal roleId;
+    private String roleId;
 
-    private BigDecimal permissionId;
+    private String permissionId;
 
-    public BigDecimal getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(BigDecimal id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public BigDecimal getRoleId() {
+    public String getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(BigDecimal roleId) {
+    public void setRoleId(String roleId) {
         this.roleId = roleId;
     }
 
-    public BigDecimal getPermissionId() {
+    public String getPermissionId() {
         return permissionId;
     }
 
-    public void setPermissionId(BigDecimal permissionId) {
+    public void setPermissionId(String permissionId) {
         this.permissionId = permissionId;
     }
 }

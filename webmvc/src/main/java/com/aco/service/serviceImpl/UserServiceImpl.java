@@ -23,9 +23,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<User> findUser() {
+	public List<User> findUser(String id) {
 
-		return userMapper.selectByPrimaryKey("21");
+		return userMapper.selectByPrimaryKey(id);
 	}
 
 	@Override

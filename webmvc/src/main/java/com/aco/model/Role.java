@@ -1,14 +1,13 @@
 package com.aco.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
 public class Role implements Serializable{
 	private static final long serialVersionUID = -4987248128309954399L;
 	
-    private BigDecimal id;
+    private String id;
 
     private String roleName;
 
@@ -30,11 +29,11 @@ public class Role implements Serializable{
 		this.permissionSet = permissionSet;
 	}
 
-	public BigDecimal getId() {
+	public String getId() {
         return id;
     }
 
-    public void setId(BigDecimal id) {
+    public void setId(String id) {
         this.id = id;
     }
 

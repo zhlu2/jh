@@ -2,27 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.aco.dao.RolePermissionMapper" >
   <resultMap id="BaseResultMap" type="com.aco.model.RolePermission" >
-    <id column="ID" property="id" jdbcType="DECIMAL" />
-    <result column="ROLE_ID" property="roleId" jdbcType="DECIMAL" />
-    <result column="PERMISSION_ID" property="permissionId" jdbcType="DECIMAL" />
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="ROLE_ID" property="roleId" jdbcType="VARCHAR" />
+    <result column="PERMISSION_ID" property="permissionId" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     ID, ROLE_ID, PERMISSION_ID
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from ROLE_PERMISSION
-    where ID = #{id,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from ROLE_PERMISSION
-    where ID = #{id,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.aco.model.RolePermission" >
     insert into ROLE_PERMISSION (ID, ROLE_ID, PERMISSION_ID
       )
-    values (#{id,jdbcType=DECIMAL}, #{roleId,jdbcType=DECIMAL}, #{permissionId,jdbcType=DECIMAL}
+    values (#{id,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR}, #{permissionId,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.aco.model.RolePermission" >
@@ -40,13 +40,13 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=DECIMAL},
+        #{id,jdbcType=VARCHAR},
       </if>
       <if test="roleId != null" >
-        #{roleId,jdbcType=DECIMAL},
+        #{roleId,jdbcType=VARCHAR},
       </if>
       <if test="permissionId != null" >
-        #{permissionId,jdbcType=DECIMAL},
+        #{permissionId,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -54,18 +54,18 @@
     update ROLE_PERMISSION
     <set >
       <if test="roleId != null" >
-        ROLE_ID = #{roleId,jdbcType=DECIMAL},
+        ROLE_ID = #{roleId,jdbcType=VARCHAR},
       </if>
       <if test="permissionId != null" >
-        PERMISSION_ID = #{permissionId,jdbcType=DECIMAL},
+        PERMISSION_ID = #{permissionId,jdbcType=VARCHAR},
       </if>
     </set>
-    where ID = #{id,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.aco.model.RolePermission" >
     update ROLE_PERMISSION
-    set ROLE_ID = #{roleId,jdbcType=DECIMAL},
-      PERMISSION_ID = #{permissionId,jdbcType=DECIMAL}
-    where ID = #{id,jdbcType=DECIMAL}
+    set ROLE_ID = #{roleId,jdbcType=VARCHAR},
+      PERMISSION_ID = #{permissionId,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

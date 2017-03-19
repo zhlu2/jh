@@ -42,6 +42,7 @@ td {
 					<th>用户名</th>
 					<th>密码</th>
 					<th>日期</th>
+					<th>操作</th>
 				</tr>
 			</thead>
 			<tbody id="tableBody">
@@ -133,6 +134,7 @@ td {
                     $("#tableBody").append('<td>' + this.username + '</td>');
                     $("#tableBody").append('<td>' + this.password + '</td>');
                     $("#tableBody").append('<td>' + this.createTime + '</td>');
+                    $("#tableBody").append('<a href=\"javascript:$.jc.tab.jumpOnCurrentTab('/management/dedrug/Discipline/dedrugHeavyMouthActivitySitu/editPage/"+this.id+"');\" class=\"btn default btn-xs blue-stripe\">编辑</a>');
                     $("#tableBody").append('</tr>');
              	    });  
              	    } else {             	            	

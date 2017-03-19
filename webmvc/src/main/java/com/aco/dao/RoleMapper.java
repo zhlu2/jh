@@ -1,18 +1,21 @@
 package com.aco.dao;
 
+import java.util.List;
+
 import com.aco.model.Role;
-import java.math.BigDecimal;
 
 public interface RoleMapper {
-    int deleteByPrimaryKey(BigDecimal id);
+    int deleteByPrimaryKey(String id);
 
     int insert(Role record);
 
     int insertSelective(Role record);
 
-    Role selectByPrimaryKey(BigDecimal id);
+    List<Role> selectByPrimaryKey(String id);
 
     int updateByPrimaryKeySelective(Role record);
 
     int updateByPrimaryKey(Role record);
+    
+    List<Role> findRoleById(String id);
 }

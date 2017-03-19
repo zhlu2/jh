@@ -9,7 +9,7 @@ public interface UserService {
 
 	public User findUserByUsername(String username);
 	
-	public List<User> findUser();
+	public List<User> findUser(String id);
 	
 	PagedResult<User> queryByPage(String userName,Integer pageNo,Integer pageSize); 
 	
