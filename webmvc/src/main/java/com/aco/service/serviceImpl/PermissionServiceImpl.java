@@ -19,21 +19,21 @@ public class PermissionServiceImpl implements PermissionService {
 	public String addPermission(Permission permission) {
 		// TODO Auto-generated method stub
 		permissionMapper.insertSelective(permission);
-		return permission.getId();
+		return permission.getPermissionId();
 	}
 
 	@Override
 	public String editPermission(Permission permission) {
 		// TODO Auto-generated method stub
 		permissionMapper.updateByPrimaryKeySelective(permission);
-		return permission.getId();
+		return permission.getPermissionId();
 	}
 
 	@Override
-	public String deletePermission(String id) {
+	public String deletePermission(String permissionId) {
 		// TODO Auto-generated method stub
-		permissionMapper.deleteByPrimaryKey(id);
-		return id;
+		permissionMapper.deleteByPrimaryKey(permissionId);
+		return permissionId;
 	}
 
 	@Override

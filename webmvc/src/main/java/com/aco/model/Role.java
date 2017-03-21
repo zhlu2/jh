@@ -7,7 +7,7 @@ import java.util.Set;
 public class Role implements Serializable{
 	private static final long serialVersionUID = -4987248128309954399L;
 	
-    private String id;
+    private String roleId;
 
     private String roleName;
 
@@ -29,12 +29,12 @@ public class Role implements Serializable{
 		this.permissionSet = permissionSet;
 	}
 
-	public String getId() {
-        return id;
+	public String getRoleId() {
+        return roleId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
     }
 
     public String getRoleName() {

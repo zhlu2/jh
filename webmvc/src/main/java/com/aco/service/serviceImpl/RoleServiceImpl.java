@@ -20,7 +20,7 @@ public class RoleServiceImpl implements RoleService {
 	public String addRole(Role role) {
 		// TODO Auto-generated method stub
 		roleMapper.insertSelective(role);
-		return role.getId();
+		return role.getRoleId();
 	}
 	
 	@Override
@@ -31,10 +31,10 @@ public class RoleServiceImpl implements RoleService {
 	}
 
 	@Override
-	public String deleteRole(String id) {
+	public String deleteRole(String roleId) {
 		// TODO Auto-generated method stub
-		roleMapper.deleteByPrimaryKey(id);
-		return id;
+		roleMapper.deleteByPrimaryKey(roleId);
+		return roleId;
 	}
 
 	@Override
@@ -46,9 +46,9 @@ public class RoleServiceImpl implements RoleService {
 	}
 
 	@Override
-	public List<Role> findRole(String id) {
+	public List<Role> findRole(String roleId) {
 		// TODO Auto-generated method stub
-		return roleMapper.findRoleById(id);
+		return roleMapper.findRoleById(roleId);
 	}
 
 }

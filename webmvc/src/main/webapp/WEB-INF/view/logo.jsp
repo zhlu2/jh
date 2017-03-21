@@ -94,7 +94,17 @@ td {
             return postPath;
         })();
         
-       
+        function jumpOnEditPage(id){
+        	if(!!id){
+        		window.location.href=urlRootContext+"/user/editPage/"+id;	
+        	}        	
+        }
+        
+        function jumpOnUserRole(id){
+        	if(!!id){
+        		window.location.href=urlRootContext+"/user/roleList/"+id;	
+        	}        	
+        }
         //生成表格
         function buildTable(userName,pageNumber,pageSize) {
         	 var url =  urlRootContext + "/user/findUserList"; //请求的网址
@@ -143,7 +153,7 @@ td {
                     $("#tableBody").append('<td>' + this.username + '</td>');
                     $("#tableBody").append('<td>' + this.password + '</td>');
                     $("#tableBody").append('<td>' + this.createTime + '</td>');
-                    $("#tableBody").append("<a href=\"javascript:$.jc.tab.jumpOnCurrentTab('/management/dedrug/Discipline/dedrugHeavyMouthActivitySitu/editPage/"+this.id+"');\" class=\"btn default btn-xs blue-stripe\">编辑</a>");
+                    $("#tableBody").append("<a href=\"javascript:jumpOnEditPage("+this.id+");\" class=\"btn default btn-xs blue-stripe\">编辑</a><a href=\"javascript:jumpOnUserRole("+this.id+");\" class=\"btn default btn-xs blue-stripe\">角色管理</a>");                  
                     $("#tableBody").append('</tr>');
              	    });  
              	    } else {             	            	

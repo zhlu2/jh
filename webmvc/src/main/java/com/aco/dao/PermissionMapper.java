@@ -5,13 +5,13 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public interface PermissionMapper {
-    int deleteByPrimaryKey(String id);
+    int deleteByPrimaryKey(String permissionId);
 
     int insert(Permission record);
 
     int insertSelective(Permission record);
 
-    List<Permission> selectByPrimaryKey(String id);
+    List<Permission> selectByPrimaryKey(String permissionId);
 
     int updateByPrimaryKeySelective(Permission record);
 

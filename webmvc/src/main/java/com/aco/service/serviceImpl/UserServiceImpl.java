@@ -1,11 +1,13 @@
 package com.aco.service.serviceImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.aco.dao.UserMapper;
+import com.aco.model.Role;
 import com.aco.model.User;
 import com.aco.service.UserService;
 import com.aco.util.BeanUtil;
@@ -24,8 +26,8 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<User> findUser(String id) {
-
-		return userMapper.selectByPrimaryKey(id);
+        List<User> l=new ArrayList<User>();
+		return l;
 	}
 
 	@Override
@@ -46,7 +48,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public String updateUser(User user) {
 		// TODO Auto-generated method stub
-		 userMapper.updateByPrimaryKey(user);
+		 userMapper.updateByPrimaryKeySelective(user);
 		 return user.getId();
 	}
 
@@ -55,6 +57,17 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		userMapper.deleteByPrimaryKey(user.getId());
 		return user.getId();
+	}
+
+	@Override
+	public PagedResult<Role> queryByPageForRole(String id, Integer pageNo, Integer pageSize) {
+		// TODO Auto-generated method stub
+		pageNo = pageNo == null ? 1 : pageNo;
+		pageSize = pageSize == null ? 10 : pageSize;
+		PageHelper.startPage(pageNo, pageSize);
+		User user= userMapper.findUserByUserId(id);
+        List<Role> roles=new ArrayList<Role>(user.getRoleSet());
+		return BeanUtil.toPagedResult(roles);
 	}
 
 }

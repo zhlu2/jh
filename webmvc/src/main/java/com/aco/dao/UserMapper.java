@@ -20,4 +20,6 @@ public interface UserMapper {
     int updateByPrimaryKey(User record);
     
     User findUserByUsername(@Param("username") String username);
+    
+    User findUserByUserId(@Param("id")String id);
 }

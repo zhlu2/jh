@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.aco.dao.RoleMapper" >
   <resultMap id="BaseResultMap" type="com.aco.model.Role" >
-    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <id column="ID" property="roleId" jdbcType="VARCHAR" />
     <result column="ROLE_NAME" property="roleName" jdbcType="VARCHAR" />
     <result column="ROLE_SIGN" property="roleSign" jdbcType="VARCHAR" />
     <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
     <collection property="permissionSet" column="permissionid"
 				ofType="com.aco.model.Permission">
-				<id property="id" column="ID" />
+				<id property="permissionId" column="ID" />
 				<result property="permissionName" column="PERMISSION_NAME" />
 				<result property="permissionSign" column="PERMISSION_SIGN" />
 				<result property="description" column="DESCRIPTION" />
@@ -21,22 +21,22 @@
     select 
     <include refid="Base_Column_List" />
     from ROLE
-    where ID = #{id,jdbcType=VARCHAR}
+    where ID = #{roleId,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from ROLE
-    where ID = #{id,jdbcType=VARCHAR}
+    where ID = #{roleId,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.aco.model.Role" >
     insert into ROLE (ID, ROLE_NAME, ROLE_SIGN, 
       DESCRIPTION)
-    values (#{id,jdbcType=VARCHAR}, #{roleName,jdbcType=VARCHAR}, #{roleSign,jdbcType=VARCHAR}, 
+    values (#{roleId,jdbcType=VARCHAR}, #{roleName,jdbcType=VARCHAR}, #{roleSign,jdbcType=VARCHAR}, 
       #{description,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.aco.model.Role" >
     insert into ROLE
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+      <if test="roleId != null" >
         ID,
       </if>
       <if test="roleName != null" >
@@ -51,7 +51,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=VARCHAR},
+        #{roleId,jdbcType=VARCHAR},
       </if>
       <if test="roleName != null" >
         #{roleName,jdbcType=VARCHAR},
@@ -77,14 +77,14 @@
         DESCRIPTION = #{description,jdbcType=VARCHAR},
       </if>
     </set>
-    where ID = #{id,jdbcType=VARCHAR}
+    where ID = #{roleId,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.aco.model.Role" >
     update ROLE
     set ROLE_NAME = #{roleName,jdbcType=VARCHAR},
       ROLE_SIGN = #{roleSign,jdbcType=VARCHAR},
       DESCRIPTION = #{description,jdbcType=VARCHAR}
-    where ID = #{id,jdbcType=VARCHAR}
+    where ID = #{roleId,jdbcType=VARCHAR}
   </update>
   <select id="findRoleById" resultMap="BaseResultMap">
     select 
@@ -105,6 +105,6 @@
 		and
 		p.ID=rp.PERMISSION_ID
 		and
-		r.ID= #{id,jdbcType=VARCHAR}
+		r.ID= #{roleId,jdbcType=VARCHAR}
   </select>
 </mapper>

@@ -7,9 +7,13 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.aco.model.Role;
 import com.aco.model.User;
 import com.aco.service.UserService;
 import com.aco.util.PagedResult;
@@ -18,6 +22,8 @@ import com.aco.util.PagedResult;
 @RequestMapping("/user")
 public class UserController extends BaseController{
 	private static final String ADDPAGE="user/addUser";
+	private static final String EDITPAGE="user/editUser";
+    private static final String roleList="role/roleList";
 	//用户登录
 	@Autowired
 	private UserService userService;
@@ -53,6 +59,27 @@ public class UserController extends BaseController{
     public String admin(){
     	return ADDPAGE;
     }
+    
+    @RequestMapping("/roleList/{id}")
+    public ModelAndView roleListPage(@PathVariable("id") String id){
+    	ModelAndView mav = new ModelAndView(roleList);
+    	mav.addObject("id", id);
+    	return mav;
+    }
+    
+    @RequestMapping("/editPage/{id}")
+    public ModelAndView editPage(@PathVariable("id") String id){
+    	ModelAndView mav = new ModelAndView(EDITPAGE);
+    	mav.addObject("id", id);
+    	return mav;
+    }
+    
+    @RequestMapping(value="/view/{id}",method = RequestMethod.POST)
+    @ResponseBody
+    public String queryById(@PathVariable("id") String id){
+    	return responseSuccess(userService.findUser(id).get(0));
+    }
+    
     @RequestMapping("/findUserList")
     @ResponseBody
     public String list(Integer pageNumber,Integer pageSize ,String userName){
@@ -65,6 +92,18 @@ public class UserController extends BaseController{
         } 
     }
     
+
+    @RequestMapping("/findRoleList")
+    @ResponseBody
+    public String rolelist(Integer pageNumber,Integer pageSize ,String id){
+        logger.info("分页查询用户信息列表请求入参：pageNumber{},pageSize{}", pageNumber,pageSize);  
+        try {  
+            PagedResult<Role> pageResult = userService.queryByPageForRole(id, pageNumber, pageSize);  
+            return responseSuccess(pageResult);  
+        } catch (Exception e) {  
+            return responseFail(e.getMessage());  
+        } 
+    }
     @RequestMapping("/add")
     @ResponseBody
     public String add(User user){

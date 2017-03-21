@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aco.dao.PermissionMapper">
   <resultMap id="BaseResultMap" type="com.aco.model.Permission">
-    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <id column="ID" jdbcType="VARCHAR" property="permissionId" />
     <result column="PERMISSION_NAME" jdbcType="VARCHAR" property="permissionName" />
     <result column="PERMISSION_SIGN" jdbcType="VARCHAR" property="permissionSign" />
     <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
@@ -15,24 +15,24 @@
     <include refid="Base_Column_List" />
     from PERMISSION
      <if test="id != null">
-       where ID = #{id,jdbcType=VARCHAR}
+       where ID = #{permissionId,jdbcType=VARCHAR}
      </if>
     
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from PERMISSION
-    where ID = #{id,jdbcType=VARCHAR}
+    where ID = #{permissionId,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.aco.model.Permission">
     insert into PERMISSION (ID, PERMISSION_NAME, PERMISSION_SIGN, 
       DESCRIPTION)
-    values (#{id,jdbcType=VARCHAR}, #{permissionName,jdbcType=VARCHAR}, #{permissionSign,jdbcType=VARCHAR}, 
+    values (#{permissionId,jdbcType=VARCHAR}, #{permissionName,jdbcType=VARCHAR}, #{permissionSign,jdbcType=VARCHAR}, 
       #{description,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.aco.model.Permission">
     insert into PERMISSION
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
+      <if test="permissionId != null">
         ID,
       </if>
       <if test="permissionName != null">
@@ -46,8 +46,8 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=VARCHAR},
+      <if test="permissionId != null">
+        #{permissionId,jdbcType=VARCHAR},
       </if>
       <if test="permissionName != null">
         #{permissionName,jdbcType=VARCHAR},
@@ -73,91 +73,14 @@
         DESCRIPTION = #{description,jdbcType=VARCHAR},
       </if>
     </set>
-    where ID = #{id,jdbcType=VARCHAR}
+    where ID = #{permissionId,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.aco.model.Permission">
     update PERMISSION
     set PERMISSION_NAME = #{permissionName,jdbcType=VARCHAR},
       PERMISSION_SIGN = #{permissionSign,jdbcType=VARCHAR},
       DESCRIPTION = #{description,jdbcType=VARCHAR}
-    where ID = #{id,jdbcType=VARCHAR}
+    where ID = #{permissionId,jdbcType=VARCHAR}
   </update>
-  <resultMap id="BaseResultMap2" type="com.aco.model.Permission">
-    <id column="ID" jdbcType="VARCHAR" property="id" />
-    <result column="PERMISSION_NAME" jdbcType="VARCHAR" property="permissionName" />
-    <result column="PERMISSION_SIGN" jdbcType="VARCHAR" property="permissionSign" />
-    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
-  </resultMap>
-  <sql id="Base_Column_List2">
-    ID, PERMISSION_NAME, PERMISSION_SIGN, DESCRIPTION
-  </sql>
-  <select id="selectByPrimaryKey2" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List2" />
-    from PERMISSION
-    where ID = #{id,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey2" parameterType="java.lang.String">
-    delete from PERMISSION
-    where ID = #{id,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert2" parameterType="com.aco.model.Permission">
-    insert into PERMISSION (ID, PERMISSION_NAME, PERMISSION_SIGN, 
-      DESCRIPTION)
-    values (#{id,jdbcType=VARCHAR}, #{permissionName,jdbcType=VARCHAR}, #{permissionSign,jdbcType=VARCHAR}, 
-      #{description,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective2" parameterType="com.aco.model.Permission">
-    insert into PERMISSION
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        ID,
-      </if>
-      <if test="permissionName != null">
-        PERMISSION_NAME,
-      </if>
-      <if test="permissionSign != null">
-        PERMISSION_SIGN,
-      </if>
-      <if test="description != null">
-        DESCRIPTION,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=VARCHAR},
-      </if>
-      <if test="permissionName != null">
-        #{permissionName,jdbcType=VARCHAR},
-      </if>
-      <if test="permissionSign != null">
-        #{permissionSign,jdbcType=VARCHAR},
-      </if>
-      <if test="description != null">
-        #{description,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective2" parameterType="com.aco.model.Permission">
-    update PERMISSION
-    <set>
-      <if test="permissionName != null">
-        PERMISSION_NAME = #{permissionName,jdbcType=VARCHAR},
-      </if>
-      <if test="permissionSign != null">
-        PERMISSION_SIGN = #{permissionSign,jdbcType=VARCHAR},
-      </if>
-      <if test="description != null">
-        DESCRIPTION = #{description,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where ID = #{id,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey2" parameterType="com.aco.model.Permission">
-    update PERMISSION
-    set PERMISSION_NAME = #{permissionName,jdbcType=VARCHAR},
-      PERMISSION_SIGN = #{permissionSign,jdbcType=VARCHAR},
-      DESCRIPTION = #{description,jdbcType=VARCHAR}
-    where ID = #{id,jdbcType=VARCHAR}
-  </update>
+
 </mapper>

@@ -40,7 +40,7 @@ public class TestAco {
 
 	@Test
 	public void test2() {
-		List<User> u = uerservice.findUser("");
+		List<User> u = uerservice.findUser("21");
 		log.info(JSON.toJSONStringWithDateFormat(u, "yyyy-MM-dd HH:mm:ss"));
 	}
 //	

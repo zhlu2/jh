@@ -7,15 +7,15 @@
 		<result column="PASSWORD" property="password" jdbcType="CHAR" />
 		<result column="STATE" property="state" jdbcType="VARCHAR" />
 		<result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
-		<collection property="roleSet" column="roleid" ofType="com.aco.model.Role">
-			<id property="id" column="ID" />
+		<collection property="roleSet" column="roleId" ofType="com.aco.model.Role">
+			<id property="roleId" column="ID" />
 			<result property="roleName" column="ROLE_NAME" />
 			<result property="roleSign" column="ROLE_SIGN" />
 			<result property="description" column="DESCRIPTION" />
 			<!-- 再在role中关联role和permission -->
-			<collection property="permissionSet" column="permissionid"
+			<collection property="permissionSet" column="permissionId"
 				ofType="com.aco.model.Permission">
-				<id property="id" column="ID" />
+				<id property="permissionId" column="ID" />
 				<result property="permissionName" column="PERMISSION_NAME" />
 				<result property="permissionSign" column="PERMISSION_SIGN" />
 				<result property="description" column="DESCRIPTION" />
@@ -149,5 +149,40 @@
 		p.ID=rp.PERMISSION_ID
 		and
 		u.USERNAME= #{username,jdbcType=VARCHAR}
+	</select>
+	
+<select id="findUserByUserId" resultMap="BaseResultMap">
+		select
+		u.ID as "uid",
+		u.USERNAME,
+		u.PASSWORD,
+		u.STATE,
+		u.CREATE_TIME,
+		r.ID as "rid",
+		r.ROLE_NAME,
+		r.ROLE_SIGN,
+		r.DESCRIPTION as "rd",
+		p.ID AS "pid",
+		p.PERMISSION_NAME,
+		p.PERMISSION_SIGN,
+		p.DESCRIPTION as "pd",
+		ur.ROLE_ID AS "urrid",
+		rp.ROLE_ID AS "rprid"
+		from
+		tuser u,
+		role r,
+		permission p,
+		role_permission rp,
+		user_role ur
+		where
+		u.ID=ur.USER_ID
+		and
+		r.ID=ur.ROLE_ID
+		and
+		r.ID=rp.ROLE_ID
+		and
+		p.ID=rp.PERMISSION_ID
+		and
+		u.ID= #{id,jdbcType=VARCHAR}
 	</select>
 </mapper>

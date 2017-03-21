@@ -14,10 +14,12 @@ public class UserRoleServiceImpl implements UserRoleService {
 	@Override
 	public String addUserRole(String userId, String roleId) {
 		// TODO Auto-generated method stub
+		String[] roles=roleId.split(",");
+		for(String rid:roles){
 		user_role userRole=new user_role();
 		userRole.setUserId(userId);
-		userRole.setRoleId(roleId);
-		user_roleMapper.insertSelective(userRole);
+		userRole.setRoleId(rid);
+		user_roleMapper.insertSelective(userRole);}
 		return userId;
 	}
 

@@ -2,7 +2,7 @@ package com.aco.model;
 
 
 public class Permission {
-    private String id;
+    private String permissionId;
 
     private String permissionName;
 
@@ -10,15 +10,15 @@ public class Permission {
 
     private String description;
 
-    public String getId() {
-        return id;
-    }
+    public String getPermissionId() {
+		return permissionId;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public void setPermissionId(String permissionId) {
+		this.permissionId = permissionId;
+	}
 
-    public String getPermissionName() {
+	public String getPermissionName() {
         return permissionName;
     }
 
