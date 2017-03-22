@@ -59,7 +59,7 @@ td {
 		</table>
 		<!-- 底部分页按钮 -->
 		<div id="bottomTab"></div>
-		<input type="submit" id="aco-userRoleAdd-form-submit" value="保存">  
+		<input type="button" id="aco-userRoleAdd-form-submit"  onclick="saveUserRole()" value="保存">  
 	</form>
 	<script type='text/javascript'>    
 	    var PAGESIZE = 10;
@@ -139,9 +139,10 @@ td {
          if (dataList.length > 0 ) {
              $(dataList).each(function(){//重新生成
           	    $("#tableBody").append('<tr>');
-                $("#tableBody").append('<td><input type="checkbox" name="roleid" value="'+ this.id +'"/></td>');
+                $("#tableBody").append('<td><input type="checkbox" name="roleid" value="'+ this.roleId +'"/></td>');
                 $("#tableBody").append('<td>' + this.roleName + '</td>');
-                $("#tableBody").append('<td>' + this.description + '</td>');                  
+                $("#tableBody").append('<td>' + this.description + '</td>'); 
+                $("#tableBody").append("<a href=\"javascript:void(0);\" onclick=\"saveUserRole()\" class=\"btn default btn-xs red-stripe\">添加</a>"); 
                 $("#tableBody").append('</tr>');
              	    });  
              	    } else {             	            	
@@ -157,11 +158,10 @@ td {
              	    });
                });
         }
-        function saveUserRole(){
-    		var roleid = "";    
-    		event.preventDefault();
-			$("#aco-userRoleAdd-form-submit").on("click", function(event) {
-        		$("input:checkbox[name='roleid']:checked").each(function() {
+        function saveUserRole(){  
+        	debugger;
+        	var roleid="";       	
+        		$("input[name='roleid']:checked").each(function() {
         			roleid += $(this).val() + ",";
         		}); 				
 				    var strPath = window.document.location.pathname;
@@ -170,14 +170,14 @@ td {
 						type : "POST",
 						async : false,// 同步请求
 						url : postPath+ "/userRole/add",
-						data: {"roleId":roleid,"userid":$("#aco-user-id").val()}
-						success : function() {
+						data: {"roleId":roleid,"userId":$("#aco-user-id").val()},
+						success: function(){
 							alert("添加角色成功！");
 							parent.location.href=postPath+"/demoController/index";
 						},
 						error : '请求异常，新建考核登记失败！'
-					});				
-			});
+					});
+			
         }
         //渲染完就执行
         $(function() {

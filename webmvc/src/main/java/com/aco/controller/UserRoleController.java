@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.aco.model.user_role;
@@ -25,12 +26,14 @@ public class UserRoleController extends BaseController{
 	}
 	
     @RequestMapping("/add")
+    @ResponseBody
     public String addUserRole(String userId,String roleId){
 		return userRoleService.addUserRole(userId, roleId);
 	}
     
     @RequestMapping("/delete")
-    public String deleteUserRole(user_role userRole){
-    	return userRoleService.deleteUserRole(userRole);
+    @ResponseBody
+    public String deleteUserRole(String userId, String roleId){
+    	return userRoleService.deleteUserRole(userId, roleId);
     }
 }

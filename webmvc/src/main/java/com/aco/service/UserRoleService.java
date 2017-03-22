@@ -6,5 +6,5 @@ public interface UserRoleService {
 
 	String addUserRole(String userId,String roleId);
 	
-	String deleteUserRole(user_role userRole);
+	String deleteUserRole(String userId, String roleId);
 }

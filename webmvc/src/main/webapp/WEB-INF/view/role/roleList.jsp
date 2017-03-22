@@ -100,28 +100,26 @@ td {
         		window.location.href=urlRootContext+"/user/editPage/"+id;	
         	}        	
         }
-        function deleEvent(roleId) {
-            $("#aco-user-role-deleteBtn" + roleId).smoothConfirm("确定要删除伤情信息？", {
-                okVal: "删除",
-                // 点击确认返回callback
-                ok: function () {
-                    $.jc.utils.ajax({
-                        url: $.jc.expand.getContextPath() + "/management/dedrug/Detain/juryRegis/delete/" + roleId,
+        function deleEvent(roleId) {        	
+            	if (confirm("确定要删除吗？")) {
+				    var strPath = window.document.location.pathname;
+		            var postPath = strPath.substring(0, strPath.substr(1).indexOf('/') + 1);
+                    $.ajax({
+                        url: postPath + "/userRole/delete",
                         type: "POST",
                         async: false,// 同步请求
+                        data:{"roleId":roleId,"userId":$("#aco-user-id").val()},
                         success: function () {
-                                $.Toast.success("删除伤情信息成功！");
-                                // 查询伤情
-                                $.jc.dedrug.detain.juryRegis.initdataTable();
+                                alert("删除伤情信息成功！");
+                                window.location.reload();
                         },
                         error: '请求异常，删除伤情信息失败！'
                     });
-                },
-                // 点击取消返回callback
-                cancel: function () {
-                    return false;
-                }
-            });
+            	}else{                    
+            		return false;
+            		}
+                // 点击确认返回callback
+     
         }
         //生成表格
         function buildTable(roleId,pageNumber,pageSize) {
@@ -167,11 +165,11 @@ td {
          if (dataList.length > 0 ) {
              $(dataList).each(function(){//重新生成
              	    $("#tableBody").append('<tr>');
-                    $("#tableBody").append('<td>' + this.id + '</td>');
+                    $("#tableBody").append('<td>' + this.roleId + '</td>');
                     $("#tableBody").append('<td>' + this.roleName + '</td>');
                     $("#tableBody").append('<td>' + this.description + '</td>');
-                    $("#tableBody").append("<a href=\"javascript:void(0);\" id=\"aco-user-role-deleteBtn" + id + "\" onclick=\"deleEvent('"
-                            + id + "')\" class=\"btn default btn-xs red-stripe\">删除</a>");                   
+                    $("#tableBody").append("<a href=\"javascript:void(0);\" id=\"aco-user-role-deleteBtn" + this.roleId + "\" onclick=\"deleEvent('"
+                            + this.roleId + "')\" class=\"btn default btn-xs red-stripe\">删除</a>");                   
                     $("#tableBody").append('</tr>');
              	    });  
              	    } else {             	            	

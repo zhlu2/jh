@@ -2,6 +2,8 @@ package com.aco.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.aco.model.Role;
 
 public interface RoleMapper {
@@ -11,7 +13,7 @@ public interface RoleMapper {
 
     int insertSelective(Role record);
 
-    List<Role> selectByPrimaryKey(String roleId);
+    List<Role> selectByPrimaryKey(@Param("roleId")String roleId);
 
     int updateByPrimaryKeySelective(Role record);
 

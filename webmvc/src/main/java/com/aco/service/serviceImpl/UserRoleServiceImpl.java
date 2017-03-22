@@ -24,10 +24,10 @@ public class UserRoleServiceImpl implements UserRoleService {
 	}
 
 	@Override
-	public String deleteUserRole(user_role userRole) {
+	public String deleteUserRole(String userId, String roleId) {
 		// TODO Auto-generated method stub
-		user_roleMapper.deleteByPrimaryKey(userRole.getId());
-		return userRole.getId();
+		user_roleMapper.deleteByPrimaryKeyandRoleId(userId, roleId);
+		return userId;
 	}
 
 }
