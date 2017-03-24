@@ -19,6 +19,10 @@
     delete from ROLE_PERMISSION
     where ID = #{id,jdbcType=VARCHAR}
   </delete>
+    <delete id="deleteByRoleId" parameterType="java.lang.String" >
+    delete from ROLE_PERMISSION
+    where ROLE_ID = #{roleId,jdbcType=VARCHAR}
+  </delete>
   <insert id="insert" parameterType="com.aco.model.RolePermission" >
     insert into ROLE_PERMISSION (ID, ROLE_ID, PERMISSION_ID
       )

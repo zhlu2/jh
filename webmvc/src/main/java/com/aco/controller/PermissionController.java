@@ -51,10 +51,10 @@ public class PermissionController extends BaseController {
     
     @RequestMapping("/findPermissionList")
     @ResponseBody
-    public String list(Integer pageNumber,Integer pageSize ,String userName){
+    public String list(Integer pageNumber,Integer pageSize ,String permissionId){
         logger.info("分页查询权限信息列表请求入参：pageNumber{},pageSize{}", pageNumber,pageSize);  
         try {  
-            PagedResult<Permission> pageResult = permissionService.queryByPage(userName, pageNumber,pageSize);  
+            PagedResult<Permission> pageResult = permissionService.queryByPage(permissionId, pageNumber,pageSize);  
             return responseSuccess(pageResult);  
         } catch (Exception e) {  
             return responseFail(e.getMessage());  

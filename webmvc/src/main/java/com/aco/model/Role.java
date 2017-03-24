@@ -1,6 +1,7 @@
 package com.aco.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,7 +16,17 @@ public class Role implements Serializable{
 
     private String description;
     
-    private Set<Permission> permissionSet = new HashSet<Permission>();
+	private Date createTime;
+    
+    public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	private Set<Permission> permissionSet = new HashSet<Permission>();
     
 	public Role() {
 		super();

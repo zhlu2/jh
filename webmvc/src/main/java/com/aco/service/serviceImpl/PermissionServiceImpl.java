@@ -37,11 +37,11 @@ public class PermissionServiceImpl implements PermissionService {
 	}
 
 	@Override
-	public PagedResult<Permission> queryByPage(String userName, Integer pageNo, Integer pageSize) {
+	public PagedResult<Permission> queryByPage(String permissionId, Integer pageNo, Integer pageSize) {
 		pageNo = pageNo == null ? 1 : pageNo;
 		pageSize = pageSize == null ? 10 : pageSize;
 		PageHelper.startPage(pageNo, pageSize);
-		return BeanUtil.toPagedResult(permissionMapper.selectByPrimaryKey(userName));
+		return BeanUtil.toPagedResult(permissionMapper.selectByPrimaryKey(permissionId));
 	}
 
 }

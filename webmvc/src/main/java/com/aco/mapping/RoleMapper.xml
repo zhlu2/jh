@@ -6,16 +6,17 @@
     <result column="ROLE_NAME" property="roleName" jdbcType="VARCHAR" />
     <result column="ROLE_SIGN" property="roleSign" jdbcType="VARCHAR" />
     <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
+    <result column="CREATTIME" property="createTime" jdbcType="TIMESTAMP" />  
     <collection property="permissionSet" column="permissionid"
 				ofType="com.aco.model.Permission">
 				<id property="permissionId" column="ID" />
 				<result property="permissionName" column="PERMISSION_NAME" />
 				<result property="permissionSign" column="PERMISSION_SIGN" />
-				<result property="description" column="DESCRIPTION" />
+				<result property="description" column="pd" />
     </collection>
   </resultMap>
   <sql id="Base_Column_List" >
-    ID, ROLE_NAME, ROLE_SIGN, DESCRIPTION
+    ID, ROLE_NAME, ROLE_SIGN, DESCRIPTION, CREATTIME
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -26,15 +27,22 @@
 	and ID = #{roleId,jdbcType=VARCHAR}
 	</if>
   </select>
+    <select id="findNewest" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ROLE
+    where 1=1
+    order by CREATTIME desc
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from ROLE
     where ID = #{roleId,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.aco.model.Role" >
     insert into ROLE (ID, ROLE_NAME, ROLE_SIGN, 
-      DESCRIPTION)
+      DESCRIPTION, CREATTIME)
     values (#{roleId,jdbcType=VARCHAR}, #{roleName,jdbcType=VARCHAR}, #{roleSign,jdbcType=VARCHAR}, 
-      #{description,jdbcType=VARCHAR})
+      #{description,jdbcType=VARCHAR},#{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.aco.model.Role" >
     insert into ROLE
@@ -51,9 +59,12 @@
       <if test="description != null" >
         DESCRIPTION,
       </if>
+      <if test="createTime != null" >
+        CREATTIME,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+      <if test="roleId != null" >
         #{roleId,jdbcType=VARCHAR},
       </if>
       <if test="roleName != null" >
@@ -64,6 +75,9 @@
       </if>
       <if test="description != null" >
         #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -78,6 +92,9 @@
       </if>
       <if test="description != null" >
         DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATTIME = #{createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where ID = #{roleId,jdbcType=VARCHAR}
@@ -98,7 +115,7 @@
 		p.ID,
 		p.PERMISSION_NAME,
 		p.PERMISSION_SIGN,
-		p.DESCRIPTION
+		p.DESCRIPTION as "pd"
 		from
 		role r,
 		permission p,

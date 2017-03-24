@@ -1,5 +1,7 @@
 package com.aco.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,8 +37,9 @@ public class RoleController extends BaseController {
 	}
 
 	@RequestMapping("/add")
-	public String addRole(Role role) {
-		return roleService.addRole(role);
+	@ResponseBody
+	public String addRole(String permissionId,String roleName,String roleSign,String description,Date creatTime) {
+		return roleService.addRole(permissionId,roleName,roleSign,description,creatTime);
 	}
 
 	@RequestMapping("/edit")
@@ -45,6 +48,7 @@ public class RoleController extends BaseController {
 	}
 
 	@RequestMapping("/delete")
+	@ResponseBody
 	public String deleteRole(String id) {
 		return roleService.deleteRole(id);
 	}

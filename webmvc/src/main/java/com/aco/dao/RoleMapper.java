@@ -14,6 +14,8 @@ public interface RoleMapper {
     int insertSelective(Role record);
 
     List<Role> selectByPrimaryKey(@Param("roleId")String roleId);
+    
+    List<Role> findNewest();
 
     int updateByPrimaryKeySelective(Role record);
 

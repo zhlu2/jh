@@ -10,9 +10,14 @@ import com.aco.service.RolePermissionService;
 @Controller
 @RequestMapping("/rolePermission")
 public class RolePermissionController {
-    @Autowired
+	private static final String List="rolePermission/rolePerimissonList";
+	@Autowired
 	private RolePermissionService rolePermissionservice;
-    
+
+    @RequestMapping("/list")
+    public String List(){
+    	return List;
+    }
     @RequestMapping("/add")
     public String addRolePermission(RolePermission rolePermission){
     	return rolePermissionservice.addRolePermission(rolePermission);
