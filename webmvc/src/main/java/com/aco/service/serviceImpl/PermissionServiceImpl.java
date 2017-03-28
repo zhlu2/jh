@@ -19,7 +19,7 @@ public class PermissionServiceImpl implements PermissionService {
 	public String addPermission(Permission permission) {
 		// TODO Auto-generated method stub
 		permissionMapper.insertSelective(permission);
-		return permission.getPermissionId();
+		return permission.getDescription();
 	}
 
 	@Override

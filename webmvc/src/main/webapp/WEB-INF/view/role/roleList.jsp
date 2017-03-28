@@ -105,10 +105,10 @@ td {
 				    var strPath = window.document.location.pathname;
 		            var postPath = strPath.substring(0, strPath.substr(1).indexOf('/') + 1);
                     $.ajax({
-                        url: postPath + "/userRole/delete",
+                        url: postPath + "/role/delete",
                         type: "POST",
                         async: false,// 同步请求
-                        data:{"roleId":roleId,"userId":$("#aco-user-id").val()},
+                        data:{"roleId":roleId},
                         success: function () {
                                 alert("删除伤情信息成功！");
                                 window.location.reload();

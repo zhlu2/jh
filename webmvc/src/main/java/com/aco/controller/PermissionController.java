@@ -13,7 +13,7 @@ import com.aco.util.PagedResult;
 @RequestMapping("/permission")
 public class PermissionController extends BaseController {
 
-	private static final String List = "permission/list";
+	private static final String List = "permission/permissionList";
 	private static final String addPage = "permission/addPermission";
 	private static final String editPage = "permission/edidPermission";
 	@Autowired
@@ -35,6 +35,7 @@ public class PermissionController extends BaseController {
 	}
 
 	@RequestMapping("/add")
+	@ResponseBody
 	public String addPermission(Permission permission) {
 		return permissionService.addPermission(permission);
 	}
@@ -45,8 +46,9 @@ public class PermissionController extends BaseController {
 	}
     
     @RequestMapping("/delete")
-    public String deletePermission(String id){
-    	return permissionService.deletePermission(id);
+    @ResponseBody
+    public String deletePermission(String permissionId){
+    	return permissionService.deletePermission(permissionId);
     }
     
     @RequestMapping("/findPermissionList")
