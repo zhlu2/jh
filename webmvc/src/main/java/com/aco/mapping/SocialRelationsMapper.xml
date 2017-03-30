@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aco.dao.SocialRelationsMapper" >
+  <resultMap id="BaseResultMap" type="com.aco.model.SocialRelations" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="PERSONID" property="personid" jdbcType="VARCHAR" />
+    <result column="RELATIONNAME" property="relationname" jdbcType="VARCHAR" />
+    <result column="RELATIONSEX" property="relationsex" jdbcType="VARCHAR" />
+    <result column="RELATIONPHONE" property="relationphone" jdbcType="VARCHAR" />
+    <result column="RELATIONCERTIFICATENUM" property="relationcertificatenum" jdbcType="VARCHAR" />
+    <result column="ADDRESS" property="address" jdbcType="VARCHAR" />
+    <result column="RELATIONSHIP" property="relationship" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, PERSONID, RELATIONNAME, RELATIONSEX, RELATIONPHONE, RELATIONCERTIFICATENUM, ADDRESS, 
+    RELATIONSHIP
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from SHGXB
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from SHGXB
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.aco.model.SocialRelations" >
+    insert into SHGXB (ID, PERSONID, RELATIONNAME, 
+      RELATIONSEX, RELATIONPHONE, RELATIONCERTIFICATENUM, 
+      ADDRESS, RELATIONSHIP)
+    values (#{id,jdbcType=VARCHAR}, #{personid,jdbcType=VARCHAR}, #{relationname,jdbcType=VARCHAR}, 
+      #{relationsex,jdbcType=VARCHAR}, #{relationphone,jdbcType=VARCHAR}, #{relationcertificatenum,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{relationship,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aco.model.SocialRelations" >
+    insert into SHGXB
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="personid != null" >
+        PERSONID,
+      </if>
+      <if test="relationname != null" >
+        RELATIONNAME,
+      </if>
+      <if test="relationsex != null" >
+        RELATIONSEX,
+      </if>
+      <if test="relationphone != null" >
+        RELATIONPHONE,
+      </if>
+      <if test="relationcertificatenum != null" >
+        RELATIONCERTIFICATENUM,
+      </if>
+      <if test="address != null" >
+        ADDRESS,
+      </if>
+      <if test="relationship != null" >
+        RELATIONSHIP,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="personid != null" >
+        #{personid,jdbcType=VARCHAR},
+      </if>
+      <if test="relationname != null" >
+        #{relationname,jdbcType=VARCHAR},
+      </if>
+      <if test="relationsex != null" >
+        #{relationsex,jdbcType=VARCHAR},
+      </if>
+      <if test="relationphone != null" >
+        #{relationphone,jdbcType=VARCHAR},
+      </if>
+      <if test="relationcertificatenum != null" >
+        #{relationcertificatenum,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="relationship != null" >
+        #{relationship,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aco.model.SocialRelations" >
+    update SHGXB
+    <set >
+      <if test="personid != null" >
+        PERSONID = #{personid,jdbcType=VARCHAR},
+      </if>
+      <if test="relationname != null" >
+        RELATIONNAME = #{relationname,jdbcType=VARCHAR},
+      </if>
+      <if test="relationsex != null" >
+        RELATIONSEX = #{relationsex,jdbcType=VARCHAR},
+      </if>
+      <if test="relationphone != null" >
+        RELATIONPHONE = #{relationphone,jdbcType=VARCHAR},
+      </if>
+      <if test="relationcertificatenum != null" >
+        RELATIONCERTIFICATENUM = #{relationcertificatenum,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="relationship != null" >
+        RELATIONSHIP = #{relationship,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aco.model.SocialRelations" >
+    update SHGXB
+    set PERSONID = #{personid,jdbcType=VARCHAR},
+      RELATIONNAME = #{relationname,jdbcType=VARCHAR},
+      RELATIONSEX = #{relationsex,jdbcType=VARCHAR},
+      RELATIONPHONE = #{relationphone,jdbcType=VARCHAR},
+      RELATIONCERTIFICATENUM = #{relationcertificatenum,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      RELATIONSHIP = #{relationship,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

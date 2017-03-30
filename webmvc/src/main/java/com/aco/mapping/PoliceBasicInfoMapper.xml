@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aco.dao.PoliceBasicInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.aco.model.PoliceBasicInfo" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="POLICENUM" property="policenum" jdbcType="VARCHAR" />
+    <result column="POLICENAME" property="policename" jdbcType="VARCHAR" />
+    <result column="POLICESEX" property="policesex" jdbcType="VARCHAR" />
+    <result column="POLITICALOUTLOOK" property="politicaloutlook" jdbcType="VARCHAR" />
+    <result column="WORKTIME" property="worktime" jdbcType="TIMESTAMP" />
+    <result column="CREATETIME" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="CERTIFICATENUM" property="certificatenum" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, POLICENUM, POLICENAME, POLICESEX, POLITICALOUTLOOK, WORKTIME, CREATETIME, CERTIFICATENUM
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from MJJBXXB
+    WHERE 1=1
+	<if test="id != null and id !=''">
+	and ID = #{id,jdbcType=VARCHAR}
+	</if>
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from MJJBXXB
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.aco.model.PoliceBasicInfo" >
+    insert into MJJBXXB (ID, POLICENUM, POLICENAME, 
+      POLICESEX, POLITICALOUTLOOK, WORKTIME, 
+      CREATETIME, CERTIFICATENUM)
+    values (#{id,jdbcType=VARCHAR}, #{policenum,jdbcType=VARCHAR}, #{policename,jdbcType=VARCHAR}, 
+      #{policesex,jdbcType=VARCHAR}, #{politicaloutlook,jdbcType=VARCHAR}, #{worktime,jdbcType=TIMESTAMP}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{certificatenum,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aco.model.PoliceBasicInfo" >
+    insert into MJJBXXB
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="policenum != null" >
+        POLICENUM,
+      </if>
+      <if test="policename != null" >
+        POLICENAME,
+      </if>
+      <if test="policesex != null" >
+        POLICESEX,
+      </if>
+      <if test="politicaloutlook != null" >
+        POLITICALOUTLOOK,
+      </if>
+      <if test="worktime != null" >
+        WORKTIME,
+      </if>
+      <if test="createtime != null" >
+        CREATETIME,
+      </if>
+      <if test="certificatenum != null" >
+        CERTIFICATENUM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="policenum != null" >
+        #{policenum,jdbcType=VARCHAR},
+      </if>
+      <if test="policename != null" >
+        #{policename,jdbcType=VARCHAR},
+      </if>
+      <if test="policesex != null" >
+        #{policesex,jdbcType=VARCHAR},
+      </if>
+      <if test="politicaloutlook != null" >
+        #{politicaloutlook,jdbcType=VARCHAR},
+      </if>
+      <if test="worktime != null" >
+        #{worktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="certificatenum != null" >
+        #{certificatenum,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aco.model.PoliceBasicInfo" >
+    update MJJBXXB
+    <set >
+      <if test="policenum != null" >
+        POLICENUM = #{policenum,jdbcType=VARCHAR},
+      </if>
+      <if test="policename != null" >
+        POLICENAME = #{policename,jdbcType=VARCHAR},
+      </if>
+      <if test="policesex != null" >
+        POLICESEX = #{policesex,jdbcType=VARCHAR},
+      </if>
+      <if test="politicaloutlook != null" >
+        POLITICALOUTLOOK = #{politicaloutlook,jdbcType=VARCHAR},
+      </if>
+      <if test="worktime != null" >
+        WORKTIME = #{worktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null" >
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="certificatenum != null" >
+        CERTIFICATENUM = #{certificatenum,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aco.model.PoliceBasicInfo" >
+    update MJJBXXB
+    set POLICENUM = #{policenum,jdbcType=VARCHAR},
+      POLICENAME = #{policename,jdbcType=VARCHAR},
+      POLICESEX = #{policesex,jdbcType=VARCHAR},
+      POLITICALOUTLOOK = #{politicaloutlook,jdbcType=VARCHAR},
+      WORKTIME = #{worktime,jdbcType=TIMESTAMP},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      CERTIFICATENUM = #{certificatenum,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
