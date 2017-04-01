@@ -1,5 +1,9 @@
 package com.aco.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.aco.model.ConversationRecord;
 
 public interface ConversationRecordMapper {
@@ -9,7 +13,7 @@ public interface ConversationRecordMapper {
 
     int insertSelective(ConversationRecord record);
 
-    ConversationRecord selectByPrimaryKey(String id);
+    List<ConversationRecord> selectByPrimaryKey(@Param("id")String id);
 
     int updateByPrimaryKeySelective(ConversationRecord record);
 

@@ -1,142 +1,154 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.aco.dao.JuryRegisMapper" >
-  <resultMap id="BaseResultMap" type="com.aco.model.JuryRegis" >
-    <id column="ID" property="id" jdbcType="VARCHAR" />
-    <result column="PERSONID" property="personid" jdbcType="VARCHAR" />
-    <result column="INJURYSITU" property="injurysitu" jdbcType="VARCHAR" />
-    <result column="SELFINJURYREASON" property="selfinjuryreason" jdbcType="VARCHAR" />
-    <result column="MEDICALHISTORYSITU" property="medicalhistorysitu" jdbcType="VARCHAR" />
-    <result column="POLICESTATEMENTREASON" property="policestatementreason" jdbcType="VARCHAR" />
-    <result column="DETAINEDPOLICE" property="detainedpolice" jdbcType="VARCHAR" />
-    <result column="SCPOLICE" property="scpolice" jdbcType="VARCHAR" />
-    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    ID, PERSONID, INJURYSITU, SELFINJURYREASON, MEDICALHISTORYSITU, POLICESTATEMENTREASON, 
-    DETAINEDPOLICE, SCPOLICE, REMARK
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
-    <include refid="Base_Column_List" />
-    from SQDJB
-    where ID = #{id,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
-    delete from SQDJB
-    where ID = #{id,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.aco.model.JuryRegis" >
-    insert into SQDJB (ID, PERSONID, INJURYSITU, 
-      SELFINJURYREASON, MEDICALHISTORYSITU, POLICESTATEMENTREASON, 
-      DETAINEDPOLICE, SCPOLICE, REMARK
-      )
-    values (#{id,jdbcType=VARCHAR}, #{personid,jdbcType=VARCHAR}, #{injurysitu,jdbcType=VARCHAR}, 
-      #{selfinjuryreason,jdbcType=VARCHAR}, #{medicalhistorysitu,jdbcType=VARCHAR}, #{policestatementreason,jdbcType=VARCHAR}, 
-      #{detainedpolice,jdbcType=VARCHAR}, #{scpolice,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.aco.model.JuryRegis" >
-    insert into SQDJB
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        ID,
-      </if>
-      <if test="personid != null" >
-        PERSONID,
-      </if>
-      <if test="injurysitu != null" >
-        INJURYSITU,
-      </if>
-      <if test="selfinjuryreason != null" >
-        SELFINJURYREASON,
-      </if>
-      <if test="medicalhistorysitu != null" >
-        MEDICALHISTORYSITU,
-      </if>
-      <if test="policestatementreason != null" >
-        POLICESTATEMENTREASON,
-      </if>
-      <if test="detainedpolice != null" >
-        DETAINEDPOLICE,
-      </if>
-      <if test="scpolice != null" >
-        SCPOLICE,
-      </if>
-      <if test="remark != null" >
-        REMARK,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=VARCHAR},
-      </if>
-      <if test="personid != null" >
-        #{personid,jdbcType=VARCHAR},
-      </if>
-      <if test="injurysitu != null" >
-        #{injurysitu,jdbcType=VARCHAR},
-      </if>
-      <if test="selfinjuryreason != null" >
-        #{selfinjuryreason,jdbcType=VARCHAR},
-      </if>
-      <if test="medicalhistorysitu != null" >
-        #{medicalhistorysitu,jdbcType=VARCHAR},
-      </if>
-      <if test="policestatementreason != null" >
-        #{policestatementreason,jdbcType=VARCHAR},
-      </if>
-      <if test="detainedpolice != null" >
-        #{detainedpolice,jdbcType=VARCHAR},
-      </if>
-      <if test="scpolice != null" >
-        #{scpolice,jdbcType=VARCHAR},
-      </if>
-      <if test="remark != null" >
-        #{remark,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.aco.model.JuryRegis" >
-    update SQDJB
-    <set >
-      <if test="personid != null" >
-        PERSONID = #{personid,jdbcType=VARCHAR},
-      </if>
-      <if test="injurysitu != null" >
-        INJURYSITU = #{injurysitu,jdbcType=VARCHAR},
-      </if>
-      <if test="selfinjuryreason != null" >
-        SELFINJURYREASON = #{selfinjuryreason,jdbcType=VARCHAR},
-      </if>
-      <if test="medicalhistorysitu != null" >
-        MEDICALHISTORYSITU = #{medicalhistorysitu,jdbcType=VARCHAR},
-      </if>
-      <if test="policestatementreason != null" >
-        POLICESTATEMENTREASON = #{policestatementreason,jdbcType=VARCHAR},
-      </if>
-      <if test="detainedpolice != null" >
-        DETAINEDPOLICE = #{detainedpolice,jdbcType=VARCHAR},
-      </if>
-      <if test="scpolice != null" >
-        SCPOLICE = #{scpolice,jdbcType=VARCHAR},
-      </if>
-      <if test="remark != null" >
-        REMARK = #{remark,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where ID = #{id,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.aco.model.JuryRegis" >
-    update SQDJB
-    set PERSONID = #{personid,jdbcType=VARCHAR},
-      INJURYSITU = #{injurysitu,jdbcType=VARCHAR},
-      SELFINJURYREASON = #{selfinjuryreason,jdbcType=VARCHAR},
-      MEDICALHISTORYSITU = #{medicalhistorysitu,jdbcType=VARCHAR},
-      POLICESTATEMENTREASON = #{policestatementreason,jdbcType=VARCHAR},
-      DETAINEDPOLICE = #{detainedpolice,jdbcType=VARCHAR},
-      SCPOLICE = #{scpolice,jdbcType=VARCHAR},
-      REMARK = #{remark,jdbcType=VARCHAR}
-    where ID = #{id,jdbcType=VARCHAR}
-  </update>
+<mapper namespace="com.aco.dao.JuryRegisMapper">
+	<resultMap id="BaseResultMap" type="com.aco.model.JuryRegis">
+		<id column="ID" property="id" jdbcType="VARCHAR" />
+		<result column="PERSONID" property="personid" jdbcType="VARCHAR" />
+		<result column="INJURYSITU" property="injurysitu" jdbcType="VARCHAR" />
+		<result column="SELFINJURYREASON" property="selfinjuryreason"
+			jdbcType="VARCHAR" />
+		<result column="MEDICALHISTORYSITU" property="medicalhistorysitu"
+			jdbcType="VARCHAR" />
+		<result column="POLICESTATEMENTREASON" property="policestatementreason"
+			jdbcType="VARCHAR" />
+		<result column="DETAINEDPOLICE" property="detainedpolice"
+			jdbcType="VARCHAR" />
+		<result column="SCPOLICE" property="scpolice" jdbcType="VARCHAR" />
+		<result column="REMARK" property="remark" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		ID, PERSONID, INJURYSITU, SELFINJURYREASON, MEDICALHISTORYSITU,
+		POLICESTATEMENTREASON,
+		DETAINEDPOLICE, SCPOLICE, REMARK
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from SQDJB
+		where 1=1
+		<if test="id != null and id !=''">
+			and ID = #{id,jdbcType=VARCHAR}
+		</if>
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from SQDJB
+		where ID = #{id,jdbcType=VARCHAR}
+	</delete>
+	<insert id="insert" parameterType="com.aco.model.JuryRegis">
+		insert into SQDJB (ID, PERSONID, INJURYSITU,
+		SELFINJURYREASON, MEDICALHISTORYSITU, POLICESTATEMENTREASON,
+		DETAINEDPOLICE, SCPOLICE, REMARK
+		)
+		values (#{id,jdbcType=VARCHAR}, #{personid,jdbcType=VARCHAR},
+		#{injurysitu,jdbcType=VARCHAR},
+		#{selfinjuryreason,jdbcType=VARCHAR}, #{medicalhistorysitu,jdbcType=VARCHAR},
+		#{policestatementreason,jdbcType=VARCHAR},
+		#{detainedpolice,jdbcType=VARCHAR}, #{scpolice,jdbcType=VARCHAR},
+		#{remark,jdbcType=VARCHAR}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.aco.model.JuryRegis">
+		insert into SQDJB
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				ID,
+			</if>
+			<if test="personid != null">
+				PERSONID,
+			</if>
+			<if test="injurysitu != null">
+				INJURYSITU,
+			</if>
+			<if test="selfinjuryreason != null">
+				SELFINJURYREASON,
+			</if>
+			<if test="medicalhistorysitu != null">
+				MEDICALHISTORYSITU,
+			</if>
+			<if test="policestatementreason != null">
+				POLICESTATEMENTREASON,
+			</if>
+			<if test="detainedpolice != null">
+				DETAINEDPOLICE,
+			</if>
+			<if test="scpolice != null">
+				SCPOLICE,
+			</if>
+			<if test="remark != null">
+				REMARK,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=VARCHAR},
+			</if>
+			<if test="personid != null">
+				#{personid,jdbcType=VARCHAR},
+			</if>
+			<if test="injurysitu != null">
+				#{injurysitu,jdbcType=VARCHAR},
+			</if>
+			<if test="selfinjuryreason != null">
+				#{selfinjuryreason,jdbcType=VARCHAR},
+			</if>
+			<if test="medicalhistorysitu != null">
+				#{medicalhistorysitu,jdbcType=VARCHAR},
+			</if>
+			<if test="policestatementreason != null">
+				#{policestatementreason,jdbcType=VARCHAR},
+			</if>
+			<if test="detainedpolice != null">
+				#{detainedpolice,jdbcType=VARCHAR},
+			</if>
+			<if test="scpolice != null">
+				#{scpolice,jdbcType=VARCHAR},
+			</if>
+			<if test="remark != null">
+				#{remark,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.aco.model.JuryRegis">
+		update SQDJB
+		<set>
+			<if test="personid != null">
+				PERSONID = #{personid,jdbcType=VARCHAR},
+			</if>
+			<if test="injurysitu != null">
+				INJURYSITU = #{injurysitu,jdbcType=VARCHAR},
+			</if>
+			<if test="selfinjuryreason != null">
+				SELFINJURYREASON = #{selfinjuryreason,jdbcType=VARCHAR},
+			</if>
+			<if test="medicalhistorysitu != null">
+				MEDICALHISTORYSITU = #{medicalhistorysitu,jdbcType=VARCHAR},
+			</if>
+			<if test="policestatementreason != null">
+				POLICESTATEMENTREASON = #{policestatementreason,jdbcType=VARCHAR},
+			</if>
+			<if test="detainedpolice != null">
+				DETAINEDPOLICE = #{detainedpolice,jdbcType=VARCHAR},
+			</if>
+			<if test="scpolice != null">
+				SCPOLICE = #{scpolice,jdbcType=VARCHAR},
+			</if>
+			<if test="remark != null">
+				REMARK = #{remark,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where ID = #{id,jdbcType=VARCHAR}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.aco.model.JuryRegis">
+		update SQDJB
+		set PERSONID = #{personid,jdbcType=VARCHAR},
+		INJURYSITU = #{injurysitu,jdbcType=VARCHAR},
+		SELFINJURYREASON = #{selfinjuryreason,jdbcType=VARCHAR},
+		MEDICALHISTORYSITU = #{medicalhistorysitu,jdbcType=VARCHAR},
+		POLICESTATEMENTREASON = #{policestatementreason,jdbcType=VARCHAR},
+		DETAINEDPOLICE = #{detainedpolice,jdbcType=VARCHAR},
+		SCPOLICE = #{scpolice,jdbcType=VARCHAR},
+		REMARK = #{remark,jdbcType=VARCHAR}
+		where ID = #{id,jdbcType=VARCHAR}
+	</update>
 </mapper>

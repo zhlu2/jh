@@ -1,5 +1,9 @@
 package com.aco.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.aco.model.PrsArrgInfo;
 
 public interface PrsArrgInfoMapper {
@@ -9,7 +13,7 @@ public interface PrsArrgInfoMapper {
 
     int insertSelective(PrsArrgInfo record);
 
-    PrsArrgInfo selectByPrimaryKey(String id);
+    List<PrsArrgInfo> selectByPrimaryKey(@Param("id")String id);
 
     int updateByPrimaryKeySelective(PrsArrgInfo record);
 

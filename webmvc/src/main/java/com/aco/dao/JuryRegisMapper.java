@@ -1,5 +1,9 @@
 package com.aco.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.aco.model.JuryRegis;
 
 public interface JuryRegisMapper {
@@ -9,7 +13,7 @@ public interface JuryRegisMapper {
 
     int insertSelective(JuryRegis record);
 
-    JuryRegis selectByPrimaryKey(String id);
+    List<JuryRegis> selectByPrimaryKey(@Param("id")String id);
 
     int updateByPrimaryKeySelective(JuryRegis record);
 

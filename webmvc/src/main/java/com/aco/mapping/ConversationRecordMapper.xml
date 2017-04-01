@@ -1,141 +1,149 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.aco.dao.ConversationRecordMapper" >
-  <resultMap id="BaseResultMap" type="com.aco.model.ConversationRecord" >
-    <id column="ID" property="id" jdbcType="VARCHAR" />
-    <result column="PERSONID" property="personid" jdbcType="VARCHAR" />
-    <result column="TALKSTARTTIME" property="talkstarttime" jdbcType="TIMESTAMP" />
-    <result column="TALKPOLICE" property="talkpolice" jdbcType="VARCHAR" />
-    <result column="TALKTYPE" property="talktype" jdbcType="VARCHAR" />
-    <result column="TALKPLACE" property="talkplace" jdbcType="VARCHAR" />
-    <result column="ASK" property="ask" jdbcType="VARCHAR" />
-    <result column="ANSWER" property="answer" jdbcType="VARCHAR" />
-    <result column="TALKCONTENT" property="talkcontent" jdbcType="VARCHAR" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    ID, PERSONID, TALKSTARTTIME, TALKPOLICE, TALKTYPE, TALKPLACE, ASK, ANSWER, TALKCONTENT
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
-    <include refid="Base_Column_List" />
-    from THJYB
-    where ID = #{id,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
-    delete from THJYB
-    where ID = #{id,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.aco.model.ConversationRecord" >
-    insert into THJYB (ID, PERSONID, TALKSTARTTIME, 
-      TALKPOLICE, TALKTYPE, TALKPLACE, 
-      ASK, ANSWER, TALKCONTENT
-      )
-    values (#{id,jdbcType=VARCHAR}, #{personid,jdbcType=VARCHAR}, #{talkstarttime,jdbcType=TIMESTAMP}, 
-      #{talkpolice,jdbcType=VARCHAR}, #{talktype,jdbcType=VARCHAR}, #{talkplace,jdbcType=VARCHAR}, 
-      #{ask,jdbcType=VARCHAR}, #{answer,jdbcType=VARCHAR}, #{talkcontent,jdbcType=VARCHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.aco.model.ConversationRecord" >
-    insert into THJYB
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        ID,
-      </if>
-      <if test="personid != null" >
-        PERSONID,
-      </if>
-      <if test="talkstarttime != null" >
-        TALKSTARTTIME,
-      </if>
-      <if test="talkpolice != null" >
-        TALKPOLICE,
-      </if>
-      <if test="talktype != null" >
-        TALKTYPE,
-      </if>
-      <if test="talkplace != null" >
-        TALKPLACE,
-      </if>
-      <if test="ask != null" >
-        ASK,
-      </if>
-      <if test="answer != null" >
-        ANSWER,
-      </if>
-      <if test="talkcontent != null" >
-        TALKCONTENT,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=VARCHAR},
-      </if>
-      <if test="personid != null" >
-        #{personid,jdbcType=VARCHAR},
-      </if>
-      <if test="talkstarttime != null" >
-        #{talkstarttime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="talkpolice != null" >
-        #{talkpolice,jdbcType=VARCHAR},
-      </if>
-      <if test="talktype != null" >
-        #{talktype,jdbcType=VARCHAR},
-      </if>
-      <if test="talkplace != null" >
-        #{talkplace,jdbcType=VARCHAR},
-      </if>
-      <if test="ask != null" >
-        #{ask,jdbcType=VARCHAR},
-      </if>
-      <if test="answer != null" >
-        #{answer,jdbcType=VARCHAR},
-      </if>
-      <if test="talkcontent != null" >
-        #{talkcontent,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.aco.model.ConversationRecord" >
-    update THJYB
-    <set >
-      <if test="personid != null" >
-        PERSONID = #{personid,jdbcType=VARCHAR},
-      </if>
-      <if test="talkstarttime != null" >
-        TALKSTARTTIME = #{talkstarttime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="talkpolice != null" >
-        TALKPOLICE = #{talkpolice,jdbcType=VARCHAR},
-      </if>
-      <if test="talktype != null" >
-        TALKTYPE = #{talktype,jdbcType=VARCHAR},
-      </if>
-      <if test="talkplace != null" >
-        TALKPLACE = #{talkplace,jdbcType=VARCHAR},
-      </if>
-      <if test="ask != null" >
-        ASK = #{ask,jdbcType=VARCHAR},
-      </if>
-      <if test="answer != null" >
-        ANSWER = #{answer,jdbcType=VARCHAR},
-      </if>
-      <if test="talkcontent != null" >
-        TALKCONTENT = #{talkcontent,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where ID = #{id,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.aco.model.ConversationRecord" >
-    update THJYB
-    set PERSONID = #{personid,jdbcType=VARCHAR},
-      TALKSTARTTIME = #{talkstarttime,jdbcType=TIMESTAMP},
-      TALKPOLICE = #{talkpolice,jdbcType=VARCHAR},
-      TALKTYPE = #{talktype,jdbcType=VARCHAR},
-      TALKPLACE = #{talkplace,jdbcType=VARCHAR},
-      ASK = #{ask,jdbcType=VARCHAR},
-      ANSWER = #{answer,jdbcType=VARCHAR},
-      TALKCONTENT = #{talkcontent,jdbcType=VARCHAR}
-    where ID = #{id,jdbcType=VARCHAR}
-  </update>
+<mapper namespace="com.aco.dao.ConversationRecordMapper">
+	<resultMap id="BaseResultMap" type="com.aco.model.ConversationRecord">
+		<id column="ID" property="id" jdbcType="VARCHAR" />
+		<result column="PERSONID" property="personid" jdbcType="VARCHAR" />
+		<result column="TALKSTARTTIME" property="talkstarttime"
+			jdbcType="TIMESTAMP" />
+		<result column="TALKPOLICE" property="talkpolice" jdbcType="VARCHAR" />
+		<result column="TALKTYPE" property="talktype" jdbcType="VARCHAR" />
+		<result column="TALKPLACE" property="talkplace" jdbcType="VARCHAR" />
+		<result column="ASK" property="ask" jdbcType="VARCHAR" />
+		<result column="ANSWER" property="answer" jdbcType="VARCHAR" />
+		<result column="TALKCONTENT" property="talkcontent" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		ID, PERSONID, TALKSTARTTIME, TALKPOLICE, TALKTYPE, TALKPLACE, ASK,
+		ANSWER, TALKCONTENT
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from THJYB
+		where 1=1
+		<if test="id != null and id !=''">
+			and ID = #{id,jdbcType=VARCHAR}
+		</if>
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from THJYB
+		where ID = #{id,jdbcType=VARCHAR}
+	</delete>
+	<insert id="insert" parameterType="com.aco.model.ConversationRecord">
+		insert into THJYB (ID, PERSONID, TALKSTARTTIME,
+		TALKPOLICE, TALKTYPE, TALKPLACE,
+		ASK, ANSWER, TALKCONTENT
+		)
+		values (#{id,jdbcType=VARCHAR}, #{personid,jdbcType=VARCHAR},
+		#{talkstarttime,jdbcType=TIMESTAMP},
+		#{talkpolice,jdbcType=VARCHAR}, #{talktype,jdbcType=VARCHAR}, #{talkplace,jdbcType=VARCHAR},
+		#{ask,jdbcType=VARCHAR}, #{answer,jdbcType=VARCHAR},
+		#{talkcontent,jdbcType=VARCHAR}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.aco.model.ConversationRecord">
+		insert into THJYB
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				ID,
+			</if>
+			<if test="personid != null">
+				PERSONID,
+			</if>
+			<if test="talkstarttime != null">
+				TALKSTARTTIME,
+			</if>
+			<if test="talkpolice != null">
+				TALKPOLICE,
+			</if>
+			<if test="talktype != null">
+				TALKTYPE,
+			</if>
+			<if test="talkplace != null">
+				TALKPLACE,
+			</if>
+			<if test="ask != null">
+				ASK,
+			</if>
+			<if test="answer != null">
+				ANSWER,
+			</if>
+			<if test="talkcontent != null">
+				TALKCONTENT,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=VARCHAR},
+			</if>
+			<if test="personid != null">
+				#{personid,jdbcType=VARCHAR},
+			</if>
+			<if test="talkstarttime != null">
+				#{talkstarttime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="talkpolice != null">
+				#{talkpolice,jdbcType=VARCHAR},
+			</if>
+			<if test="talktype != null">
+				#{talktype,jdbcType=VARCHAR},
+			</if>
+			<if test="talkplace != null">
+				#{talkplace,jdbcType=VARCHAR},
+			</if>
+			<if test="ask != null">
+				#{ask,jdbcType=VARCHAR},
+			</if>
+			<if test="answer != null">
+				#{answer,jdbcType=VARCHAR},
+			</if>
+			<if test="talkcontent != null">
+				#{talkcontent,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.aco.model.ConversationRecord">
+		update THJYB
+		<set>
+			<if test="personid != null">
+				PERSONID = #{personid,jdbcType=VARCHAR},
+			</if>
+			<if test="talkstarttime != null">
+				TALKSTARTTIME = #{talkstarttime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="talkpolice != null">
+				TALKPOLICE = #{talkpolice,jdbcType=VARCHAR},
+			</if>
+			<if test="talktype != null">
+				TALKTYPE = #{talktype,jdbcType=VARCHAR},
+			</if>
+			<if test="talkplace != null">
+				TALKPLACE = #{talkplace,jdbcType=VARCHAR},
+			</if>
+			<if test="ask != null">
+				ASK = #{ask,jdbcType=VARCHAR},
+			</if>
+			<if test="answer != null">
+				ANSWER = #{answer,jdbcType=VARCHAR},
+			</if>
+			<if test="talkcontent != null">
+				TALKCONTENT = #{talkcontent,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where ID = #{id,jdbcType=VARCHAR}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.aco.model.ConversationRecord">
+		update THJYB
+		set PERSONID = #{personid,jdbcType=VARCHAR},
+		TALKSTARTTIME = #{talkstarttime,jdbcType=TIMESTAMP},
+		TALKPOLICE = #{talkpolice,jdbcType=VARCHAR},
+		TALKTYPE = #{talktype,jdbcType=VARCHAR},
+		TALKPLACE = #{talkplace,jdbcType=VARCHAR},
+		ASK = #{ask,jdbcType=VARCHAR},
+		ANSWER = #{answer,jdbcType=VARCHAR},
+		TALKCONTENT = #{talkcontent,jdbcType=VARCHAR}
+		where ID = #{id,jdbcType=VARCHAR}
+	</update>
 </mapper>
