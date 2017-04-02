@@ -1,7 +1,12 @@
-	var	addDedrugBasicInfo = {
+   var  selectPersonCallback = function(data) {
+		   $("#aco-dedrugBasicinfo-fullname").val(data.fullname);
+		   $("#aco-dedrugBasicinfo-personId").val(data.personId);
+		  }
+   var	addDedrugBasicInfo = {
 		init : function() {
 			// 初始化新增按钮
-			addDedrugBasicInfo.initSaveBtnClickListener();
+			addDedrugBasicInfo.initSaveBtnClickListener();		
+			addDedrugBasicInfo.getPerson();
 		},
 
 		// 获取模式窗口表单元素值
@@ -17,6 +22,13 @@
 			return postData;
 		},
 
+
+		  
+		getPerson : function(){
+			$("#aco-dedrugBasicinfo-fullname").on("focus", function() {
+				$("#dedrug-detain-prsFamilyMeetingBasicInfo-proposeMan-id").show();
+			});
+		},  
     	// 初始化保存新建任务按钮的click事件
 		initSaveBtnClickListener : function() {
 			$("#aco-conversationRecord-form-submit").on("click", function(event) {

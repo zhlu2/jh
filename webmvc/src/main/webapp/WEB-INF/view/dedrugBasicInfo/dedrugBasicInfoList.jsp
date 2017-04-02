@@ -169,7 +169,6 @@ td {
                     $("#tableBody").append('<td>' + this.fullname + '</td>');
                     $("#tableBody").append('<td>' + this.sex + '</td>');
                     $("#tableBody").append('<td>' + this.abandonstartdate + '</td>');
-                    $("#tableBody").append('<td>' + this.politicaloutlook + '</td>');
                     $("#tableBody").append('<td>' + this.entryreason + '</td>');
                     $("#tableBody").append("<a href=\"javascript:jumpOnEditPage("+this.id+");\" class=\"btn default btn-xs blue-stripe\">编辑</a><a href=\"javascript:deleEvent("+this.id+");\" class=\"btn default btn-xs blue-stripe\">删除</a>");                  
                     $("#tableBody").append('</tr>');
