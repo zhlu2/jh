@@ -5,12 +5,34 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
+<link href="<%=request.getContextPath()%>/static/js/bootstrap//css/bootstrap.min.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/static/js/css/style.css" rel="stylesheet">
+<script src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
     <form action="${pageContext.request.contextPath }/user/login" method="post">
-        username:<input type="text" name="username"/><br>
-        password:<input type="password" name="password"/><br>
-        <input type="submit" value="登陆">${error }
+                 <div class="mycenter">
+                <div class="mysign">
+                <div class="col-lg-11 text-center text-info">
+                    <h2>请登录</h2>
+                </div>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" name="username" placeholder="请输入账户名" required autofocus/>
+                </div>
+                <div class="col-lg-10"></div>
+                <div class="col-lg-10">
+                    <input type="password" class="form-control" name="password" placeholder="请输入密码" required autofocus/>
+                </div>
+                <div class="col-lg-10"></div>
+                <div class="col-lg-10 mycheckbox checkbox">
+                    <input type="checkbox" class="col-lg-1">记住密码</input>
+                </div>
+                <div class="col-lg-10"></div>
+                <div class="col-lg-10">
+                    <input type="submit" value="登陆" class="btn btn-success col-lg-12">${error }
+                </div>
+            </div>
+        </div>
     </form>
 </body>
 </html>

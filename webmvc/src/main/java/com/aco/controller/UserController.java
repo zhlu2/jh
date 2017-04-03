@@ -24,10 +24,20 @@ public class UserController extends BaseController{
 	private static final String ADDPAGE="user/addUser";
 	private static final String EDITPAGE="user/editUser";
     private static final String roleList="role/roleList";
+    private static final String index="index";
+    private static final String index2="index2";
 	//用户登录
 	@Autowired
 	private UserService userService;
 	
+	@RequestMapping("/index")
+	public String index(){
+		return index;
+	}
+	@RequestMapping("/index2")
+	public String index2(){
+		return index2;
+	}
     @RequestMapping("/login")
     public String login(User user, HttpServletRequest request) {
         Subject subject = SecurityUtils.getSubject();
