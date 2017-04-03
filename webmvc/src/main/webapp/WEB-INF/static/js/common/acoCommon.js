@@ -2,7 +2,7 @@
 var getOne = function(personId,fullname) {
     $("#aco-dedrugBasicinfo-personId").val(personId);
 	$("#aco-dedrugBasicinfo-fullname").val(fullname);
-	$("#dedrug-detain-prsFamilyMeetingBasicInfo-proposeMan-id").show(false);
+	$("#dedrug-detain-prsFamilyMeetingBasicInfo-proposeMan-id").modal('hide');
 }
 var PAGESIZE = 10;
 var options = {  
