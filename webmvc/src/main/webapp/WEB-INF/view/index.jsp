@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>  
 <!DOCTYPE html>
 
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
@@ -418,7 +419,7 @@
 						class="selected"></span>
 
 				</a></li>
-
+                <shiro:hasRole name="admin">  
 				<li class=""><a href="${pageContext.request.contextPath }/user/index2"> <i class="icon-cogs"></i>
 
 						<span class="title">Layouts</span> <span class="arrow "></span>
@@ -457,7 +458,7 @@
 								Non-Responsive Boxed Layout</a></li>
 
 					</ul></li>
-
+                    </shiro:hasRole> 
 
 
 				<li class=""><a href="javascript:;"> <i

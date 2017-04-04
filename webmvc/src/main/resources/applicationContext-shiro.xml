@@ -31,7 +31,7 @@
         <property name="filterChainDefinitions">  
             <value>                  
                 /index.jsp=authc
-                /demoController/**=roles[admin]           
+                /demoController/**=roles[user]           
             </value>  
         </property>
     </bean>
