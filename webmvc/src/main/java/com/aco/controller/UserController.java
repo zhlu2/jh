@@ -18,6 +18,8 @@ import com.aco.model.User;
 import com.aco.service.UserService;
 import com.aco.util.PagedResult;
 
+import aco.interceptor.MethodDescription;
+
 @Controller
 @RequestMapping("/user")
 public class UserController extends BaseController{
@@ -91,6 +93,7 @@ public class UserController extends BaseController{
     }
     
     @RequestMapping("/findUserList")
+    @MethodDescription(value = "分页查询病室号列表", opeartion = "search")
     @ResponseBody
     public String list(Integer pageNumber,Integer pageSize ,String userName){
         logger.info("分页查询用户信息列表请求入参：pageNumber{},pageSize{}", pageNumber,pageSize);  
@@ -104,6 +107,7 @@ public class UserController extends BaseController{
     
 
     @RequestMapping("/findRoleList")
+    @MethodDescription(value = "分页查询病室号列表", opeartion = "search")
     @ResponseBody
     public String rolelist(Integer pageNumber,Integer pageSize ,String id){
         logger.info("分页查询用户信息列表请求入参：pageNumber{},pageSize{}", pageNumber,pageSize);  

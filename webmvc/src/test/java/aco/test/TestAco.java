@@ -2,7 +2,8 @@ package aco.test;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +19,12 @@ import com.alibaba.fastjson.JSON;
 
 
 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring.xml", "classpath:spring-mybatis.xml" })
 public class TestAco {
+	private static final Logger log = LogManager.getLogger(TestAco.class);
 
-	private static final Logger log = Logger.getLogger(TestAco.class);
-    
 	@Autowired
 	private UserService uerservice;
 	@Autowired

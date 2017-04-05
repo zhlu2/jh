@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="debug">
+	<Appenders>
+		<!-- 輸出到監視器 -->
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+		<!-- 按天备份 -->
+		<RollingFile name="File" fileName="logs/new.log"
+			filePattern="logs/log_%d{yyyy-MM-dd}_%i.log">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+			<Policies>
+				<!-- 更新时间 -->
+				<TimeBasedTriggeringPolicy modulate="true"
+					interval="24" />
+				<SizeBasedTriggeringPolicy size="128KB" />
+			</Policies>
+		</RollingFile>
+		<JDBC name="databaseAppender" tableName="YYRZB">
+			<ConnectionFactory class="aco.connection.LogConnectionFactory"
+				method="getConnection" />
+			<Column name="USER_NAME" pattern="%X{user}" />
+			<Column name="USER_ID" pattern="%X{userId}" />
+			<Column name="TERMINAL_ID" pattern="%X{ip}" />
+			<Column name="OPERATE_TIME" pattern="%d{yyyyMMddHHmmss}" />
+			<Column name="OPERATE_NAME" pattern="%X{operation}" />
+			<Column name="OPERATE_TYPE" pattern="%X{modular}" />
+			<Column name="OPERATE_CONDITION" pattern="%X{conditions}" />
+			<Filters>
+				<ThresholdFilter level="info" onMatch="DENY"
+					onMismatch="NEUTRAL" />
+				<ThresholdFilter level="debug" onMatch="ACCEPT"
+					onMismatch="DENY" />
+			</Filters>
+		</JDBC>
+	</Appenders>
+	<Loggers>
+		<Logger name="test1.RunMyObject2" level="debug">
+			<!-- 输出到文件 -->
+			<AppenderRef ref="File" />
+		</Logger>
+		<Logger  name="test1.MyObject2" level="debug">
+			<!-- 输出至显示器 -->
+			<AppenderRef ref="Console" />
+		</Logger>
+		<Logger name="aco.interceptor.AuditLogInterceptor"
+			level="debug" additivity="false">
+			<AppenderRef ref="databaseAppender"/>
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="File" />
+		</Logger>
+		<Root level="trace">
+			<!-- 输出至显示器 -->
+			<AppenderRef ref="Console" />
+		</Root>
+	</Loggers>
+</Configuration>  

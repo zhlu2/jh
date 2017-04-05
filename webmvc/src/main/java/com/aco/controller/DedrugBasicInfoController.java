@@ -12,6 +12,8 @@ import com.aco.model.DedrugBasicInfo;
 import com.aco.service.DedrugBasicInfoService;
 import com.aco.util.PagedResult;
 
+import aco.interceptor.MethodDescription;
+
 @Controller
 @RequestMapping("/dedrugBasicInfo")
 public class DedrugBasicInfoController extends BaseController {
@@ -63,6 +65,7 @@ public class DedrugBasicInfoController extends BaseController {
 		return dedrugBasicInfoService.deleteDedrugBasicInfo(id);
 	}
 	@RequestMapping("/findDedrugBasicInfoList")
+    @MethodDescription(value = "分页查询病室号列表", opeartion = "search")
 	@ResponseBody
 	public String list(Integer pageNumber, Integer pageSize, String userName) {
 		logger.info("分页查询用户信息列表请求入参：pageNumber{},pageSize{}", pageNumber, pageSize);
