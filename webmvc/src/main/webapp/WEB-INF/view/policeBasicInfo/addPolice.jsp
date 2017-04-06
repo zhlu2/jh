@@ -455,9 +455,9 @@
 
 															<select id="aco-policesex" class="m-wrap span12">
 
-																<option value="0">Male</option>
+																<option value="男">Male</option>
 
-																<option value="1">Female</option>
+																<option value="女">Female</option>
 
 															</select> <span class="help-block">Select your gender.</span>
 
@@ -551,7 +551,6 @@
 
 	<!-- END PAGE -->
 
-	</div>
 
 	<!-- END CONTAINER -->
 
