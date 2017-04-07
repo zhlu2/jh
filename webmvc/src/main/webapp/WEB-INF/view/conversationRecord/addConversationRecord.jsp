@@ -461,7 +461,7 @@
 
 														<div class="controls">
 
-															<select id="谈话类型" class="m-wrap span12">
+															<select id="aco-talktype" class="m-wrap span12">
 
 																<option value="入所谈话">入所谈话</option>
 

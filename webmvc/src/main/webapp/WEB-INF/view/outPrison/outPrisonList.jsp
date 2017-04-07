@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>	
+<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +10,7 @@
 <script src="<%=request.getContextPath()%>/static/js/jQuery/jquery-2.1.4.min.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap.min.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap-paginator.min.js"></script>
-<script src="<%=request.getContextPath()%>/static/js/permission/permissionList.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/outPrison/outPrisonList.js"></script>
 <link href="<%=request.getContextPath()%>/static/media/css/bootstrap.min.css" rel="stylesheet"
 	type="text/css" />
 
@@ -883,7 +883,7 @@
 
 									<div class="btn-group">										
 										 
-										 <a class="btn green"  href="<%=request.getContextPath()%>/permission/addPage">
+										 <a class="btn green"  href="<%=request.getContextPath()%>/dedrugBasicInfo/addPage">
 
 										Add New <i class="icon-plus"></i>
                                         </a>
@@ -909,12 +909,16 @@
 
 											<th>序号</th>
 
-											<th class="hidden-480">权限名</th>
+											<th class="hidden-480">姓名</th>
 
-											<th class="hidden-480">权限描述</th>
+											<th class="hidden-480">性别</th>
+
+											<th class="hidden-480">拘留开始日期</th>
+											
+											<th class="hidden-480">入所原因</th>
 
 											<th class="hidden-480">操作</th>
-											
+
 										</tr>
 
 									</thead>
@@ -928,8 +932,6 @@
 
 	                         	<div id="bottomTab"></div>
 		
-				                <input type="submit" id="aco-useredit-form-submit" class="btn blue" value="保存">
-				                
 							</div>
 
 						</div>

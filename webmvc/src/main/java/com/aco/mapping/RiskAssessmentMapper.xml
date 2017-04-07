@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aco.dao.RiskAssessmentMapper" >
+  <resultMap id="BaseResultMap" type="com.aco.model.RiskAssessment" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="RYBH" property="personId" jdbcType="VARCHAR" />
+    <result column="CREATETIME" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="AQZK" property="caseStatus" jdbcType="VARCHAR" />
+    <result column="YNBXZK" property="PerStatusInPrison" jdbcType="VARCHAR" />
+    <result column="BZ" property="remark" jdbcType="VARCHAR" />
+    <result column="SZSPYJ" property="directorApprovalMark" jdbcType="VARCHAR" />
+    <result column="KSPYJ" property="departmentApprovalMark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, RYBH, CREATETIME, AQZK, YNBXZK, BZ, SZSPYJ, KSPYJ
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from FXPGB
+    where 1=1
+    <if test="id != null and id !=''">
+	and ID = #{id,jdbcType=VARCHAR}
+    </if>
+
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from FXPGB
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.aco.model.RiskAssessment" >
+    insert into FXPGB (ID, RYBH, CREATETIME, 
+      AQZK, YNBXZK, BZ, SZSPYJ, 
+      KSPYJ)
+    values (#{id,jdbcType=VARCHAR}, #{personId,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{caseStatus,jdbcType=VARCHAR}, #{PerStatusInPrison,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{directorApprovalMark,jdbcType=VARCHAR}, 
+      #{departmentApprovalMark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aco.model.RiskAssessment" >
+    insert into FXPGB
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="personId != null" >
+        RYBH,
+      </if>
+      <if test="createtime != null" >
+        CREATETIME,
+      </if>
+      <if test="caseStatus != null" >
+        AQZK,
+      </if>
+      <if test="PerStatusInPrison != null" >
+        YNBXZK,
+      </if>
+      <if test="remark != null" >
+        BZ,
+      </if>
+      <if test="directorApprovalMark != null" >
+        SZSPYJ,
+      </if>
+      <if test="departmentApprovalMark != null" >
+        KSPYJ,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="personId != null" >
+        #{personId,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="caseStatus != null" >
+        #{caseStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="PerStatusInPrison != null" >
+        #{PerStatusInPrison,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="directorApprovalMark != null" >
+        #{directorApprovalMark,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentApprovalMark != null" >
+        #{departmentApprovalMark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aco.model.RiskAssessment" >
+    update FXPGB
+    <set >
+      <if test="personId != null" >
+        RYBH = #{personId,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="caseStatus != null" >
+        AQZK = #{caseStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="PerStatusInPrison != null" >
+        YNBXZK = #{PerStatusInPrison,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        BZ = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="directorApprovalMark != null" >
+        SZSPYJ = #{directorApprovalMark,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentApprovalMark != null" >
+        KSPYJ = #{departmentApprovalMark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aco.model.RiskAssessment" >
+    update FXPGB
+    set RYBH = #{personId,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      AQZK = #{caseStatus,jdbcType=VARCHAR},
+      YNBXZK = #{PerStatusInPrison,jdbcType=VARCHAR},
+      BZ = #{remark,jdbcType=VARCHAR},
+      SZSPYJ = #{directorApprovalMark,jdbcType=VARCHAR},
+      KSPYJ = #{departmentApprovalMark,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

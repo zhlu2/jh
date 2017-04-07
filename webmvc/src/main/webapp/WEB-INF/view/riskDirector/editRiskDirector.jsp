@@ -12,11 +12,7 @@
 <script
 	src="<%=request.getContextPath()%>/static/js/jQuery/jquery-2.1.4.min.js"></script>
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/static/js/conversationRecord/editConversationRecord.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/static/js/common/acoCommon.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/static/js/conversationRecord/addConversationRecord.js"></script>
+	src="${pageContext.request.contextPath}/static/js/riskDirector/editRiskDirector.js"></script>
 <link
 	href="<%=request.getContextPath()%>/static/media/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
@@ -396,7 +392,7 @@
 
 										<!-- BEGIN FORM-->
 
-										<form action="#" id="aco-conversationRecord-form"
+										<form action="#" id="aco-riskAssessment-form"
 											class="horizontal-form">
 
 											<h3 class="form-section">Person Info</h3>
@@ -411,7 +407,7 @@
 
 														<div class="controls">
 
-															<input type="text" id="aco-dedrugBasicinfo-fullname"
+															<input type="text" id="aco-dedrugBasicinfo-fullname" disabled
 																class="m-wrap span12" placeholder="Chee Kin"> <span
 																class="help-block">This is inline help</span> <input
 																type="hidden" id="aco-dedrugBasicinfo-personId">
@@ -421,28 +417,6 @@
 													</div>
 
 												</div>
-
-												<!--/span-->
-
-												<div class="span6 ">
-
-													<div class="control-group">
-
-														<label class="control-label" for="firstName">谈话民警</label>
-
-														<div class="controls">
-
-															<input type="text" id="aco-talkPolice"
-																class="m-wrap span12" placeholder="Chee Kin"> <span
-																class="help-block">This is inline help</span>
-
-														</div>
-
-													</div>
-
-												</div>
-
-												<!--/span-->
 
 											</div>
 
@@ -454,15 +428,17 @@
 
 													<div class="control-group">
 
-														<label class="control-label">性别</label>
+														<label class="control-label">案件情况</label>
 
 														<div class="controls">
 
-															<select id="aco-talktype" class="m-wrap span12">
+															<select id="aco-caseStatus" disabled class="m-wrap span12">
 
-																<option value="入所谈话">入所谈话</option>
+																<option value="优">优</option>
 
-																<option value="出所谈话">出所谈话</option>
+																<option value="良">良</option>
+
+																<option value="差">差</option>
 
 															</select> <span class="help-block">Select your gender.</span>
 
@@ -478,12 +454,19 @@
 
 													<div class="control-group">
 
-														<label class="control-label">谈话地点</label>
+														<label class="control-label">狱内表现情况</label>
 
 														<div class="controls">
 
-															<input type="text" id="aco-talkplace"
-																class="m-wrap span12" placeholder="dd/mm/yyyy">
+															<select id="aco-PerStatusInPrison" disabled class="m-wrap span12">
+
+																<option value="优">优</option>
+
+																<option value="良">良</option>
+
+																<option value="差">差</option>
+
+															</select> <span class="help-block">Select your gender.</span>
 
 														</div>
 
@@ -503,13 +486,17 @@
 
 													<div class="control-group">
 
-														<label class="control-label" for="firstName">提问</label>
+														<label class="control-label" for="firstName">所长审批意见</label>
 
 														<div class="controls">
 
-															<input type="text" id="aco-ask" class="m-wrap span12"
-																placeholder="Chee Kin"> <span class="help-block">This
-																is inline help</span>
+															<select id="aco-directorApprovalMark" class="m-wrap span12">
+
+																<option value="同意">同意</option>
+
+																<option value="不同意">不同意</option>
+
+															</select> <span class="help-block">Select your gender.</span>
 
 														</div>
 
@@ -517,45 +504,17 @@
 
 												</div>
 
-												<!--/span-->
-
 												<div class="span6 ">
 
 													<div class="control-group">
 
-														<label class="control-label" for="firstName">回答</label>
+														<label class="control-label"  for="firstName">备注</label>
 
 														<div class="controls">
 
-															<input type="text" id="aco-answer" class="m-wrap span12"
+															<input type="text" id="aco-remark" disabled class="m-wrap span12"
 																placeholder="Chee Kin"> <span class="help-block">This
 																is inline help</span>
-
-														</div>
-
-													</div>
-
-												</div>
-
-												<!--/span-->
-
-											</div>
-
-											<!--/row-->
-											<div class="row-fluid">
-
-												<div class="span6 ">
-
-													<div class="control-group">
-
-														<label class="control-label" for="firstName">内容</label>
-
-														<div class="controls">
-
-															<textarea id="aco-talkcontent" rows="3"
-																class="m-wrap span12"> </textarea>
-															<span class="help-block">This is inline help</span>
-
 
 														</div>
 
@@ -566,10 +525,10 @@
 											</div>
 
 											<div class="form-actions">
-												<input type="hidden" id="aco-conversationRecord-id"
+												<input type="hidden" id="aco-riskAssessment-id"
 													value="${id}">
-												<button type="submit"
-													id="aco-conversationRecord-form-submit" class="btn blue">
+												<button type="submit" id="aco-riskAssessment-form-submit"
+													class="btn blue">
 													<i class="icon-ok"></i> Save
 												</button>
 

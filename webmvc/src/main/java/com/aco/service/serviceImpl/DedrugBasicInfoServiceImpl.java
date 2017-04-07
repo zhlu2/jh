@@ -48,8 +48,34 @@ public class DedrugBasicInfoServiceImpl implements DedrugBasicInfoService {
 	@Override
 	public String deleteDedrugBasicInfo(String id) {
 		// TODO Auto-generated method stub
-		dedrugBasicInfoMapper.deleteByPrimaryKey(id);
+		DedrugBasicInfo dedrugBasicInfo=dedrugBasicInfoMapper.selectByPrimaryKey(id).get(0);
+		dedrugBasicInfo.setPersonsign("9");
+		dedrugBasicInfoMapper.updateByPrimaryKeySelective(dedrugBasicInfo);
 		return null;
+	}
+
+	@Override
+	public PagedResult<DedrugBasicInfo> queryDelete(String userName, Integer pageNo, Integer pageSize) {
+		pageNo = pageNo == null ? 1 : pageNo;
+		pageSize = pageSize == null ? 10 : pageSize;
+		PageHelper.startPage(pageNo, pageSize);
+		return BeanUtil.toPagedResult(dedrugBasicInfoMapper.selectByDelete(userName));
+	}
+
+	@Override
+	public PagedResult<DedrugBasicInfo> queryOut(String userName, Integer pageNo, Integer pageSize) {
+		pageNo = pageNo == null ? 1 : pageNo;
+		pageSize = pageSize == null ? 10 : pageSize;
+		PageHelper.startPage(pageNo, pageSize);
+		return BeanUtil.toPagedResult(dedrugBasicInfoMapper.selectByOut(userName));
+	}
+
+	@Override
+	public PagedResult<DedrugBasicInfo> queryInPrison(String userName, Integer pageNo, Integer pageSize) {
+		pageNo = pageNo == null ? 1 : pageNo;
+		pageSize = pageSize == null ? 10 : pageSize;
+		PageHelper.startPage(pageNo, pageSize);
+		return BeanUtil.toPagedResult(dedrugBasicInfoMapper.selectInPrison(userName));
 	}
 
 }

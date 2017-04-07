@@ -14,6 +14,12 @@ public interface DedrugBasicInfoMapper {
     int insertSelective(DedrugBasicInfo record);
 
     List<DedrugBasicInfo> selectByPrimaryKey(@Param("id")String id);
+    
+    List<DedrugBasicInfo> selectByDelete(@Param("id")String id);
+    
+    List<DedrugBasicInfo> selectByOut(@Param("id")String id);
+    
+    List<DedrugBasicInfo> selectInPrison(@Param("id")String id);
 
     int updateByPrimaryKeySelective(DedrugBasicInfo record);
 

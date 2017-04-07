@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>  
+<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
 <!DOCTYPE html>
 
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
@@ -414,51 +414,53 @@
 
 				</li>
 
-				<li class="start active "><a href="${pageContext.request.contextPath }/user/index"> <i
+				<li class="start active "><a
+					href="${pageContext.request.contextPath }/user/index"> <i
 						class="icon-home"></i> <span class="title">Dashboard</span> <span
 						class="selected"></span>
 
 				</a></li>
-                <shiro:hasRole name="admin">  
-				<li class=""><a href="${pageContext.request.contextPath }/user/index2"> <i class="icon-cogs"></i>
+				<shiro:hasRole name="admin">
+					<li class=""><a
+						href="${pageContext.request.contextPath }/user/index2"> <i
+							class="icon-cogs"></i> <span class="title">Layouts</span> <span
+							class="arrow "></span>
 
-						<span class="title">Layouts</span> <span class="arrow "></span>
+					</a>
 
-				</a>
+						<ul class="sub-menu">
 
-					<ul class="sub-menu">
+							<li><a href="layout_horizontal_sidebar_menu.html">
 
-						<li><a href="layout_horizontal_sidebar_menu.html">
+									Horzontal & Sidebar Menu</a></li>
 
-								Horzontal & Sidebar Menu</a></li>
+							<li><a href="layout_horizontal_menu1.html"> Horzontal
+									Menu 1</a></li>
 
-						<li><a href="layout_horizontal_menu1.html"> Horzontal
-								Menu 1</a></li>
+							<li><a href="layout_horizontal_menu2.html"> Horzontal
+									Menu 2</a></li>
 
-						<li><a href="layout_horizontal_menu2.html"> Horzontal
-								Menu 2</a></li>
+							<li><a href="layout_promo.html"> Promo Page</a></li>
 
-						<li><a href="layout_promo.html"> Promo Page</a></li>
+							<li><a href="layout_email.html"> Email Templates</a></li>
 
-						<li><a href="layout_email.html"> Email Templates</a></li>
+							<li><a href="layout_ajax.html"> Content Loading via Ajax</a>
 
-						<li><a href="layout_ajax.html"> Content Loading via Ajax</a>
+							</li>
 
-						</li>
+							<li><a href="layout_sidebar_closed.html"> Sidebar Closed
+									Page</a></li>
 
-						<li><a href="layout_sidebar_closed.html"> Sidebar Closed
-								Page</a></li>
+							<li><a href="layout_blank_page.html"> Blank Page</a></li>
 
-						<li><a href="layout_blank_page.html"> Blank Page</a></li>
+							<li><a href="layout_boxed_page.html"> Boxed Page</a></li>
 
-						<li><a href="layout_boxed_page.html"> Boxed Page</a></li>
+							<li><a href="layout_boxed_not_responsive.html">
 
-						<li><a href="layout_boxed_not_responsive.html">
+									Non-Responsive Boxed Layout</a></li>
 
-								Non-Responsive Boxed Layout</a></li>
-
-					</ul></li>
-                    </shiro:hasRole> 
+						</ul></li>
+				</shiro:hasRole>
 
 
 				<li class=""><a href="javascript:;"> <i
@@ -707,6 +709,9 @@
 
 						</div>
 
+					</div>
+
+					<div class="row-fluid">
 						<div class="span3 responsive" data-tablet="span6"
 							data-desktop="span3">
 
@@ -763,8 +768,8 @@
 							</div>
 
 						</div>
-						
-												<div class="span3 responsive" data-tablet="span6"
+
+						<div class="span3 responsive" data-tablet="span6"
 							data-desktop="span3">
 
 							<div class="dashboard-stat yellow">
@@ -777,14 +782,41 @@
 
 								<div class="details">
 
-									<div class="number">社会关系</div>
+									<div class="number">误出所</div>
 
-									<div class="desc">Total Profit</div>
+									<div class="desc">恢复</div>
 
 								</div>
 
 								<a class="more"
-									href="${pageContext.request.contextPath }/socialRelations/list">
+									href="${pageContext.request.contextPath }/dedrugBasicInfo/outPrisonList">
+									View more <i class="m-icon-swapright m-icon-white"></i>
+								</a>
+
+							</div>
+
+						</div>
+						<div class="span3 responsive" data-tablet="span6"
+							data-desktop="span3">
+
+							<div class="dashboard-stat yellow">
+
+								<div class="visual">
+
+									<i class="icon-bar-chart"></i>
+
+								</div>
+
+								<div class="details">
+
+									<div class="number">误删除</div>
+
+									<div class="desc">恢复</div>
+
+								</div>
+
+								<a class="more"
+									href="${pageContext.request.contextPath }/dedrugBasicInfo/deletePrisonList">
 									View more <i class="m-icon-swapright m-icon-white"></i>
 								</a>
 
@@ -793,7 +825,90 @@
 						</div>
 
 					</div>
-					
+					<div class="row-fluid">
+						<div class="span3 responsive" data-tablet="span6"
+							data-desktop="span3">
+
+							<div class="dashboard-stat yellow">
+
+								<div class="visual">
+
+									<i class="icon-bar-chart"></i>
+
+								</div>
+
+								<div class="details">
+
+									<div class="number">出所</div>
+
+									<div class="desc">登记</div>
+
+								</div>
+
+								<a class="more"
+									href="${pageContext.request.contextPath }/dedrugBasicInfo/backhomeList">
+									View more <i class="m-icon-swapright m-icon-white"></i>
+								</a>
+
+							</div>
+
+						</div>
+						<div class="span3 responsive" data-tablet="span6"
+							data-desktop="span3">
+
+							<div class="dashboard-stat yellow">
+
+								<div class="visual">
+
+									<i class="icon-bar-chart"></i>
+
+								</div>
+
+								<div class="details">
+
+									<div class="number">风险评估</div>
+
+									<div class="desc">申请</div>
+
+								</div>
+
+								<a class="more"
+									href="${pageContext.request.contextPath }/riskAssessment/list">
+									View more <i class="m-icon-swapright m-icon-white"></i>
+								</a>
+
+							</div>
+
+						</div>
+						<div class="span3 responsive" data-tablet="span6"
+							data-desktop="span3">
+
+							<div class="dashboard-stat yellow">
+
+								<div class="visual">
+
+									<i class="icon-bar-chart"></i>
+
+								</div>
+
+								<div class="details">
+
+									<div class="number">风险评估</div>
+
+									<div class="desc">科室审批</div>
+
+								</div>
+
+								<a class="more"
+									href="${pageContext.request.contextPath }/riskAssessment/riskDirectorList">
+									View more <i class="m-icon-swapright m-icon-white"></i>
+								</a>
+
+							</div>
+
+						</div>
+					</div>
+
 				</div>
 
 			</div>
@@ -806,7 +921,7 @@
 
 	<!-- END PAGE -->
 
-	</div>
+
 
 	<!-- END CONTAINER -->
 

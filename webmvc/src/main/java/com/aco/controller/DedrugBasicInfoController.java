@@ -23,6 +23,12 @@ public class DedrugBasicInfoController extends BaseController {
 	private static final String List = "dedrugBasicInfo/dedrugBasicInfoList";
 	private static final String ADDPAGE = "dedrugBasicInfo/addDedrugBasicInfo";
 	private static final String EDITPAGE = "dedrugBasicInfo/editDedrugBasicInfo";
+	private static final String outPrison="outPrison/outPrisonList";
+	private static final String editOutPrison="outPrison/editOutPrison";
+	private static final String deletePrison="deletePrison/deletePrisonList";
+	private static final String editDeletePrison="deletePrison/editDeletePrison";
+	private static final String backhome="backhome/backhomeList";
+	private static final String editBackhome="backhome/editBackhome";
 
 	@RequestMapping("/list")
 	public String list() {
@@ -40,7 +46,36 @@ public class DedrugBasicInfoController extends BaseController {
 		mav.addObject("id", id);
 		return mav;
 	}
-
+	@RequestMapping("/outPrisonList")
+	public String outPrison(){
+		return outPrison;
+	}
+	@RequestMapping("/editOutPrison/{id}")
+	public ModelAndView editOutPrison(@PathVariable("id") String id) {
+		ModelAndView mav = new ModelAndView(editOutPrison);
+		mav.addObject("id", id);
+		return mav;
+	}
+	@RequestMapping("/deletePrisonList")
+	public String deletePrison(){
+		return deletePrison;
+	}
+	@RequestMapping("/editDeletePrison/{id}")
+	public ModelAndView editDeletePrison(@PathVariable("id") String id) {
+		ModelAndView mav = new ModelAndView(editDeletePrison);
+		mav.addObject("id", id);
+		return mav;
+	}
+	@RequestMapping("/backhomeList")
+	public String backhome(){
+		return backhome;
+	}
+	@RequestMapping("/editBackhome/{id}")
+	public ModelAndView editBackhome(@PathVariable("id") String id) {
+		ModelAndView mav = new ModelAndView(editBackhome);
+		mav.addObject("id", id);
+		return mav;
+	}
 	@RequestMapping("/add")
 	@ResponseBody
 	public String add(DedrugBasicInfo dedrugBasicInfo) {
@@ -71,6 +106,48 @@ public class DedrugBasicInfoController extends BaseController {
 		logger.info("分页查询用户信息列表请求入参：pageNumber{},pageSize{}", pageNumber, pageSize);
 		try {
 			PagedResult<DedrugBasicInfo> pageResult = dedrugBasicInfoService.queryByPage(userName, pageNumber,
+					pageSize);
+			return responseSuccess(pageResult);
+		} catch (Exception e) {
+			return responseFail(e.getMessage());
+		}
+	}
+	
+	@RequestMapping("/selectByOut")
+    @MethodDescription(value = "分页查询病室号列表", opeartion = "search")
+	@ResponseBody
+	public String outList(Integer pageNumber, Integer pageSize, String userName) {
+		logger.info("分页查询用户信息列表请求入参：pageNumber{},pageSize{}", pageNumber, pageSize);
+		try {
+			PagedResult<DedrugBasicInfo> pageResult = dedrugBasicInfoService.queryOut(userName, pageNumber,
+					pageSize);
+			return responseSuccess(pageResult);
+		} catch (Exception e) {
+			return responseFail(e.getMessage());
+		}
+	}
+	
+	@RequestMapping("/selectByDelete")
+    @MethodDescription(value = "分页查询病室号列表", opeartion = "search")
+	@ResponseBody
+	public String deleteList(Integer pageNumber, Integer pageSize, String userName) {
+		logger.info("分页查询用户信息列表请求入参：pageNumber{},pageSize{}", pageNumber, pageSize);
+		try {
+			PagedResult<DedrugBasicInfo> pageResult = dedrugBasicInfoService.queryDelete(userName, pageNumber,
+					pageSize);
+			return responseSuccess(pageResult);
+		} catch (Exception e) {
+			return responseFail(e.getMessage());
+		}
+	}
+	
+	@RequestMapping("/selectInPrison")
+    @MethodDescription(value = "分页查询病室号列表", opeartion = "search")
+	@ResponseBody
+	public String inPrisonList(Integer pageNumber, Integer pageSize, String userName) {
+		logger.info("分页查询用户信息列表请求入参：pageNumber{},pageSize{}", pageNumber, pageSize);
+		try {
+			PagedResult<DedrugBasicInfo> pageResult = dedrugBasicInfoService.queryInPrison(userName, pageNumber,
 					pageSize);
 			return responseSuccess(pageResult);
 		} catch (Exception e) {
