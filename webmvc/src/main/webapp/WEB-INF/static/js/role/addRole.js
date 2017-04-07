@@ -33,7 +33,7 @@
         
         //生成表格
         function buildTable(userName,pageNumber,pageSize) {
-        	 var url =  urlRootContext + "/role/findRoleList"; //请求的网址
+        	 var url =  urlRootContext + "/permission/findPermissionList"; //请求的网址
              var reqParams = {'userName':userName, 'pageNumber':pageNumber,'pageSize':pageSize};//请求数据
              $(function () {   
              	  $.ajax({
@@ -44,7 +44,7 @@
              	        dataType:"json",
              	        success: function(data){
              	            if(data.isError == false) {
-             	           // options.totalPages = data.pages;
+      
              	        var newoptions = {  
                         currentPage: 1,  //当前页数
                         totalPages: data.pages==0?1:data.pages,  //总页数
@@ -75,9 +75,9 @@
          if (dataList.length > 0 ) {
              $(dataList).each(function(){//重新生成
           	    $("#tableBody").append('<tr>');
-                $("#tableBody").append('<td><input type="checkbox" name="roleid" value="'+ this.roleId +'"/></td>');
-                $("#tableBody").append('<td>' + this.roleName + '</td>');
-                $("#tableBody").append('<td>' + this.description + '</td>'); 
+                $("#tableBody").append('<td><input type="checkbox" name="permissionId" value="'+ this.permissionId +'"/></td>');
+                $("#tableBody").append('<td>' + this.permissionName + '</td>');
+                $("#tableBody").append('<td>' + this.permissionSign + '</td>'); 
                 $("#tableBody").append("<a href=\"javascript:void(0);\" onclick=\"saveUserRole()\" class=\"btn default btn-xs red-stripe\">添加</a>"); 
                 $("#tableBody").append('</tr>');
              	    });  
@@ -95,17 +95,17 @@
                });
         }
         function saveUserRole(){  
-        	var roleid="";       	
-        		$("input[name='roleid']:checked").each(function() {
-        			roleid += $(this).val() + ",";
+        	var permissionId="";       	
+        		$("input[name='permissionId']:checked").each(function() {
+        			permissionId += $(this).val() + ",";
         		}); 				
 				    var strPath = window.document.location.pathname;
 		            var postPath = strPath.substring(0, strPath.substr(1).indexOf('/') + 1);
 					$.ajax({
 						type : "POST",
 						async : false,// 同步请求
-						url : postPath+ "/userRole/add",
-						data: {"roleId":roleid,"userId":$("#aco-user-id").val()},
+						url : postPath+ "/role/add",
+						data: {"permissionId":permissionId,"roleName":$("#aco-roleName").val(),"roleSign":$("#aco-roleSign").val(),"description":$("#aco-description").val(),"creatTime":new Date()},
 						success: function(){
 							alert("添加角色成功！");
 							parent.location.href=postPath+"/demoController/index";

@@ -19,8 +19,8 @@
                 }                 
             },  
             onPageClicked: function (e, originalEvent, type, page) {  
-            	var userName = $("#textInput").val(); //取内容
-            	buildTable(userName,page,PAGESIZE);//默认每页最多10条
+            	var roleId = $("#textInput").val(); //取内容
+            	buildTable(roleId,page,PAGESIZE);//默认每页最多10条
             }  
         }  
 
@@ -31,10 +31,36 @@
             return postPath;
         })();
         
+        function jumpOnEditPage(id){
+        	if(!!id){
+        		window.location.href=urlRootContext+"/user/editPage/"+id;	
+        	}        	
+        }
+        function deleEvent(roleId) {        	
+            	if (confirm("确定要删除吗？")) {
+				    var strPath = window.document.location.pathname;
+		            var postPath = strPath.substring(0, strPath.substr(1).indexOf('/') + 1);
+                    $.ajax({
+                        url: postPath + "/role/delete",
+                        type: "POST",
+                        async: false,// 同步请求
+                        data:{"roleId":roleId},
+                        success: function () {
+                                alert("删除伤情信息成功！");
+                                window.location.reload();
+                        },
+                        error: '请求异常，删除伤情信息失败！'
+                    });
+            	}else{                    
+            		return false;
+            		}
+                // 点击确认返回callback
+     
+        }
         //生成表格
-        function buildTable(userName,pageNumber,pageSize) {
-        	 var url =  urlRootContext + "/role/findRoleList"; //请求的网址
-             var reqParams = {'userName':userName, 'pageNumber':pageNumber,'pageSize':pageSize};//请求数据
+        function buildTable(roleId,pageNumber,pageSize) {
+        	 var url =  urlRootContext + "/user/findRoleList"; //请求的网址
+             var reqParams = {'id':roleId, 'pageNumber':pageNumber,'pageSize':pageSize};//请求数据
              $(function () {   
              	  $.ajax({
              	        type:"POST",
@@ -65,8 +91,8 @@
                 }                 
             },  
             onPageClicked: function (e, originalEvent, type, page) {  
-            	var userName = $("#textInput").val(); //取内容
-            	buildTable(userName,page,PAGESIZE);//默认每页最多10条
+            	var roleId = $("#textInput").val(); //取内容
+            	buildTable(roleId,page,PAGESIZE);//默认每页最多10条
             }  
          }             	           
          $('#bottomTab').bootstrapPaginator("setOptions",newoptions); //重新设置总页面数目
@@ -74,12 +100,13 @@
          $("#tableBody").empty();//清空表格内容
          if (dataList.length > 0 ) {
              $(dataList).each(function(){//重新生成
-          	    $("#tableBody").append('<tr>');
-                $("#tableBody").append('<td><input type="checkbox" name="roleid" value="'+ this.roleId +'"/></td>');
-                $("#tableBody").append('<td>' + this.roleName + '</td>');
-                $("#tableBody").append('<td>' + this.description + '</td>'); 
-                $("#tableBody").append("<a href=\"javascript:void(0);\" onclick=\"saveUserRole()\" class=\"btn default btn-xs red-stripe\">添加</a>"); 
-                $("#tableBody").append('</tr>');
+             	    $("#tableBody").append('<tr>');
+                    $("#tableBody").append('<td>' + this.roleId + '</td>');
+                    $("#tableBody").append('<td>' + this.roleName + '</td>');
+                    $("#tableBody").append('<td>' + this.description + '</td>');
+                    $("#tableBody").append("<a href=\"javascript:void(0);\" id=\"aco-user-role-deleteBtn" + this.roleId + "\" onclick=\"deleEvent('"
+                            + this.roleId + "')\" class=\"btn default btn-xs red-stripe\">删除</a>");                   
+                    $("#tableBody").append('</tr>');
              	    });  
              	    } else {             	            	
              	          $("#tableBody").append('<tr><th colspan ="4"><center>查询无数据</center></th></tr>');
@@ -94,37 +121,14 @@
              	    });
                });
         }
-        function saveUserRole(){  
-        	var roleid="";       	
-        		$("input[name='roleid']:checked").each(function() {
-        			roleid += $(this).val() + ",";
-        		}); 				
-				    var strPath = window.document.location.pathname;
-		            var postPath = strPath.substring(0, strPath.substr(1).indexOf('/') + 1);
-					$.ajax({
-						type : "POST",
-						async : false,// 同步请求
-						url : postPath+ "/userRole/add",
-						data: {"roleId":roleid,"userId":$("#aco-user-id").val()},
-						success: function(){
-							alert("添加角色成功！");
-							parent.location.href=postPath+"/demoController/index";
-						},
-						error : '请求异常，新建考核登记失败！'
-					});
-			
-        }
+        
         //渲染完就执行
         $(function() {
         	
         	//生成底部分页栏
             $('#bottomTab').bootstrapPaginator(options);     
         	
-        	buildTable("",1,10);//默认空白查全部
+        	buildTable($("#aco-user-id").val(),1,10);//默认空白查全部
         	
-            //创建结算规则
-            $("#queryButton").bind("click",function(){
-            	var userName = $("#textInput").val();	
-            	buildTable(userName,1,PAGESIZE);
-            });
+
         });

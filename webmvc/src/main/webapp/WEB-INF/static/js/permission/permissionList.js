@@ -19,8 +19,8 @@
                 }                 
             },  
             onPageClicked: function (e, originalEvent, type, page) {  
-            	var userName = $("#textInput").val(); //取内容
-            	buildTable(userName,page,PAGESIZE);//默认每页最多10条
+            	var permissionId = $("#textInput").val(); //取内容
+            	buildTable(permissionId,page,PAGESIZE);//默认每页最多10条
             }  
         }  
 
@@ -31,10 +31,36 @@
             return postPath;
         })();
         
+        function jumpOnEditPage(id){
+        	if(!!id){
+        		window.location.href=urlRootContext+"/user/editPage/"+id;	
+        	}        	
+        }
+        function deleEvent(permissionId) {        	
+            	if (confirm("确定要删除吗？")) {
+				    var strPath = window.document.location.pathname;
+		            var postPath = strPath.substring(0, strPath.substr(1).indexOf('/') + 1);
+                    $.ajax({
+                        url: postPath + "/permission/delete",
+                        type: "POST",
+                        async: false,// 同步请求
+                        data:{"permissionId":permissionId},
+                        success: function () {
+                                alert("删除权限成功！");
+                                window.location.reload();
+                        },
+                        error: '请求异常，删除伤情信息失败！'
+                    });
+            	}else{                    
+            		return false;
+            		}
+                // 点击确认返回callback
+     
+        }
         //生成表格
-        function buildTable(userName,pageNumber,pageSize) {
-        	 var url =  urlRootContext + "/role/findRoleList"; //请求的网址
-             var reqParams = {'userName':userName, 'pageNumber':pageNumber,'pageSize':pageSize};//请求数据
+        function buildTable(permissionId,pageNumber,pageSize) {
+        	 var url =  urlRootContext + "/permission/findPermissionList"; //请求的网址
+             var reqParams = {'id':permissionId, 'pageNumber':pageNumber,'pageSize':pageSize};//请求数据
              $(function () {   
              	  $.ajax({
              	        type:"POST",
@@ -65,8 +91,8 @@
                 }                 
             },  
             onPageClicked: function (e, originalEvent, type, page) {  
-            	var userName = $("#textInput").val(); //取内容
-            	buildTable(userName,page,PAGESIZE);//默认每页最多10条
+            	var permissionId = $("#textInput").val(); //取内容
+            	buildTable(permissionId,page,PAGESIZE);//默认每页最多10条
             }  
          }             	           
          $('#bottomTab').bootstrapPaginator("setOptions",newoptions); //重新设置总页面数目
@@ -74,12 +100,13 @@
          $("#tableBody").empty();//清空表格内容
          if (dataList.length > 0 ) {
              $(dataList).each(function(){//重新生成
-          	    $("#tableBody").append('<tr>');
-                $("#tableBody").append('<td><input type="checkbox" name="roleid" value="'+ this.roleId +'"/></td>');
-                $("#tableBody").append('<td>' + this.roleName + '</td>');
-                $("#tableBody").append('<td>' + this.description + '</td>'); 
-                $("#tableBody").append("<a href=\"javascript:void(0);\" onclick=\"saveUserRole()\" class=\"btn default btn-xs red-stripe\">添加</a>"); 
-                $("#tableBody").append('</tr>');
+             	    $("#tableBody").append('<tr>');
+                    $("#tableBody").append('<td>' + this.permissionId + '</td>');
+                    $("#tableBody").append('<td>' + this.permissionName + '</td>');
+                    $("#tableBody").append('<td>' + this.description + '</td>');
+                    $("#tableBody").append("<a href=\"javascript:void(0);\" id=\"aco-user-role-deleteBtn" + this.permissionId + "\" onclick=\"deleEvent('"
+                            + this.permissionId + "')\" class=\"btn default btn-xs red-stripe\">删除</a>");                   
+                    $("#tableBody").append('</tr>');
              	    });  
              	    } else {             	            	
              	          $("#tableBody").append('<tr><th colspan ="4"><center>查询无数据</center></th></tr>');
@@ -94,26 +121,7 @@
              	    });
                });
         }
-        function saveUserRole(){  
-        	var roleid="";       	
-        		$("input[name='roleid']:checked").each(function() {
-        			roleid += $(this).val() + ",";
-        		}); 				
-				    var strPath = window.document.location.pathname;
-		            var postPath = strPath.substring(0, strPath.substr(1).indexOf('/') + 1);
-					$.ajax({
-						type : "POST",
-						async : false,// 同步请求
-						url : postPath+ "/userRole/add",
-						data: {"roleId":roleid,"userId":$("#aco-user-id").val()},
-						success: function(){
-							alert("添加角色成功！");
-							parent.location.href=postPath+"/demoController/index";
-						},
-						error : '请求异常，新建考核登记失败！'
-					});
-			
-        }
+        
         //渲染完就执行
         $(function() {
         	

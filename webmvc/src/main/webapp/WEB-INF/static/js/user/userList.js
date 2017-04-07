@@ -31,9 +31,20 @@
             return postPath;
         })();
         
+        function jumpOnEditPage(id){
+        	if(!!id){
+        		window.location.href=urlRootContext+"/user/editPage/"+id;	
+        	}        	
+        }
+        
+        function jumpOnUserRole(id){
+        	if(!!id){
+        		window.location.href=urlRootContext+"/user/roleList/"+id;	
+        	}        	
+        }
         //生成表格
         function buildTable(userName,pageNumber,pageSize) {
-        	 var url =  urlRootContext + "/role/findRoleList"; //请求的网址
+        	 var url =  urlRootContext + "/user/findUserList"; //请求的网址
              var reqParams = {'userName':userName, 'pageNumber':pageNumber,'pageSize':pageSize};//请求数据
              $(function () {   
              	  $.ajax({
@@ -74,12 +85,13 @@
          $("#tableBody").empty();//清空表格内容
          if (dataList.length > 0 ) {
              $(dataList).each(function(){//重新生成
-          	    $("#tableBody").append('<tr>');
-                $("#tableBody").append('<td><input type="checkbox" name="roleid" value="'+ this.roleId +'"/></td>');
-                $("#tableBody").append('<td>' + this.roleName + '</td>');
-                $("#tableBody").append('<td>' + this.description + '</td>'); 
-                $("#tableBody").append("<a href=\"javascript:void(0);\" onclick=\"saveUserRole()\" class=\"btn default btn-xs red-stripe\">添加</a>"); 
-                $("#tableBody").append('</tr>');
+             	    $("#tableBody").append('<tr>');
+                    $("#tableBody").append('<td>' + this.id + '</td>');
+                    $("#tableBody").append('<td>' + this.username + '</td>');
+                    $("#tableBody").append('<td>' + this.password + '</td>');
+                    $("#tableBody").append('<td>' + this.createTime + '</td>');
+                    $("#tableBody").append("<a href=\"javascript:jumpOnEditPage("+this.id+");\" class=\"btn default btn-xs blue-stripe\">编辑</a><a href=\"javascript:jumpOnUserRole("+this.id+");\" class=\"btn default btn-xs blue-stripe\">角色管理</a>");                  
+                    $("#tableBody").append('</tr>');
              	    });  
              	    } else {             	            	
              	          $("#tableBody").append('<tr><th colspan ="4"><center>查询无数据</center></th></tr>');
@@ -94,26 +106,7 @@
              	    });
                });
         }
-        function saveUserRole(){  
-        	var roleid="";       	
-        		$("input[name='roleid']:checked").each(function() {
-        			roleid += $(this).val() + ",";
-        		}); 				
-				    var strPath = window.document.location.pathname;
-		            var postPath = strPath.substring(0, strPath.substr(1).indexOf('/') + 1);
-					$.ajax({
-						type : "POST",
-						async : false,// 同步请求
-						url : postPath+ "/userRole/add",
-						data: {"roleId":roleid,"userId":$("#aco-user-id").val()},
-						success: function(){
-							alert("添加角色成功！");
-							parent.location.href=postPath+"/demoController/index";
-						},
-						error : '请求异常，新建考核登记失败！'
-					});
-			
-        }
+        
         //渲染完就执行
         $(function() {
         	
