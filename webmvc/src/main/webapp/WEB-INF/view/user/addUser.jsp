@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
+<title>戒毒管理信息系统</title>
 <link
 	href="<%=request.getContextPath()%>/static/js/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">

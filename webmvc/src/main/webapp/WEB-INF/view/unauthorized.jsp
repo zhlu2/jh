@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
+<title>戒毒管理信息系统</title>
 </head>
 <body>
      认证未通过，或者权限不足

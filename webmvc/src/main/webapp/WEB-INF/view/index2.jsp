@@ -17,7 +17,7 @@
 
 <meta charset="utf-8" />
 
-<title>Metronic | Admin Dashboard Template</title>
+<title>戒毒管理信息系统</title>
 
 <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
@@ -415,13 +415,13 @@
 				</li>
 
 				<li class="start "><a href="${pageContext.request.contextPath }/user/index"> <i
-						class="icon-home"></i> <span class="title">Dashboard</span> 
+						class="icon-home"></i> <span class="title">主界面</span> 
 
 				</a></li>
 
 				<li class=""><a href="${pageContext.request.contextPath }/user/index2"> <i class="icon-cogs"></i>
 
-						<span class="title">Layouts</span> <span class="arrow "></span>
+						<span class="title">用户权限管理 </span> <span class="arrow "></span>
 
 				</a>
 
@@ -550,17 +550,17 @@
 
 						<h3 class="page-title">
 
-							Dashboard <small>statistics and more</small>
+							用户权限管理 <small>模块展示页面</small>
 
 						</h3>
 
 						<ul class="breadcrumb">
 
-							<li><i class="icon-home"></i> <a href="index.html">Home</a>
+							<li><i class="icon-home"></i> <a href="index.html">用户权限管理 </a>
 
 								<i class="icon-angle-right"></i></li>
 
-							<li><a href="#">Dashboard</a></li>
+							<li><a href="#">模块展示页面</a></li>
 
 							<li class="pull-right no-text-shadow">
 
@@ -611,7 +611,7 @@
 
 								<a class="more"
 									href="${pageContext.request.contextPath }/demoController/index">
-									View more <i class="m-icon-swapright m-icon-white"></i>
+									查看更多 <i class="m-icon-swapright m-icon-white"></i>
 
 								</a>
 
@@ -640,7 +640,7 @@
 
 								<a class="more"
 									href="${pageContext.request.contextPath }/rolePermission/list">
-									View more <i class="m-icon-swapright m-icon-white"></i>
+									查看更多 <i class="m-icon-swapright m-icon-white"></i>
 
 								</a>
 
@@ -663,13 +663,11 @@
 
 									<div class="number">权限</div>
 
-									<div class="desc">Brand Popularity</div>
-
 								</div>
 
 								<a class="more"
 									href="${pageContext.request.contextPath }/permission/list">
-									View more <i class="m-icon-swapright m-icon-white"></i>
+									查看更多 <i class="m-icon-swapright m-icon-white"></i>
 
 								</a>
 

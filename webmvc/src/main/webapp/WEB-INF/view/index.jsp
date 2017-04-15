@@ -17,7 +17,7 @@
 
 <meta charset="utf-8" />
 
-<title>Metronic | Admin Dashboard Template</title>
+<title>戒毒管理信息系统</title>
 
 <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
@@ -416,49 +416,16 @@
 
 				<li class="start "><a
 					href="${pageContext.request.contextPath }/user/index"> <i
-						class="icon-home"></i> <span class="title">Dashboard</span>
+						class="icon-home"></i> <span class="title">主界面</span>
 
 				</a></li>
 				<shiro:hasRole name="admin">
 					<li class=""><a
 						href="${pageContext.request.contextPath }/user/index2"> <i
-							class="icon-cogs"></i> <span class="title">Layouts</span> <span
+							class="icon-cogs"></i> <span class="title">用户权限管理</span> <span
 							class="arrow "></span>
 
-					</a>
-
-						<ul class="sub-menu">
-
-							<li><a href="layout_horizontal_sidebar_menu.html">
-
-									Horzontal & Sidebar Menu</a></li>
-
-							<li><a href="layout_horizontal_menu1.html"> Horzontal
-									Menu 1</a></li>
-
-							<li><a href="layout_horizontal_menu2.html"> Horzontal
-									Menu 2</a></li>
-
-							<li><a href="layout_promo.html"> Promo Page</a></li>
-
-							<li><a href="layout_email.html"> Email Templates</a></li>
-
-							<li><a href="layout_ajax.html"> Content Loading via Ajax</a>
-
-							</li>
-
-							<li><a href="layout_sidebar_closed.html"> Sidebar Closed
-									Page</a></li>
-
-							<li><a href="layout_blank_page.html"> Blank Page</a></li>
-
-							<li><a href="layout_boxed_page.html"> Boxed Page</a></li>
-
-							<li><a href="layout_boxed_not_responsive.html">
-
-									Non-Responsive Boxed Layout</a></li>
-
-						</ul></li>
+					</a></li>
 				</shiro:hasRole>
 
 
@@ -552,17 +519,16 @@
 
 						<h3 class="page-title">
 
-							Dashboard <small>statistics and more</small>
+							主界面 <small>模块展示页面</small>
 
 						</h3>
 
 						<ul class="breadcrumb">
 
-							<li><i class="icon-home"></i> <a href="index.html">Home</a>
+							<li><i class="icon-home"></i> <a href="index.html">主界面</a> <i
+								class="icon-angle-right"></i></li>
 
-								<i class="icon-angle-right"></i></li>
-
-							<li><a href="#">Dashboard</a></li>
+							<li><a href="${pageContext.request.contextPath }/user/index">模块展示页面</a></li>
 
 							<li class="pull-right no-text-shadow">
 
@@ -613,7 +579,7 @@
 
 								<a class="more"
 									href="${pageContext.request.contextPath }/policeBasicInfo/list">
-									View more <i class="m-icon-swapright m-icon-white"></i>
+									查看更多 <i class="m-icon-swapright m-icon-white"></i>
 
 								</a>
 
@@ -642,7 +608,7 @@
 
 								<a class="more"
 									href="${pageContext.request.contextPath }/dedrugBasicInfo/list">
-									View more <i class="m-icon-swapright m-icon-white"></i>
+									查看更多 <i class="m-icon-swapright m-icon-white"></i>
 
 								</a>
 
@@ -665,13 +631,11 @@
 
 									<div class="number">谈话教育</div>
 
-									<div class="desc">Brand Popularity</div>
-
 								</div>
 
 								<a class="more"
 									href="${pageContext.request.contextPath }/conversationRecord/list">
-									View more <i class="m-icon-swapright m-icon-white"></i>
+									查看更多 <i class="m-icon-swapright m-icon-white"></i>
 
 								</a>
 
@@ -694,13 +658,11 @@
 
 									<div class="number">伤情登记</div>
 
-									<div class="desc">Total Profit</div>
-
 								</div>
 
 								<a class="more"
 									href="${pageContext.request.contextPath }/juryRegis/list">
-									View more <i class="m-icon-swapright m-icon-white"></i>
+									查看更多 <i class="m-icon-swapright m-icon-white"></i>
 
 								</a>
 
@@ -726,13 +688,11 @@
 
 									<div class="number">临时探访</div>
 
-									<div class="desc">Total Profit</div>
-
 								</div>
 
 								<a class="more"
 									href="${pageContext.request.contextPath }/prsArrgInfo/list">
-									View more <i class="m-icon-swapright m-icon-white"></i>
+									查看更多 <i class="m-icon-swapright m-icon-white"></i>
 
 								</a>
 
@@ -755,13 +715,11 @@
 
 									<div class="number">社会关系</div>
 
-									<div class="desc">Total Profit</div>
-
 								</div>
 
 								<a class="more"
 									href="${pageContext.request.contextPath }/socialRelations/list">
-									View more <i class="m-icon-swapright m-icon-white"></i>
+									查看更多 <i class="m-icon-swapright m-icon-white"></i>
 								</a>
 
 							</div>
@@ -789,7 +747,7 @@
 
 								<a class="more"
 									href="${pageContext.request.contextPath }/dedrugBasicInfo/outPrisonList">
-									View more <i class="m-icon-swapright m-icon-white"></i>
+									查看更多 <i class="m-icon-swapright m-icon-white"></i>
 								</a>
 
 							</div>
@@ -816,7 +774,7 @@
 
 								<a class="more"
 									href="${pageContext.request.contextPath }/dedrugBasicInfo/deletePrisonList">
-									View more <i class="m-icon-swapright m-icon-white"></i>
+									查看更多 <i class="m-icon-swapright m-icon-white"></i>
 								</a>
 
 							</div>
@@ -846,7 +804,7 @@
 
 								<a class="more"
 									href="${pageContext.request.contextPath }/dedrugBasicInfo/backhomeList">
-									View more <i class="m-icon-swapright m-icon-white"></i>
+									查看更多 <i class="m-icon-swapright m-icon-white"></i>
 								</a>
 
 							</div>
@@ -873,7 +831,7 @@
 
 								<a class="more"
 									href="${pageContext.request.contextPath }/riskAssessment/list">
-									View more <i class="m-icon-swapright m-icon-white"></i>
+									查看更多 <i class="m-icon-swapright m-icon-white"></i>
 								</a>
 
 							</div>
@@ -900,7 +858,7 @@
 
 								<a class="more"
 									href="${pageContext.request.contextPath }/riskAssessment/riskDirectorList">
-									View more <i class="m-icon-swapright m-icon-white"></i>
+									查看更多 <i class="m-icon-swapright m-icon-white"></i>
 								</a>
 
 							</div>
@@ -930,7 +888,7 @@
 
 		<div class="footer-inner">
 
-			2013 &copy; Metronic by keenthemes.Collect from <a>戒毒人员管理信息系统</a>
+			&copy; Metronic by keenthemes.Collect from <a>戒毒人员管理信息系统</a>
 		</div>
 
 		<div class="footer-tools">

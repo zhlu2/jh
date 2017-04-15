@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
+<title>戒毒管理信息系统</title>
 <script
 	src="<%=request.getContextPath()%>/static/js/jQuery/jquery-2.1.4.min.js"></script>
 <script type="text/javascript"
