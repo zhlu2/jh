@@ -414,10 +414,9 @@
 
 				</li>
 
-				<li class="start active "><a
+				<li class="start "><a
 					href="${pageContext.request.contextPath }/user/index"> <i
-						class="icon-home"></i> <span class="title">Dashboard</span> <span
-						class="selected"></span>
+						class="icon-home"></i> <span class="title">Dashboard</span>
 
 				</a></li>
 				<shiro:hasRole name="admin">

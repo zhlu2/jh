@@ -909,8 +909,6 @@
 
 											<th>序号</th>
 
-											<th class="hidden-480">关系人姓名</th>
-
 											<th class="hidden-480">角色名</th>
 
 											<th class="hidden-480">角色描述</th>
