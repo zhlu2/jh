@@ -71,7 +71,7 @@
 
 				<!-- BEGIN LOGO -->
 
-				<a class="brand" href="index.html"> <img
+				<a class="brand" href="${pageContext.request.contextPath }/user/index"> <img
 					src="media/image/logo.png" alt="logo" />
 
 				</a>
@@ -257,14 +257,14 @@
 
 			<li class="start active "><a
 				href="${pageContext.request.contextPath }/user/index"> <i
-					class="icon-home"></i> <span class="title">Dashboard</span> <span
+					class="icon-home"></i> <span class="title">主界面</span> <span
 					class="selected"></span>
 
 			</a></li>
 			<shiro:hasRole name="admin">
 				<li class=""><a
 					href="${pageContext.request.contextPath }/user/index2"> <i
-						class="icon-cogs"></i> <span class="title">Layouts</span> <span
+						class="icon-cogs"></i> <span class="title">用户权限管理</span> <span
 						class="arrow "></span>
 
 				</a>
@@ -396,7 +396,7 @@
 										<form action="#" id="aco-juryRegis-form"
 											class="horizontal-form">
 
-											<h3 class="form-section">Person Info</h3>
+											<h3 class="form-section">伤情登记编辑页面</h3>
 
 											<div class="row-fluid">
 
@@ -409,8 +409,8 @@
 														<div class="controls">
 
 															<input type="text" id="aco-dedrugBasicinfo-fullname"
-																class="m-wrap span12" placeholder="Chee Kin"> <span
-																class="help-block">This is inline help</span> <input
+																class="m-wrap span12" > <span
+																class="help-block"></span> <input
 																type="hidden" id="aco-dedrugBasicinfo-personId">
 															<br>
 														</div>
@@ -430,8 +430,8 @@
 														<div class="controls">
 
 															<input type="text" id="aco-injurysitu"
-																class="m-wrap span12" placeholder="Chee Kin"> <span
-																class="help-block">This is inline help</span>
+																class="m-wrap span12" > <span
+																class="help-block"></span>
 
 														</div>
 
@@ -500,8 +500,8 @@
 														<div class="controls">
 
 															<textarea id="aco-policestatementreason"
-																class="m-wrap span12" rows="3" placeholder="Chee Kin"></textarea>
-															<span class="help-block">This is inline help</span>
+																class="m-wrap span12" rows="3" ></textarea>
+															<span class="help-block"></span>
 
 														</div>
 
@@ -520,8 +520,8 @@
 														<div class="controls">
 
 															<input type="text" id="aco-detainedpolice"
-																class="m-wrap span12" placeholder="Chee Kin"> <span
-																class="help-block">This is inline help</span>
+																class="m-wrap span12" > <span
+																class="help-block"></span>
 
 														</div>
 
@@ -545,8 +545,8 @@
 														<div class="controls">
 
 															<input type="text" id="aco-scpolice"
-																class="m-wrap span12" placeholder="Chee Kin"> <span
-																class="help-block">This is inline help</span>
+																class="m-wrap span12" > <span
+																class="help-block"></span>
 
 														</div>
 
@@ -563,7 +563,7 @@
 														<div class="controls">
 
 															<textarea id="aco-remark" rows="3" class="m-wrap span12"> </textarea>
-															<span class="help-block">This is inline help</span>
+															<span class="help-block"></span>
 
 
 														</div>
@@ -578,10 +578,12 @@
 		                                        <input type="hidden" id="aco-juryRegis-id" value="${id}" >
 												<button type="submit"
 													id="aco-juryRegis-form-submit" class="btn blue">
-													<i class="icon-ok"></i> Save
+													<i class="icon-ok"></i> 保存
 												</button>
 
-												<button type="button" class="btn">Cancel</button>
+												<a class="btn"
+													href="${pageContext.request.contextPath }/juryRegis/list">
+													取消 </a>
 
 											</div>
 

@@ -105,7 +105,7 @@
 
 				<!-- BEGIN LOGO -->
 
-				<a class="brand" href="index.html"> <img
+				<a class="brand" href="${pageContext.request.contextPath }/user/index"> <img
 					src="media/image/logo.png" alt="logo" />
 
 				</a>
@@ -556,7 +556,7 @@
 
 						<ul class="breadcrumb">
 
-							<li><i class="icon-home"></i> <a href="index.html">用户权限管理 </a>
+							<li><i class="icon-home"></i> <a href="${pageContext.request.contextPath }/user/index">用户权限管理 </a>
 
 								<i class="icon-angle-right"></i></li>
 

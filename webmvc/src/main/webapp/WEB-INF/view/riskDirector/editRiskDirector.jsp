@@ -70,7 +70,7 @@
 
 				<!-- BEGIN LOGO -->
 
-				<a class="brand" href="index.html"> <img
+				<a class="brand" href="${pageContext.request.contextPath }/user/index"> <img
 					src="media/image/logo.png" alt="logo" />
 
 				</a>
@@ -256,14 +256,14 @@
 
 			<li class="start active "><a
 				href="${pageContext.request.contextPath }/user/index"> <i
-					class="icon-home"></i> <span class="title">Dashboard</span> <span
+					class="icon-home"></i> <span class="title">主界面</span> <span
 					class="selected"></span>
 
 			</a></li>
 			<shiro:hasRole name="admin">
 				<li class=""><a
 					href="${pageContext.request.contextPath }/user/index2"> <i
-						class="icon-cogs"></i> <span class="title">Layouts</span> <span
+						class="icon-cogs"></i> <span class="title">用户权限管理</span> <span
 						class="arrow "></span>
 
 				</a>
@@ -395,7 +395,7 @@
 										<form action="#" id="aco-riskAssessment-form"
 											class="horizontal-form">
 
-											<h3 class="form-section">Person Info</h3>
+											<h3 class="form-section">风险评估科室审批办理页面</h3>
 
 											<div class="row-fluid">
 
@@ -408,8 +408,8 @@
 														<div class="controls">
 
 															<input type="text" id="aco-dedrugBasicinfo-fullname" disabled
-																class="m-wrap span12" placeholder="Chee Kin"> <span
-																class="help-block">This is inline help</span> <input
+																class="m-wrap span12" > <span
+																class="help-block"></span> <input
 																type="hidden" id="aco-dedrugBasicinfo-personId">
 															<br>
 														</div>
@@ -440,7 +440,7 @@
 
 																<option value="差">差</option>
 
-															</select> <span class="help-block">Select your gender.</span>
+															</select> <span class="help-block"></span>
 
 														</div>
 
@@ -466,7 +466,7 @@
 
 																<option value="差">差</option>
 
-															</select> <span class="help-block">Select your gender.</span>
+															</select> <span class="help-block"></span>
 
 														</div>
 
@@ -496,7 +496,7 @@
 
 																<option value="不同意">不同意</option>
 
-															</select> <span class="help-block">Select your gender.</span>
+															</select> <span class="help-block"></span>
 
 														</div>
 
@@ -513,8 +513,7 @@
 														<div class="controls">
 
 															<input type="text" id="aco-remark" disabled class="m-wrap span12"
-																placeholder="Chee Kin"> <span class="help-block">This
-																is inline help</span>
+																> <span class="help-block"></span>
 
 														</div>
 
@@ -529,10 +528,12 @@
 													value="${id}">
 												<button type="submit" id="aco-riskAssessment-form-submit"
 													class="btn blue">
-													<i class="icon-ok"></i> Save
+													<i class="icon-ok"></i> 保存
 												</button>
 
-												<button type="button" class="btn">Cancel</button>
+												<a class="btn"
+													href="${pageContext.request.contextPath }/riskAssessment/riskDirectorList">
+													取消 </a>
 
 											</div>
 

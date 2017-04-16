@@ -76,7 +76,7 @@
 
 				<!-- BEGIN LOGO -->
 
-				<a class="brand" href="index.html"> <img
+				<a class="brand" href="${pageContext.request.contextPath }/user/index"> <img
 					src="media/image/logo.png" alt="logo" />
 
 				</a>
@@ -383,15 +383,15 @@
 
 				</li>
 
-				<li class="start "><a href="index.html"> <i
-						class="icon-home"></i> <span class="title">Dashboard</span>
+				<li class="start "><a href="${pageContext.request.contextPath }/user/index"> <i
+						class="icon-home"></i> <span class="title">主界面</span>
 
 				</a></li>
 
 				<shiro:hasRole name="admin">
 					<li class=""><a
 						href="${pageContext.request.contextPath }/user/index2"> <i
-							class="icon-cogs"></i> <span class="title">Layouts</span> <span
+							class="icon-cogs"></i> <span class="title">用户权限管理</span> <span
 							class="arrow "></span>
 
 					</a>
@@ -607,21 +607,17 @@
 
 						<h3 class="page-title">
 
-							Managed Tables <small>managed table samples</small>
+							民警基本信息
 
 						</h3>
 
 						<ul class="breadcrumb">
 
-							<li><i class="icon-home"></i> <a href="index.html">Home</a>
-
-								<i class="icon-angle-right"></i></li>
-
-							<li><a href="#">Data Tables</a> <i class="icon-angle-right"></i>
+							<li><i class="icon-home"></i><a href="#">主界面</a> <i class="icon-angle-right"></i>
 
 							</li>
 
-							<li><a href="#">Managed Tables</a></li>
+							<li><a href="#">民警基本信息</a></li>
 
 						</ul>
 
@@ -646,7 +642,7 @@
 							<div class="portlet-title">
 
 								<div class="caption">
-									<i class="icon-globe"></i>Managed Table
+									<i class="icon-globe"></i>民警基本信息表
 								</div>
 
 								<div class="tools">
@@ -670,7 +666,7 @@
 										<a class="btn green"
 											href="<%=request.getContextPath()%>/policeBasicInfo/addpage">
 
-											Add New <i class="icon-plus"></i>
+											新增 <i class="icon-plus"></i>
 										</a>
 
 									</div>

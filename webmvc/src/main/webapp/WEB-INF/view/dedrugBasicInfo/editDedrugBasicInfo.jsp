@@ -70,7 +70,8 @@
 
 				<!-- BEGIN LOGO -->
 
-				<a class="brand" href="index.html"> <img
+				<a class="brand"
+					href="${pageContext.request.contextPath }/user/index"> <img
 					src="media/image/logo.png" alt="logo" />
 
 				</a>
@@ -256,14 +257,14 @@
 
 			<li class="start active "><a
 				href="${pageContext.request.contextPath }/user/index"> <i
-					class="icon-home"></i> <span class="title">Dashboard</span> <span
+					class="icon-home"></i> <span class="title">主界面</span> <span
 					class="selected"></span>
 
 			</a></li>
 			<shiro:hasRole name="admin">
 				<li class=""><a
 					href="${pageContext.request.contextPath }/user/index2"> <i
-						class="icon-cogs"></i> <span class="title">Layouts</span> <span
+						class="icon-cogs"></i> <span class="title">用户权限管理</span> <span
 						class="arrow "></span>
 
 				</a>
@@ -395,7 +396,7 @@
 										<form action="#" id="aco-edit-dedrugBasicInfo-form"
 											class="horizontal-form">
 
-											<h3 class="form-section">Person Info</h3>
+											<h3 class="form-section">戒毒人员基本信息编辑页面</h3>
 
 											<div class="row-fluid">
 
@@ -408,8 +409,8 @@
 														<div class="controls">
 
 															<input type="text" id="aco-fullname"
-																class="m-wrap span12" placeholder="Chee Kin"> <span
-																class="help-block">This is inline help</span>
+																class="m-wrap span12" > <span
+																class="help-block"></span>
 
 														</div>
 
@@ -428,8 +429,8 @@
 														<div class="controls">
 
 															<input type="text" id="aco-personid"
-																class="m-wrap span12" placeholder="Chee Kin"> <span
-																class="help-block">This is inline help</span>
+																class="m-wrap span12" > <span
+																class="help-block"></span>
 
 														</div>
 
@@ -459,7 +460,7 @@
 
 																<option value="女">Female</option>
 
-															</select> <span class="help-block">Select your gender.</span>
+															</select> <span class="help-block"></span>
 
 														</div>
 
@@ -514,7 +515,7 @@
 
 																<option value="注射">注射</option>
 
-															</select> <span class="help-block">Select your gender.</span>
+															</select> <span class="help-block"></span>
 
 														</div>
 
@@ -548,7 +549,7 @@
 
 																<option value="古柯">古柯</option>
 
-															</select> <span class="help-block">Select your gender.</span>
+															</select> <span class="help-block"></span>
 
 														</div>
 
@@ -569,8 +570,8 @@
 														<div class="controls">
 
 															<input type="text" id="aco-casehandleperson"
-																class="m-wrap span12" placeholder="Chee Kin"> <span
-																class="help-block">This is inline help</span>
+																class="m-wrap span12" > <span
+																class="help-block"></span>
 
 														</div>
 
@@ -589,8 +590,8 @@
 														<div class="controls">
 
 															<input type="text" id="aco-abandonlimit"
-																class="m-wrap span12" placeholder="Chee Kin"> <span
-																class="help-block">This is inline help</span>
+																class="m-wrap span12" > <span
+																class="help-block"></span>
 
 														</div>
 
@@ -614,8 +615,8 @@
 														<div class="controls">
 
 															<input type="text" id="aco-abandonmethod"
-																class="m-wrap span12" placeholder="Chee Kin"> <span
-																class="help-block">This is inline help</span>
+																class="m-wrap span12" > <span
+																class="help-block"></span>
 
 														</div>
 
@@ -634,8 +635,8 @@
 														<div class="controls">
 
 															<input type="text" id="aco-abandonstartdate"
-																class="m-wrap span12" placeholder="Chee Kin"> <span
-																class="help-block">This is inline help</span>
+																class="m-wrap span12" > <span
+																class="help-block"></span>
 
 														</div>
 
@@ -660,8 +661,8 @@
 														<div class="controls">
 
 															<input type="text" id="aco-entryreason"
-																class="m-wrap span12" placeholder="Chee Kin"> <span
-																class="help-block">This is inline help</span>
+																class="m-wrap span12" > <span
+																class="help-block"></span>
 
 														</div>
 
@@ -676,10 +677,13 @@
 													value="${id}">
 												<button type="submit" id="aco-dedrugBasicInfo-form-submit"
 													class="btn blue">
-													<i class="icon-ok"></i> Save
+													<i class="icon-ok"></i> 保存
 												</button>
 
-												<button type="button" class="btn">Cancel</button>
+												<a class="btn"
+													href="<%=request.getContextPath()%>/dedrugBasicInfo/list">
+													取消 </a>
+
 
 											</div>
 

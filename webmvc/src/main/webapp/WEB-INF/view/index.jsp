@@ -105,7 +105,7 @@
 
 				<!-- BEGIN LOGO -->
 
-				<a class="brand" href="index.html"> <img
+				<a class="brand" href="${pageContext.request.contextPath }/user/index"> <img
 					src="media/image/logo.png" alt="logo" />
 
 				</a>
@@ -525,7 +525,7 @@
 
 						<ul class="breadcrumb">
 
-							<li><i class="icon-home"></i> <a href="index.html">主界面</a> <i
+							<li><i class="icon-home"></i> <a href="${pageContext.request.contextPath }/user/index">主界面</a> <i
 								class="icon-angle-right"></i></li>
 
 							<li><a href="${pageContext.request.contextPath }/user/index">模块展示页面</a></li>

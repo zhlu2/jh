@@ -60,7 +60,7 @@
 
 				<!-- BEGIN LOGO -->
 
-				<a class="brand" href="index.html">
+				<a class="brand" href="${pageContext.request.contextPath }/user/index">
 
 				<img src="media/image/logo.png" alt="logo" />
 
@@ -568,11 +568,11 @@
 
 				<li class="start ">
 
-					<a href="index.html">
+					<a href="${pageContext.request.contextPath }/user/index">
 
 					<i class="icon-home"></i> 
 
-					<span class="title">Dashboard</span>
+					<span class="title">主界面</span>
 
 					</a>
 
@@ -581,7 +581,7 @@
 				<shiro:hasRole name="admin">  
 				<li class=""><a href="${pageContext.request.contextPath }/user/index2"> <i class="icon-cogs"></i>
 
-						<span class="title">Layouts</span> <span class="arrow "></span>
+						<span class="title">用户权限管理</span> <span class="arrow "></span>
 
 				</a>
 
@@ -813,7 +813,7 @@
 
 						<h3 class="page-title">
 
-							Managed Tables <small>managed table samples</small>
+							出所登记 
 
 						</h3>
 
@@ -821,23 +821,13 @@
 
 							<li>
 
-								<i class="icon-home"></i>
-
-								<a href="index.html">Home</a> 
+								<a href="${pageContext.request.contextPath }/user/index">主界面</a>
 
 								<i class="icon-angle-right"></i>
 
 							</li>
 
-							<li>
-
-								<a href="#">Data Tables</a>
-
-								<i class="icon-angle-right"></i>
-
-							</li>
-
-							<li><a href="#">Managed Tables</a></li>
+							<li><a href="${pageContext.request.contextPath }/dedrugBasicInfo/backhomeList">出所登记</a></li>
 
 						</ul>
 
@@ -861,7 +851,7 @@
 
 							<div class="portlet-title">
 
-								<div class="caption"><i class="icon-globe"></i>Managed Table</div>
+								<div class="caption"><i class="icon-globe"></i>出所登记表</div>
 
 								<div class="tools">
 
@@ -881,16 +871,7 @@
 
 								<div class="clearfix">
 
-									<div class="btn-group">										
-										 
-										 <a class="btn green"  href="<%=request.getContextPath()%>/dedrugBasicInfo/addPage">
-
-										Add New <i class="icon-plus"></i>
-                                        </a>
-
-									</div>
                              
-
 								</div>
 								<div class="dataTables_filter">
 								<label>

@@ -70,7 +70,7 @@
 
 				<!-- BEGIN LOGO -->
 
-				<a class="brand" href="index.html"> <img
+				<a class="brand" href="${pageContext.request.contextPath }/user/index"> <img
 					src="media/image/logo.png" alt="logo" />
 
 				</a>
@@ -256,14 +256,14 @@
 
 			<li class="start active "><a
 				href="${pageContext.request.contextPath }/user/index"> <i
-					class="icon-home"></i> <span class="title">Dashboard</span> <span
+					class="icon-home"></i> <span class="title">主界面</span> <span
 					class="selected"></span>
 
 			</a></li>
 			<shiro:hasRole name="admin">
 				<li class=""><a
 					href="${pageContext.request.contextPath }/user/index2"> <i
-						class="icon-cogs"></i> <span class="title">Layouts</span> <span
+						class="icon-cogs"></i> <span class="title">用户权限管理</span> <span
 						class="arrow "></span>
 
 				</a>
@@ -394,7 +394,7 @@
 
 										<form action="#" id="aco-police-form" class="horizontal-form">
 
-											<h3 class="form-section">Person Info</h3>
+											<h3 class="form-section">民警基本信息编辑页面</h3>
 
 											<div class="row-fluid">
 
@@ -407,8 +407,8 @@
 														<div class="controls">
 
 															<input type="text" id="aco-policenum"
-																class="m-wrap span12" placeholder="Chee Kin"> <span
-																class="help-block">This is inline help</span>
+																class="m-wrap span12" > <span
+																class="help-block"></span>
 
 														</div>
 
@@ -427,8 +427,8 @@
 														<div class="controls">
 															<input type="hidden" id="aco-police-id" value="${id}">
 															<input type="text" id="aco-policename"
-																class="m-wrap span12" placeholder="Chee Kin"> <span
-																class="help-block">This is inline help</span>
+																class="m-wrap span12" > <span
+																class="help-block"></span>
 
 														</div>
 
@@ -454,11 +454,11 @@
 
 															<select id="aco-policesex" class="m-wrap span12">
 
-																<option value="男">Male</option>
+																<option value="男">男</option>
 
-																<option value="女">Female</option>
+																<option value="女">女</option>
 
-															</select> <span class="help-block">Select your gender.</span>
+															</select> <span class="help-block"></span>
 
 														</div>
 
@@ -516,10 +516,13 @@
 
 												<button type="submit" id="aco-police-form-submit"
 													class="btn blue">
-													<i class="icon-ok"></i> Save
+													<i class="icon-ok"></i> 保存
 												</button>
 
-												<button type="button" class="btn">Cancel</button>
+												<a class="btn"
+													href="<%=request.getContextPath()%>/policeBasicInfo/list">
+													取消
+												</a>
 
 											</div>
 
