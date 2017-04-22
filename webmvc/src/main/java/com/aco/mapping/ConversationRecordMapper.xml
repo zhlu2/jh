@@ -12,9 +12,11 @@
 		<result column="ASK" property="ask" jdbcType="VARCHAR" />
 		<result column="ANSWER" property="answer" jdbcType="VARCHAR" />
 		<result column="TALKCONTENT" property="talkcontent" jdbcType="VARCHAR" />
+		<result column="FULLNAME" property="fullname" jdbcType="VARCHAR" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		ID, PERSONID, TALKSTARTTIME, TALKPOLICE, TALKTYPE, TALKPLACE, ASK,
+		ID, PERSONID, TALKSTARTTIME, TALKPOLICE, TALKTYPE,
+		TALKPLACE, ASK, FULLNAME,
 		ANSWER, TALKCONTENT
 	</sql>
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
@@ -32,13 +34,16 @@
 		where ID = #{id,jdbcType=VARCHAR}
 	</delete>
 	<insert id="insert" parameterType="com.aco.model.ConversationRecord">
-		insert into THJYB (ID, PERSONID, TALKSTARTTIME,
-		TALKPOLICE, TALKTYPE, TALKPLACE,
+		insert into THJYB (ID,
+		PERSONID, TALKSTARTTIME,
+		TALKPOLICE, TALKTYPE, TALKPLACE, FULLNAME,
 		ASK, ANSWER, TALKCONTENT
 		)
-		values (#{id,jdbcType=VARCHAR}, #{personid,jdbcType=VARCHAR},
+		values (#{id,jdbcType=VARCHAR},
+		#{personid,jdbcType=VARCHAR},
 		#{talkstarttime,jdbcType=TIMESTAMP},
-		#{talkpolice,jdbcType=VARCHAR}, #{talktype,jdbcType=VARCHAR}, #{talkplace,jdbcType=VARCHAR},
+		#{talkpolice,jdbcType=VARCHAR}, #{talktype,jdbcType=VARCHAR},
+		#{talkplace,jdbcType=VARCHAR},#{fullname,jdbcType=VARCHAR},
 		#{ask,jdbcType=VARCHAR}, #{answer,jdbcType=VARCHAR},
 		#{talkcontent,jdbcType=VARCHAR}
 		)
@@ -63,6 +68,9 @@
 			</if>
 			<if test="talkplace != null">
 				TALKPLACE,
+			</if>
+			<if test="fullname != null">
+				FULLNAME,
 			</if>
 			<if test="ask != null">
 				ASK,
@@ -92,6 +100,9 @@
 			</if>
 			<if test="talkplace != null">
 				#{talkplace,jdbcType=VARCHAR},
+			</if>
+			<if test="fullname != null">
+				#{fullname,jdbcType=VARCHAR},
 			</if>
 			<if test="ask != null">
 				#{ask,jdbcType=VARCHAR},
@@ -128,6 +139,9 @@
 			<if test="answer != null">
 				ANSWER = #{answer,jdbcType=VARCHAR},
 			</if>
+			<if test="fullname != null">
+				FULLNAME = #{fullname,jdbcType=VARCHAR},
+			</if>
 			<if test="talkcontent != null">
 				TALKCONTENT = #{talkcontent,jdbcType=VARCHAR},
 			</if>
@@ -136,14 +150,24 @@
 	</update>
 	<update id="updateByPrimaryKey" parameterType="com.aco.model.ConversationRecord">
 		update THJYB
-		set PERSONID = #{personid,jdbcType=VARCHAR},
-		TALKSTARTTIME = #{talkstarttime,jdbcType=TIMESTAMP},
-		TALKPOLICE = #{talkpolice,jdbcType=VARCHAR},
-		TALKTYPE = #{talktype,jdbcType=VARCHAR},
-		TALKPLACE = #{talkplace,jdbcType=VARCHAR},
+		set
+		PERSONID = #{personid,jdbcType=VARCHAR},
+		TALKSTARTTIME =
+		#{talkstarttime,jdbcType=TIMESTAMP},
+		TALKPOLICE =
+		#{talkpolice,jdbcType=VARCHAR},
+		TALKTYPE =
+		#{talktype,jdbcType=VARCHAR},
+		TALKPLACE =
+		#{talkplace,jdbcType=VARCHAR},
+		FULLNAME =
+		#{fullname,jdbcType=VARCHAR},
 		ASK = #{ask,jdbcType=VARCHAR},
-		ANSWER = #{answer,jdbcType=VARCHAR},
-		TALKCONTENT = #{talkcontent,jdbcType=VARCHAR}
-		where ID = #{id,jdbcType=VARCHAR}
+		ANSWER =
+		#{answer,jdbcType=VARCHAR},
+		TALKCONTENT =
+		#{talkcontent,jdbcType=VARCHAR}
+		where ID =
+		#{id,jdbcType=VARCHAR}
 	</update>
 </mapper>

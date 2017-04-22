@@ -11,9 +11,12 @@
 		<result column="AGE" property="age" jdbcType="VARCHAR" />
 		<result column="PRSRELATION" property="prsrelation" jdbcType="VARCHAR" />
 		<result column="APPLYREASON" property="applyreason" jdbcType="VARCHAR" />
+		<result column="FULLNAME" property="fullname" jdbcType="VARCHAR" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		ID, PERSONID, APPLYDATE, APPLYPOLICE, PRSFULLNAME, SEX, AGE, PRSRELATION,
+		ID, PERSONID, APPLYDATE, APPLYPOLICE, PRSFULLNAME,
+		SEX,FULLNAME,
+		AGE, PRSRELATION,
 		APPLYREASON
 	</sql>
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
@@ -31,14 +34,21 @@
 		where ID = #{id,jdbcType=VARCHAR}
 	</delete>
 	<insert id="insert" parameterType="com.aco.model.PrsArrgInfo">
-		insert into LSTFB (ID, PERSONID, APPLYDATE,
-		APPLYPOLICE, PRSFULLNAME, SEX,
-		AGE, PRSRELATION, APPLYREASON
+		insert into LSTFB (ID,
+		PERSONID, APPLYDATE,
+		APPLYPOLICE, PRSFULLNAME, SEX,FULLNAME,
+		AGE,
+		PRSRELATION,
+		APPLYREASON
 		)
-		values (#{id,jdbcType=VARCHAR}, #{personid,jdbcType=VARCHAR},
+		values (#{id,jdbcType=VARCHAR},
+		#{personid,jdbcType=VARCHAR},
 		#{applydate,jdbcType=TIMESTAMP},
-		#{applypolice,jdbcType=VARCHAR}, #{prsfullname,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR},
-		#{age,jdbcType=VARCHAR}, #{prsrelation,jdbcType=VARCHAR},
+		#{applypolice,jdbcType=VARCHAR}, #{prsfullname,jdbcType=VARCHAR},
+		#{fullname,jdbcType=VARCHAR},
+		#{sex,jdbcType=VARCHAR},
+		#{age,jdbcType=VARCHAR},
+		#{prsrelation,jdbcType=VARCHAR},
 		#{applyreason,jdbcType=VARCHAR}
 		)
 	</insert>
@@ -59,6 +69,9 @@
 			</if>
 			<if test="prsfullname != null">
 				PRSFULLNAME,
+			</if>
+			<if test="fullname != null">
+				FULLNAME,
 			</if>
 			<if test="sex != null">
 				SEX,
@@ -89,6 +102,9 @@
 			<if test="prsfullname != null">
 				#{prsfullname,jdbcType=VARCHAR},
 			</if>
+			<if test="fullname != null">
+				#{fullname,jdbcType=VARCHAR},
+			</if>
 			<if test="sex != null">
 				#{sex,jdbcType=VARCHAR},
 			</if>
@@ -118,6 +134,9 @@
 			<if test="prsfullname != null">
 				PRSFULLNAME = #{prsfullname,jdbcType=VARCHAR},
 			</if>
+			<if test="fullname != null">
+				FULLNAME = #{fullname,jdbcType=VARCHAR},
+			</if>
 			<if test="sex != null">
 				SEX = #{sex,jdbcType=VARCHAR},
 			</if>
@@ -135,14 +154,22 @@
 	</update>
 	<update id="updateByPrimaryKey" parameterType="com.aco.model.PrsArrgInfo">
 		update LSTFB
-		set PERSONID = #{personid,jdbcType=VARCHAR},
-		APPLYDATE = #{applydate,jdbcType=TIMESTAMP},
-		APPLYPOLICE = #{applypolice,jdbcType=VARCHAR},
-		PRSFULLNAME = #{prsfullname,jdbcType=VARCHAR},
+		set
+		PERSONID = #{personid,jdbcType=VARCHAR},
+		APPLYDATE =
+		#{applydate,jdbcType=TIMESTAMP},
+		APPLYPOLICE =
+		#{applypolice,jdbcType=VARCHAR},
+		PRSFULLNAME =
+		#{prsfullname,jdbcType=VARCHAR},
+		FULLNAME =
+		#{fullname,jdbcType=VARCHAR},
 		SEX = #{sex,jdbcType=VARCHAR},
-		AGE = #{age,jdbcType=VARCHAR},
+		AGE =
+		#{age,jdbcType=VARCHAR},
 		PRSRELATION = #{prsrelation,jdbcType=VARCHAR},
 		APPLYREASON = #{applyreason,jdbcType=VARCHAR}
-		where ID = #{id,jdbcType=VARCHAR}
+		where ID =
+		#{id,jdbcType=VARCHAR}
 	</update>
 </mapper>

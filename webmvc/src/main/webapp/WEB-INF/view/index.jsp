@@ -103,14 +103,6 @@
 
 			<div class="container-fluid">
 
-				<!-- BEGIN LOGO -->
-
-				<a class="brand" href="${pageContext.request.contextPath }/user/index"> <img
-					src="media/image/logo.png" alt="logo" />
-
-				</a>
-
-				<!-- END LOGO -->
 
 				<!-- BEGIN RESPONSIVE MENU TOGGLER -->
 
@@ -405,7 +397,7 @@
 						<div class="input-box">
 
 							<a href="javascript:;" class="remove"></a> <input type="text"
-								placeholder="Search..." /> <input type="button" class="submit"
+								placeholder="查找" /> <input type="button" class="submit"
 								value=" " />
 
 						</div>
@@ -427,66 +419,6 @@
 
 					</a></li>
 				</shiro:hasRole>
-
-
-				<li class=""><a href="javascript:;"> <i
-						class="icon-briefcase"></i> <span class="title">Pages</span> <span
-						class="arrow "></span>
-
-				</a>
-
-					<ul class="sub-menu">
-
-						<li><a href="page_timeline.html"> <i class="icon-time"></i>
-
-								Timeline
-						</a></li>
-
-						<li><a href="page_coming_soon.html"> <i class="icon-cogs"></i>
-								Coming Soon
-						</a></li>
-
-						<li><a href="page_blog.html"> <i class="icon-comments"></i>
-
-								Blog
-						</a></li>
-
-						<li><a href="page_blog_item.html"> <i class="icon-font"></i>
-
-								Blog Post
-						</a></li>
-
-						<li><a href="page_news.html"> <i class="icon-coffee"></i>
-
-								News
-						</a></li>
-
-						<li><a href="page_news_item.html"> <i class="icon-bell"></i>
-
-								News View
-						</a></li>
-
-						<li><a href="page_about.html"> <i class="icon-group"></i>
-
-								About Us
-						</a></li>
-
-						<li><a href="page_contact.html"> <i
-								class="icon-envelope-alt"></i> Contact Us
-						</a></li>
-
-						<li><a href="page_calendar.html"> <i
-								class="icon-calendar"></i> Calendar
-						</a></li>
-
-					</ul></li>
-
-
-				<li class="last "><a href="charts.html"> <i
-						class="icon-bar-chart"></i> <span class="title">Visual
-							Charts</span>
-
-				</a></li>
 
 			</ul>
 
@@ -525,7 +457,8 @@
 
 						<ul class="breadcrumb">
 
-							<li><i class="icon-home"></i> <a href="${pageContext.request.contextPath }/user/index">主界面</a> <i
+							<li><i class="icon-home"></i> <a
+								href="${pageContext.request.contextPath }/user/index">主界面</a> <i
 								class="icon-angle-right"></i></li>
 
 							<li><a href="${pageContext.request.contextPath }/user/index">模块展示页面</a></li>
@@ -600,7 +533,7 @@
 
 								<div class="details">
 
-									<div class="number">戒毒人员</div>
+									<div class="number">入所登记</div>
 
 									<div class="desc">基本信息</div>
 
@@ -676,7 +609,7 @@
 						<div class="span3 responsive" data-tablet="span6"
 							data-desktop="span3">
 
-							<div class="dashboard-stat yellow">
+							<div class="dashboard-stat blue">
 
 								<div class="visual">
 
@@ -703,7 +636,7 @@
 						<div class="span3 responsive" data-tablet="span6"
 							data-desktop="span3">
 
-							<div class="dashboard-stat yellow">
+							<div class="dashboard-stat green">
 
 								<div class="visual">
 
@@ -729,7 +662,7 @@
 						<div class="span3 responsive" data-tablet="span6"
 							data-desktop="span3">
 
-							<div class="dashboard-stat yellow">
+							<div class="dashboard-stat purple">
 
 								<div class="visual">
 
@@ -786,7 +719,7 @@
 						<div class="span3 responsive" data-tablet="span6"
 							data-desktop="span3">
 
-							<div class="dashboard-stat yellow">
+							<div class="dashboard-stat blue">
 
 								<div class="visual">
 
@@ -813,7 +746,7 @@
 						<div class="span3 responsive" data-tablet="span6"
 							data-desktop="span3">
 
-							<div class="dashboard-stat yellow">
+							<div class="dashboard-stat green">
 
 								<div class="visual">
 
@@ -840,7 +773,7 @@
 						<div class="span3 responsive" data-tablet="span6"
 							data-desktop="span3">
 
-							<div class="dashboard-stat yellow">
+							<div class="dashboard-stat purple">
 
 								<div class="visual">
 
@@ -863,6 +796,85 @@
 
 							</div>
 
+						</div>
+						<div class="span3 responsive" data-tablet="span6"
+							data-desktop="span3">
+
+							<div class="dashboard-stat blue">
+
+								<div class="visual">
+
+									<i class="icon-bar-chart"></i>
+
+								</div>
+
+								<div class="details">
+
+									<div class="number">风险评估</div>
+									
+									<div class="desc">所长审批</div>
+
+								</div>
+
+								<a class="more"
+									href="${pageContext.request.contextPath }/riskAssessment/riskDirectorList">
+									查看更多 <i class="m-icon-swapright m-icon-white"></i>
+								</a>
+
+							</div>
+
+						</div>
+						<div class="row-fluid">
+							<div class="span3 responsive" data-tablet="span6"
+								data-desktop="span3">
+
+								<div class="dashboard-stat yellow">
+
+									<div class="visual">
+
+										<i class="icon-bar-chart"></i>
+
+									</div>
+
+									<div class="details">
+
+										<div class="number">出所谈话</div>
+
+									</div>
+
+									<a class="more"
+										href="${pageContext.request.contextPath }/riskAssessment/riskDirectorList">
+										查看更多 <i class="m-icon-swapright m-icon-white"></i>
+									</a>
+
+								</div>
+
+							</div>
+							<div class="span3 responsive" data-tablet="span6"
+								data-desktop="span3">
+
+								<div class="dashboard-stat yellow">
+
+									<div class="visual">
+
+										<i class="icon-bar-chart"></i>
+
+									</div>
+
+									<div class="details">
+
+										<div class="number">入所谈话</div>
+
+									</div>
+
+									<a class="more"
+										href="${pageContext.request.contextPath }/riskAssessment/riskDirectorList">
+										查看更多 <i class="m-icon-swapright m-icon-white"></i>
+									</a>
+
+								</div>
+
+							</div>
 						</div>
 					</div>
 

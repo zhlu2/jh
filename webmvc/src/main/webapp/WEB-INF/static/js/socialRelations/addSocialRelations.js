@@ -18,6 +18,7 @@
 
     	// 初始化保存新建任务按钮的click事件
 		initSaveBtnClickListener : function() {
+
 			$("#aco-socialRelations-form-submit").on("click", function(event) {
 				event.preventDefault();
 				    var strPath = window.document.location.pathname;

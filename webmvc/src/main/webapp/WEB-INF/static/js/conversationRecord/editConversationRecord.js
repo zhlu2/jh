@@ -20,7 +20,8 @@
                 	$("#aco-talkplace").val(data.talkplace);
                 	$("#aco-ask").val(data.ask);
                 	$("#aco-answer").val(data.answer);
-                	$("#aco-talkcontent").val(data.talkcontent);		
+                	$("#aco-talkcontent").val(data.talkcontent);	
+                	$("#aco-dedrugBasicinfo-fullname").val(data.fullname);
                 },
                 error : '请求异常，查询失败！'
             });
@@ -35,6 +36,7 @@
 			postData.answer = $("#aco-answer").val();
 			postData.talkcontent = $("#aco-talkcontent").val();	
 			postData.id=$("#aco-conversationRecord-id").val();
+			postData.fullname=$("#aco-dedrugBasicinfo-fullname").val();
 			return postData;
 		},
 

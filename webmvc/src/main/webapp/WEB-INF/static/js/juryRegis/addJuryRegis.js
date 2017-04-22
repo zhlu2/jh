@@ -14,6 +14,7 @@
 			postData.detainedpolice = $("#aco-detainedpolice").val();
 			postData.scpolice = $("#aco-scpolice").val();
 			postData.remark = $("#aco-remark").val();
+			postData.fullname=$("#aco-dedrugBasicinfo-fullname").val();			
 			return postData;
 		},
 

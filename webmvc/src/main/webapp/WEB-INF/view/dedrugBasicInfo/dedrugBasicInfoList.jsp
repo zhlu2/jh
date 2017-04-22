@@ -58,15 +58,6 @@
 
 			<div class="container-fluid">
 
-				<!-- BEGIN LOGO -->
-
-				<a class="brand" href="${pageContext.request.contextPath }/user/index">
-
-				<img src="media/image/logo.png" alt="logo" />
-
-				</a>
-
-				<!-- END LOGO -->
 
 				<!-- BEGIN RESPONSIVE MENU TOGGLER -->
 
@@ -554,7 +545,7 @@
 
 							<a href="javascript:;" class="remove"></a>
 
-							<input type="text" placeholder="Search..." />
+							<input type="text" placeholder="查找" />
 
 							<input type="button" class="submit" value=" " />
 
@@ -619,65 +610,6 @@
 					</ul></li>
                     </shiro:hasRole> 
 
-
-				<li class=""><a href="javascript:;"> <i
-						class="icon-briefcase"></i> <span class="title">Pages</span> <span
-						class="arrow "></span>
-
-				</a>
-
-					<ul class="sub-menu">
-
-						<li><a href="page_timeline.html"> <i class="icon-time"></i>
-
-								Timeline
-						</a></li>
-
-						<li><a href="page_coming_soon.html"> <i class="icon-cogs"></i>
-								Coming Soon
-						</a></li>
-
-						<li><a href="page_blog.html"> <i class="icon-comments"></i>
-
-								Blog
-						</a></li>
-
-						<li><a href="page_blog_item.html"> <i class="icon-font"></i>
-
-								Blog Post
-						</a></li>
-
-						<li><a href="page_news.html"> <i class="icon-coffee"></i>
-
-								News
-						</a></li>
-
-						<li><a href="page_news_item.html"> <i class="icon-bell"></i>
-
-								News View
-						</a></li>
-
-						<li><a href="page_about.html"> <i class="icon-group"></i>
-
-								About Us
-						</a></li>
-
-						<li><a href="page_contact.html"> <i
-								class="icon-envelope-alt"></i> Contact Us
-						</a></li>
-
-						<li><a href="page_calendar.html"> <i
-								class="icon-calendar"></i> Calendar
-						</a></li>
-
-					</ul></li>
-
-
-				<li class="last "><a href="charts.html"> <i
-						class="icon-bar-chart"></i> <span class="title">Visual
-							Charts</span>
-
-				</a></li>
 				
 				</ul>
 	
@@ -813,7 +745,7 @@
 
 						<h3 class="page-title">
 
-							戒毒人员基本信息
+							出所登记
 
 						</h3>
 
@@ -827,7 +759,7 @@
 
 							</li>
 
-							<li><a href="${pageContext.request.contextPath }/dedrugBasicInfo/list">戒毒人员基本信息</a></li>
+							<li><a href="${pageContext.request.contextPath }/dedrugBasicInfo/list">出所登记</a></li>
 
 						</ul>
 
@@ -851,7 +783,7 @@
 
 							<div class="portlet-title">
 
-								<div class="caption"><i class="icon-globe"></i>戒毒人员基本信息表</div>
+								<div class="caption"><i class="icon-globe"></i>出所登记表</div>
 
 								<div class="tools">
 

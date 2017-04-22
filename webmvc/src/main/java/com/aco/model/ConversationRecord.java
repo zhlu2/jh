@@ -6,8 +6,18 @@ public class ConversationRecord {
     private String id;
 
     private String personid;
+    
+    private String fullname;
 
-    private Date talkstarttime;
+    public String getFullname() {
+		return fullname;
+	}
+
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
+	}
+
+	private Date talkstarttime;
 
     private String talkpolice;
 

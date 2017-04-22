@@ -1,7 +1,11 @@
-	var	addDedrugBasicInfo = {
+   var  selectPersonCallback = function(data) {
+		   $("#aco-dedrugBasicinfo-fullname").val(data.fullname);
+		   $("#aco-dedrugBasicinfo-personId").val(data.personId);
+		  }	
+   var	addPrsArrgInfo = {
 		init : function() {
 			// 初始化新增按钮
-			addDedrugBasicInfo.initSaveBtnClickListener();
+			addPrsArrgInfo.initSaveBtnClickListener();
 		},
 
 		// 获取模式窗口表单元素值
@@ -14,6 +18,7 @@
 			postData.age = $("#aco-age").val();
 			postData.prsrelation = $("#aco-prsrelation").val();
 			postData.applyreason = $("#aco-applyreason").val();
+			postData.fullname=$("#aco-dedrugBasicinfo-fullname").val();
 			return postData;
 		},
 
@@ -23,7 +28,7 @@
 				event.preventDefault();
 				    var strPath = window.document.location.pathname;
 		            var postPath = strPath.substring(0, strPath.substr(1).indexOf('/') + 1);
-					var postData = addDedrugBasicInfo.getModalFormEleVal();
+					var postData = addPrsArrgInfo.getModalFormEleVal();
 					$.ajax({
 						type : "POST",
 						async : false,// 同步请求
@@ -40,4 +45,4 @@
 
 	};
 
-	$( document ).ready(addDedrugBasicInfo.init);
+	$( document ).ready(addPrsArrgInfo.init);

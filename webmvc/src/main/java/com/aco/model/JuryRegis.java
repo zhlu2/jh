@@ -4,10 +4,20 @@ public class JuryRegis {
     private String id;
 
     private String personid;
+    
+    private String fullname;
 
     private String injurysitu;
 
-    private String selfinjuryreason;
+    public String getFullname() {
+		return fullname;
+	}
+
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
+	}
+
+	private String selfinjuryreason;
 
     private String medicalhistorysitu;
 

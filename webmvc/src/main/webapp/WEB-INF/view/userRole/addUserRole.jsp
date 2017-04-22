@@ -58,16 +58,6 @@
 
 			<div class="container-fluid">
 
-				<!-- BEGIN LOGO -->
-
-				<a class="brand" href="${pageContext.request.contextPath }/user/index">
-
-				<img src="media/image/logo.png" alt="logo" />
-
-				</a>
-
-				<!-- END LOGO -->
-
 				<!-- BEGIN RESPONSIVE MENU TOGGLER -->
 
 				<a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
@@ -554,7 +544,7 @@
 
 							<a href="javascript:;" class="remove"></a>
 
-							<input type="text" placeholder="Search..." />
+							<input type="text" placeholder="查找" />
 
 							<input type="button" class="submit" value=" " />
 
@@ -620,65 +610,6 @@
                     </shiro:hasRole> 
 
 
-				<li class=""><a href="javascript:;"> <i
-						class="icon-briefcase"></i> <span class="title">Pages</span> <span
-						class="arrow "></span>
-
-				</a>
-
-					<ul class="sub-menu">
-
-						<li><a href="page_timeline.html"> <i class="icon-time"></i>
-
-								Timeline
-						</a></li>
-
-						<li><a href="page_coming_soon.html"> <i class="icon-cogs"></i>
-								Coming Soon
-						</a></li>
-
-						<li><a href="page_blog.html"> <i class="icon-comments"></i>
-
-								Blog
-						</a></li>
-
-						<li><a href="page_blog_item.html"> <i class="icon-font"></i>
-
-								Blog Post
-						</a></li>
-
-						<li><a href="page_news.html"> <i class="icon-coffee"></i>
-
-								News
-						</a></li>
-
-						<li><a href="page_news_item.html"> <i class="icon-bell"></i>
-
-								News View
-						</a></li>
-
-						<li><a href="page_about.html"> <i class="icon-group"></i>
-
-								About Us
-						</a></li>
-
-						<li><a href="page_contact.html"> <i
-								class="icon-envelope-alt"></i> Contact Us
-						</a></li>
-
-						<li><a href="page_calendar.html"> <i
-								class="icon-calendar"></i> Calendar
-						</a></li>
-
-					</ul></li>
-
-
-				<li class="last "><a href="charts.html"> <i
-						class="icon-bar-chart"></i> <span class="title">Visual
-							Charts</span>
-
-				</a></li>
-				
 				</ul>
 	
 		</div>
@@ -813,7 +744,7 @@
 
 						<h3 class="page-title">
 
-							Managed Tables <small>managed table samples</small>
+							用户角色操作页面
 
 						</h3>
 
@@ -821,23 +752,13 @@
 
 							<li>
 
-								<i class="icon-home"></i>
-
-								<a href="${pageContext.request.contextPath }/user/index">Home</a> 
+								<a href="${pageContext.request.contextPath }/user/index">用户权限管理</a>
 
 								<i class="icon-angle-right"></i>
 
 							</li>
 
-							<li>
-
-								<a href="#">Data Tables</a>
-
-								<i class="icon-angle-right"></i>
-
-							</li>
-
-							<li><a href="#">Managed Tables</a></li>
+							<li><a href="#">用户角色操作页面</a></li>
 
 						</ul>
 
@@ -861,7 +782,7 @@
 
 							<div class="portlet-title">
 
-								<div class="caption"><i class="icon-globe"></i>Managed Table</div>
+								<div class="caption"><i class="icon-globe"></i>用户角色表</div>
 
 								<div class="tools">
 
@@ -881,15 +802,6 @@
 
 								<div class="clearfix">
 
-									<div class="btn-group">										
-										 
-										 <a class="btn green"  href="<%=request.getContextPath()%>/juryRegis/addpage">
-
-										新增 <i class="icon-plus"></i>
-                                        </a>
-
-									</div>
-                             
 
 								</div>
 								<div class="dataTables_filter">

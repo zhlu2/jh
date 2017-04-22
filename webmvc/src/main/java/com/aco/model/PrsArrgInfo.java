@@ -6,8 +6,18 @@ public class PrsArrgInfo {
     private String id;
 
     private String personid;
+    
+    private String fullname;
 
-    private Date applydate;
+    public String getFullname() {
+		return fullname;
+	}
+
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
+	}
+
+	private Date applydate;
 
     private String applypolice;
 

@@ -21,7 +21,8 @@
         			$("#aco-policestatementreason").val(data.policestatementreason);
         			$("#aco-detainedpolice").val(data.detainedpolice);
         			$("#aco-scpolice").val(data.scpolice);
-        			$("#aco-remark").val(data.remark);			
+        			$("#aco-remark").val(data.remark);
+                	$("#aco-dedrugBasicinfo-fullname").val(data.fullname);
                 },
                 error : '请求异常，查询失败！'
             });
@@ -37,6 +38,7 @@
 			postData.scpolice = $("#aco-scpolice").val();
 			postData.remark = $("#aco-remark").val();	
 			postData.id=$("#aco-juryRegis-id").val();
+			postData.fullname=$("#aco-dedrugBasicinfo-fullname").val();
 			return postData;
 		},
 

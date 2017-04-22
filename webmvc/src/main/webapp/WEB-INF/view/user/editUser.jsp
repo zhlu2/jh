@@ -65,14 +65,6 @@
 
 			<div class="container-fluid">
 
-				<!-- BEGIN LOGO -->
-
-				<a class="brand" href="${pageContext.request.contextPath }/user/index"> <img
-					src="media/image/logo.png" alt="logo" />
-
-				</a>
-
-				<!-- END LOGO -->
 
 				<!-- BEGIN RESPONSIVE MENU TOGGLER -->
 
@@ -242,7 +234,7 @@
 					<div class="input-box">
 
 						<a href="javascript:;" class="remove"></a> <input type="text"
-							placeholder="Search..." /> <input type="button" class="submit"
+							placeholder="查找" /> <input type="button" class="submit"
 							value=" " />
 
 					</div>
@@ -299,66 +291,6 @@
 					</ul></li>
 			</shiro:hasRole>
 
-
-			<li class=""><a href="javascript:;"> <i
-					class="icon-briefcase"></i> <span class="title">Pages</span> <span
-					class="arrow "></span>
-
-			</a>
-
-				<ul class="sub-menu">
-
-					<li><a href="page_timeline.html"> <i class="icon-time"></i>
-
-							Timeline
-					</a></li>
-
-					<li><a href="page_coming_soon.html"> <i class="icon-cogs"></i>
-							Coming Soon
-					</a></li>
-
-					<li><a href="page_blog.html"> <i class="icon-comments"></i>
-
-							Blog
-					</a></li>
-
-					<li><a href="page_blog_item.html"> <i class="icon-font"></i>
-
-							Blog Post
-					</a></li>
-
-					<li><a href="page_news.html"> <i class="icon-coffee"></i>
-
-							News
-					</a></li>
-
-					<li><a href="page_news_item.html"> <i class="icon-bell"></i>
-
-							News View
-					</a></li>
-
-					<li><a href="page_about.html"> <i class="icon-group"></i>
-
-							About Us
-					</a></li>
-
-					<li><a href="page_contact.html"> <i
-							class="icon-envelope-alt"></i> Contact Us
-					</a></li>
-
-					<li><a href="page_calendar.html"> <i class="icon-calendar"></i>
-							Calendar
-					</a></li>
-
-				</ul></li>
-
-
-			<li class="last "><a href="charts.html"> <i
-					class="icon-bar-chart"></i> <span class="title">Visual
-						Charts</span>
-
-			</a></li>
-
 		</ul>
 
 		<!-- END SIDEBAR MENU -->
@@ -392,7 +324,7 @@
 										<form action="#" id="aco-useredit-form"
 											class="horizontal-form">
 
-											<h3 class="form-section">Person Info</h3>
+											<h3 class="form-section">用户编辑页面</h3>
 
 											<div class="row-fluid">
 
@@ -443,10 +375,13 @@
                                                 <input type="hidden" id="aco-user-idedit" value="${id}"> 
 												<button type="submit"
 													id="aco-useredit-form-submit" class="btn blue">
-													<i class="icon-ok"></i> Save
+													<i class="icon-ok"></i> 保存
 												</button>
 
-												<button type="button" class="btn">Cancel</button>
+												<a class="btn"
+													href="${pageContext.request.contextPath }/rolePermission/list">
+													取消 </a>
+
 
 											</div>
 

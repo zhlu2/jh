@@ -20,7 +20,8 @@
         			  $("#aco-sex").val(data.sex);
         			  $("#aco-age").val(data.age);
         			  $("#aco-prsrelation").val(data.prsrelation);
-        			  $("#aco-applyreason").val(data.applyreason);			
+        			  $("#aco-applyreason").val(data.applyreason);	
+                      $("#aco-dedrugBasicinfo-fullname").val(data.fullname); 
                 },
                 error : '请求异常，查询失败！'
             });
@@ -35,6 +36,7 @@
 			postData.prsrelation = $("#aco-prsrelation").val();
 			postData.applyreason = $("#aco-applyreason").val();	
 			postData.id=$("#aco-prsArrgInfo-id").val();
+			postData.fullname=$("#aco-dedrugBasicinfo-fullname").val();
 			return postData;
 		},
 

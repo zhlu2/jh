@@ -78,7 +78,7 @@
                 $("#tableBody").append('<td><input type="checkbox" name="roleid" value="'+ this.roleId +'"/></td>');
                 $("#tableBody").append('<td>' + this.roleName + '</td>');
                 $("#tableBody").append('<td>' + this.description + '</td>'); 
-                $("#tableBody").append("<a href=\"javascript:void(0);\" onclick=\"saveUserRole()\" class=\"btn default btn-xs red-stripe\">添加</a>"); 
+                $("#tableBody").append("<a href=\"javascript:void(0);\" onclick=\"saveUserRole()\" class=\"btn default btn-xs red-stripe\">可用</a>"); 
                 $("#tableBody").append('</tr>');
              	    });  
              	    } else {             	            	

@@ -19,6 +19,7 @@
 			postData.answer = $("#aco-answer").val();
 			postData.talkcontent = $("#aco-talkcontent").val();
 			postData.talkstarttime = new Date();
+			postData.fullname=$("#aco-dedrugBasicinfo-fullname").val();
 			return postData;
 		},
 

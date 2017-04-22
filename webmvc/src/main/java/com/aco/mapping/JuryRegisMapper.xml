@@ -15,11 +15,14 @@
 			jdbcType="VARCHAR" />
 		<result column="SCPOLICE" property="scpolice" jdbcType="VARCHAR" />
 		<result column="REMARK" property="remark" jdbcType="VARCHAR" />
+		<result column="FULLNAME" property="fullname" jdbcType="VARCHAR" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		ID, PERSONID, INJURYSITU, SELFINJURYREASON, MEDICALHISTORYSITU,
+		ID, PERSONID, INJURYSITU, SELFINJURYREASON,FULLNAME,
+		MEDICALHISTORYSITU,
 		POLICESTATEMENTREASON,
-		DETAINEDPOLICE, SCPOLICE, REMARK
+		DETAINEDPOLICE, SCPOLICE,
+		REMARK
 	</sql>
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
 		parameterType="java.lang.String">
@@ -36,13 +39,18 @@
 		where ID = #{id,jdbcType=VARCHAR}
 	</delete>
 	<insert id="insert" parameterType="com.aco.model.JuryRegis">
-		insert into SQDJB (ID, PERSONID, INJURYSITU,
-		SELFINJURYREASON, MEDICALHISTORYSITU, POLICESTATEMENTREASON,
+		insert into SQDJB (ID,
+		PERSONID, INJURYSITU,
+		SELFINJURYREASON, MEDICALHISTORYSITU,FULLNAME,
+		POLICESTATEMENTREASON,
 		DETAINEDPOLICE, SCPOLICE, REMARK
 		)
-		values (#{id,jdbcType=VARCHAR}, #{personid,jdbcType=VARCHAR},
+		values
+		(#{id,jdbcType=VARCHAR}, #{personid,jdbcType=VARCHAR},
 		#{injurysitu,jdbcType=VARCHAR},
-		#{selfinjuryreason,jdbcType=VARCHAR}, #{medicalhistorysitu,jdbcType=VARCHAR},
+		#{selfinjuryreason,jdbcType=VARCHAR},
+		#{medicalhistorysitu,jdbcType=VARCHAR},
+		#{fullname,jdbcType=VARCHAR},
 		#{policestatementreason,jdbcType=VARCHAR},
 		#{detainedpolice,jdbcType=VARCHAR}, #{scpolice,jdbcType=VARCHAR},
 		#{remark,jdbcType=VARCHAR}
@@ -65,6 +73,9 @@
 			</if>
 			<if test="medicalhistorysitu != null">
 				MEDICALHISTORYSITU,
+			</if>
+			<if test="fullname != null">
+				FULLNAME,
 			</if>
 			<if test="policestatementreason != null">
 				POLICESTATEMENTREASON,
@@ -95,6 +106,9 @@
 			<if test="medicalhistorysitu != null">
 				#{medicalhistorysitu,jdbcType=VARCHAR},
 			</if>
+			<if test="fullname != null">
+				#{fullname,jdbcType=VARCHAR},
+			</if>
 			<if test="policestatementreason != null">
 				#{policestatementreason,jdbcType=VARCHAR},
 			</if>
@@ -122,10 +136,16 @@
 				SELFINJURYREASON = #{selfinjuryreason,jdbcType=VARCHAR},
 			</if>
 			<if test="medicalhistorysitu != null">
-				MEDICALHISTORYSITU = #{medicalhistorysitu,jdbcType=VARCHAR},
+				MEDICALHISTORYSITU =
+				#{medicalhistorysitu,jdbcType=VARCHAR},
+			</if>
+			<if test="fullname != null">
+				FULLNAME =
+				#{fullname,jdbcType=VARCHAR},
 			</if>
 			<if test="policestatementreason != null">
-				POLICESTATEMENTREASON = #{policestatementreason,jdbcType=VARCHAR},
+				POLICESTATEMENTREASON =
+				#{policestatementreason,jdbcType=VARCHAR},
 			</if>
 			<if test="detainedpolice != null">
 				DETAINEDPOLICE = #{detainedpolice,jdbcType=VARCHAR},
@@ -141,14 +161,24 @@
 	</update>
 	<update id="updateByPrimaryKey" parameterType="com.aco.model.JuryRegis">
 		update SQDJB
-		set PERSONID = #{personid,jdbcType=VARCHAR},
-		INJURYSITU = #{injurysitu,jdbcType=VARCHAR},
-		SELFINJURYREASON = #{selfinjuryreason,jdbcType=VARCHAR},
-		MEDICALHISTORYSITU = #{medicalhistorysitu,jdbcType=VARCHAR},
-		POLICESTATEMENTREASON = #{policestatementreason,jdbcType=VARCHAR},
-		DETAINEDPOLICE = #{detainedpolice,jdbcType=VARCHAR},
-		SCPOLICE = #{scpolice,jdbcType=VARCHAR},
+		set
+		PERSONID = #{personid,jdbcType=VARCHAR},
+		INJURYSITU =
+		#{injurysitu,jdbcType=VARCHAR},
+		SELFINJURYREASON =
+		#{selfinjuryreason,jdbcType=VARCHAR},
+		MEDICALHISTORYSITU =
+		#{medicalhistorysitu,jdbcType=VARCHAR},
+		FULLNAME =
+		#{fullname,jdbcType=VARCHAR},
+		POLICESTATEMENTREASON =
+		#{policestatementreason,jdbcType=VARCHAR},
+		DETAINEDPOLICE =
+		#{detainedpolice,jdbcType=VARCHAR},
+		SCPOLICE =
+		#{scpolice,jdbcType=VARCHAR},
 		REMARK = #{remark,jdbcType=VARCHAR}
-		where ID = #{id,jdbcType=VARCHAR}
+		where
+		ID = #{id,jdbcType=VARCHAR}
 	</update>
 </mapper>

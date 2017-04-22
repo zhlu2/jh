@@ -31,7 +31,7 @@
 				<input type="password" name="password" placeholder="请输入密码" />
 			</div>
 			<div class="signin">
-			<input type="submit" value="Login">${error }
+			<input type="submit" value="登录">${error }
 		</div>
 		</form>
 
