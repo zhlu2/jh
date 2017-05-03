@@ -475,19 +475,7 @@
 
 						<ul class="dropdown-menu">
 
-							<li><a href="extra_profile.html"><i class="icon-user"></i> My Profile</a></li>
-
-							<li><a href="page_calendar.html"><i class="icon-calendar"></i> My Calendar</a></li>
-
-							<li><a href="inbox.html"><i class="icon-envelope"></i> My Inbox(3)</a></li>
-
-							<li><a href="#"><i class="icon-tasks"></i> My Tasks</a></li>
-
-							<li class="divider"></li>
-
-							<li><a href="extra_lock.html"><i class="icon-lock"></i> Lock Screen</a></li>
-
-							<li><a href="${pageContext.request.contextPath }/user/logout"><i class="icon-key"></i> Log Out</a></li>
+							<li><a href="${pageContext.request.contextPath }/user/logout"><i class="icon-key"></i> 退出</a></li>
 
 						</ul>
 

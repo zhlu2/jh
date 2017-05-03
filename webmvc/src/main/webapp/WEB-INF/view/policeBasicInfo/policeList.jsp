@@ -294,34 +294,20 @@
 					<!-- BEGIN USER LOGIN DROPDOWN -->
 
 					<li class="dropdown user"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"> <img alt=""
-							src="media/image/avatar1_small.jpg" /> <span class="username">Bob
-								Nilson</span> <i class="icon-angle-down"></i>
+						data-toggle="dropdown"> <span class="username">${user.username}</span>
+
+							<i class="icon-angle-down"></i>
 
 					</a>
 
 						<ul class="dropdown-menu">
 
-							<li><a href="extra_profile.html"><i class="icon-user"></i>
-									My Profile</a></li>
-
-							<li><a href="page_calendar.html"><i
-									class="icon-calendar"></i> My Calendar</a></li>
-
-							<li><a href="inbox.html"><i class="icon-envelope"></i>
-									My Inbox(3)</a></li>
-
-							<li><a href="#"><i class="icon-tasks"></i> My Tasks</a></li>
-
-							<li class="divider"></li>
-
-							<li><a href="extra_lock.html"><i class="icon-lock"></i>
-									Lock Screen</a></li>
-
-							<li><a href="login.html"><i class="icon-key"></i> Log
-									Out</a></li>
+							<li><a
+								href="${pageContext.request.contextPath }/user/logout"><i
+									class="icon-key"></i> 退出</a></li>
 
 						</ul></li>
+
 
 					<!-- END USER LOGIN DROPDOWN -->
 
@@ -375,7 +361,8 @@
 
 				</li>
 
-				<li class="start "><a href="${pageContext.request.contextPath }/user/index"> <i
+				<li class="start "><a
+					href="${pageContext.request.contextPath }/user/index"> <i
 						class="icon-home"></i> <span class="title">主界面</span>
 
 				</a></li>
@@ -537,17 +524,12 @@
 
 						<!-- BEGIN PAGE TITLE & BREADCRUMB-->
 
-						<h3 class="page-title">
-
-							民警基本信息
-
-						</h3>
+						<h3 class="page-title">民警基本信息</h3>
 
 						<ul class="breadcrumb">
 
-							<li><i class="icon-home"></i><a href="#">主界面</a> <i class="icon-angle-right"></i>
-
-							</li>
+							<li><i class="icon-home"></i><a href="#">主界面</a> <i
+								class="icon-angle-right"></i></li>
 
 							<li><a href="#">民警基本信息</a></li>
 

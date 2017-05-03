@@ -215,15 +215,20 @@
 
 							</a></li>
 
-							<li><a href="inbox.html?a=view"> <span class="photo"><img
-										src="./media/image/avatar1.jpg" alt="" /></span> <span
-									class="subject"> <span class="from">Bob Nilson</span> <span
-										class="time">2 hrs</span>
+							<li class="dropdown user"><a href="#"
+								class="dropdown-toggle" data-toggle="dropdown"> <span
+									class="username">${user.username}</span> <i
+									class="icon-angle-down"></i>
 
-								</span> <span class="message"> Vivamus sed nibh auctor nibh
-										congue nibh. auctor nibh auctor nibh... </span>
+							</a>
 
-							</a></li>
+								<ul class="dropdown-menu">
+
+									<li><a
+										href="${pageContext.request.contextPath }/user/logout"><i
+											class="icon-key"></i> 退出</a></li>
+
+								</ul></li>
 
 							<li class="external"><a href="inbox.html">See all
 									messages <i class="m-icon-swapright"></i>
@@ -322,32 +327,17 @@
 					<!-- BEGIN USER LOGIN DROPDOWN -->
 
 					<li class="dropdown user"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"> <img alt=""
-							src="media/image/avatar1_small.jpg" /> <span class="username">Bob
-								Nilson</span> <i class="icon-angle-down"></i>
+						data-toggle="dropdown"> <span class="username">${user.username}</span>
+
+							<i class="icon-angle-down"></i>
 
 					</a>
 
 						<ul class="dropdown-menu">
 
-							<li><a href="extra_profile.html"><i class="icon-user"></i>
-									My Profile</a></li>
-
-							<li><a href="page_calendar.html"><i
-									class="icon-calendar"></i> My Calendar</a></li>
-
-							<li><a href="inbox.html"><i class="icon-envelope"></i>
-									My Inbox(3)</a></li>
-
-							<li><a href="#"><i class="icon-tasks"></i> My Tasks</a></li>
-
-							<li class="divider"></li>
-
-							<li><a href="extra_lock.html"><i class="icon-lock"></i>
-									Lock Screen</a></li>
-
-							<li><a href="login.html"><i class="icon-key"></i> Log
-									Out</a></li>
+							<li><a
+								href="${pageContext.request.contextPath }/user/logout"><i
+									class="icon-key"></i> 退出</a></li>
 
 						</ul></li>
 
@@ -811,7 +801,7 @@
 								<div class="details">
 
 									<div class="number">风险评估</div>
-									
+
 									<div class="desc">所长审批</div>
 
 								</div>
@@ -889,7 +879,7 @@
 									<div class="details">
 
 										<div class="number">入所信息</div>
-										
+
 										<div class="desc">维护</div>
 
 									</div>

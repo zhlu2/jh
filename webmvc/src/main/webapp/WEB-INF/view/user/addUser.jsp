@@ -204,6 +204,21 @@
 
 					<!-- END INBOX DROPDOWN -->
 
+					<li class="dropdown user"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown"> <span class="username">${user.username}</span>
+
+							<i class="icon-angle-down"></i>
+
+					</a>
+
+						<ul class="dropdown-menu">
+
+							<li><a
+								href="${pageContext.request.contextPath }/user/logout"><i
+									class="icon-key"></i> 退出</a></li>
+
+						</ul></li>
+
 				</ul>
 
 				<!-- END TOP NAVIGATION MENU -->
@@ -330,8 +345,7 @@
 
 										<!-- BEGIN FORM-->
 
-										<form action="#" id="aco-useradd-form"
-											class="horizontal-form">
+										<form action="#" id="aco-useradd-form" class="horizontal-form">
 
 											<h3 class="form-section">用户添加页面</h3>
 
@@ -346,9 +360,8 @@
 														<div class="controls">
 
 															<input type="text" id="aco-userName"
-																class="m-wrap span12" > <span
-																class="help-block"></span> <input
-																type="hidden" id="aco-dedrugBasicinfo-personId">
+																class="m-wrap span12"> <span class="help-block"></span>
+															<input type="hidden" id="aco-dedrugBasicinfo-personId">
 															<br>
 														</div>
 
@@ -367,8 +380,7 @@
 														<div class="controls">
 
 															<input type="text" id="aco-userPassword"
-																class="m-wrap span12" > <span
-																class="help-block"></span>
+																class="m-wrap span12"> <span class="help-block"></span>
 
 														</div>
 
@@ -382,8 +394,8 @@
 
 											<div class="form-actions">
 
-												<button type="submit"
-													id="aco-useradd-form-submit" class="btn blue">
+												<button type="submit" id="aco-useradd-form-submit"
+													class="btn blue">
 													<i class="icon-ok"></i> 保存
 												</button>
 
@@ -395,7 +407,7 @@
 
 										</form>
 
-										<!-- END FORM-->										
+										<!-- END FORM-->
 
 									</div>
 

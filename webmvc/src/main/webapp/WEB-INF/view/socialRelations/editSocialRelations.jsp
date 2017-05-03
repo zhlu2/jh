@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>	
+<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -205,6 +205,21 @@
 
 						</ul></li>
 
+					<li class="dropdown user"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown"> <span class="username">${user.username}</span>
+
+							<i class="icon-angle-down"></i>
+
+					</a>
+
+						<ul class="dropdown-menu">
+
+							<li><a
+								href="${pageContext.request.contextPath }/user/logout"><i
+									class="icon-key"></i> 退出</a></li>
+
+						</ul></li>
+
 					<!-- END INBOX DROPDOWN -->
 
 				</ul>
@@ -349,9 +364,8 @@
 														<div class="controls">
 
 															<input type="text" id="aco-dedrugBasicinfo-fullname"
-																class="m-wrap span12" > <span
-																class="help-block"></span> <input
-																type="hidden" id="aco-dedrugBasicinfo-personId">
+																class="m-wrap span12"> <span class="help-block"></span>
+															<input type="hidden" id="aco-dedrugBasicinfo-personId">
 															<br>
 														</div>
 
@@ -370,8 +384,7 @@
 														<div class="controls">
 
 															<input type="text" id="aco-relationname"
-																class="m-wrap span12" > <span
-																class="help-block"></span>
+																class="m-wrap span12"> <span class="help-block"></span>
 
 														</div>
 
@@ -396,9 +409,8 @@
 														<div class="controls">
 
 															<input type="text" id="aco-relationphone"
-																class="m-wrap span12" > <span
-																class="help-block"></span>
-																
+																class="m-wrap span12"> <span class="help-block"></span>
+
 														</div>
 
 													</div>
@@ -446,8 +458,7 @@
 														<div class="controls">
 
 															<input type="text" id="aco-relationcertificatenum"
-																class="m-wrap span12" > <span
-																class="help-block"></span>
+																class="m-wrap span12"> <span class="help-block"></span>
 
 														</div>
 
@@ -470,15 +481,15 @@
 																<option value="父">父</option>
 
 																<option value="子">子</option>
-																
+
 																<option value="母">母</option>
-																
+
 																<option value="女">女</option>
-																
+
 																<option value="亲戚">亲戚</option>
-																
+
 																<option value="女婿">女婿</option>
-																
+
 																<option value="侄女">侄女</option>
 
 															</select> <span class="help-block"></span>
@@ -504,9 +515,8 @@
 
 														<div class="controls">
 
-															<input type="text" id="aco-address"
-																class="m-wrap span12" > <span
-																class="help-block"></span>
+															<input type="text" id="aco-address" class="m-wrap span12">
+															<span class="help-block"></span>
 
 														</div>
 
@@ -517,9 +527,10 @@
 											</div>
 
 											<div class="form-actions">
-			                                    <input type="hidden" id="aco-socialRelations-id" value="${id}" >
-												<button type="submit"
-													id="aco-socialRelations-form-submit" class="btn blue">
+												<input type="hidden" id="aco-socialRelations-id"
+													value="${id}">
+												<button type="submit" id="aco-socialRelations-form-submit"
+													class="btn blue">
 													<i class="icon-ok"></i> 保存
 												</button>
 

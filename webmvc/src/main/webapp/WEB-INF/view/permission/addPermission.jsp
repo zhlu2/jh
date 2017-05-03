@@ -1,13 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>	
+<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>戒毒管理信息系统</title>
-<link href="<%=request.getContextPath()%>/static/js/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<script src="<%=request.getContextPath()%>/static/js/jQuery/jquery-2.1.4.min.js"></script>
+<link
+	href="<%=request.getContextPath()%>/static/js/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="<%=request.getContextPath()%>/static/js/jQuery/jquery-2.1.4.min.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/static/js/permission/addPermission.js"></script>
 <link
@@ -193,6 +196,22 @@
 
 						</ul></li>
 
+					<li class="dropdown user"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown"> <span class="username">${user.username}</span>
+
+							<i class="icon-angle-down"></i>
+
+					</a>
+
+						<ul class="dropdown-menu">
+
+							<li><a
+								href="${pageContext.request.contextPath }/user/logout"><i
+									class="icon-key"></i> 退出</a></li>
+
+						</ul></li>
+
+
 					<!-- END INBOX DROPDOWN -->
 
 				</ul>
@@ -323,7 +342,7 @@
 										<form action="#" id="aco-useredit-form"
 											class="horizontal-form">
 
-											<h3 class="form-section">Person Info</h3>
+											<h3 class="form-section">权限新增页面</h3>
 
 											<div class="row-fluid">
 
@@ -336,9 +355,8 @@
 														<div class="controls">
 
 															<input type="text" id="aco-permissionName"
-																class="m-wrap span12" > <span
-																class="help-block"></span> <input
-																type="hidden" id="aco-dedrugBasicinfo-personId">
+																class="m-wrap span12"> <span class="help-block"></span>
+															<input type="hidden" id="aco-dedrugBasicinfo-personId">
 															<br>
 														</div>
 
@@ -357,8 +375,7 @@
 														<div class="controls">
 
 															<input type="text" id="aco-permissionSign"
-																class="m-wrap span12" > <span
-																class="help-block"></span>
+																class="m-wrap span12"> <span class="help-block"></span>
 
 														</div>
 
@@ -397,12 +414,14 @@
 
 											<div class="form-actions">
 
-												<button type="submit"
-													id="aco-rolePermission-form-submit"  onclick="saveUserRole()" class="btn blue">
-													<i class="icon-ok"></i> Save
+												<button type="submit" id="aco-rolePermission-form-submit"
+													onclick="saveUserRole()" class="btn blue">
+													<i class="icon-ok"></i> 保存
 												</button>
 
-												<button type="button" class="btn">Cancel</button>
+												<a class="btn"
+													href="${pageContext.request.contextPath }/permission/list">
+													取消 </a>
 
 											</div>
 

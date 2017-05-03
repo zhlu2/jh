@@ -196,6 +196,22 @@
 
 						</ul></li>
 
+					<li class="dropdown user"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown"> <span class="username">${user.username}</span>
+
+							<i class="icon-angle-down"></i>
+
+					</a>
+
+						<ul class="dropdown-menu">
+
+							<li><a
+								href="${pageContext.request.contextPath }/user/logout"><i
+									class="icon-key"></i> 退出</a></li>
+
+						</ul></li>
+
+
 					<!-- END INBOX DROPDOWN -->
 
 				</ul>
@@ -339,8 +355,7 @@
 														<div class="controls">
 
 															<input type="text" id="aco-policenum"
-																class="m-wrap span12" > <span
-																class="help-block"></span>
+																class="m-wrap span12"> <span class="help-block"></span>
 
 														</div>
 
@@ -359,8 +374,7 @@
 														<div class="controls">
 															<input type="hidden" id="aco-police-id" value="${id}">
 															<input type="text" id="aco-policename"
-																class="m-wrap span12" > <span
-																class="help-block"></span>
+																class="m-wrap span12"> <span class="help-block"></span>
 
 														</div>
 
@@ -453,8 +467,7 @@
 
 												<a class="btn"
 													href="<%=request.getContextPath()%>/policeBasicInfo/list">
-													取消
-												</a>
+													取消 </a>
 
 											</div>
 

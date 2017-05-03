@@ -197,6 +197,22 @@
 
 						</ul></li>
 
+					<li class="dropdown user"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown"> <span class="username">${user.username}</span>
+
+							<i class="icon-angle-down"></i>
+
+					</a>
+
+						<ul class="dropdown-menu">
+
+							<li><a
+								href="${pageContext.request.contextPath }/user/logout"><i
+									class="icon-key"></i> 退出</a></li>
+
+						</ul></li>
+
+
 					<!-- END INBOX DROPDOWN -->
 
 				</ul>
@@ -340,8 +356,7 @@
 														<div class="controls">
 
 															<input type="text" id="aco-fullname"
-																class="m-wrap span12" > <span
-																class="help-block"></span>
+																class="m-wrap span12"> <span class="help-block"></span>
 
 														</div>
 
@@ -360,8 +375,7 @@
 														<div class="controls">
 
 															<input type="text" id="aco-personid"
-																class="m-wrap span12" > <span
-																class="help-block"></span>
+																class="m-wrap span12"> <span class="help-block"></span>
 
 														</div>
 
@@ -501,8 +515,7 @@
 														<div class="controls">
 
 															<input type="text" id="aco-casehandleperson"
-																class="m-wrap span12" > <span
-																class="help-block"></span>
+																class="m-wrap span12"> <span class="help-block"></span>
 
 														</div>
 
@@ -521,8 +534,7 @@
 														<div class="controls">
 
 															<input type="text" id="aco-abandonlimit"
-																class="m-wrap span12" > <span
-																class="help-block"></span>
+																class="m-wrap span12"> <span class="help-block"></span>
 
 														</div>
 
@@ -546,8 +558,7 @@
 														<div class="controls">
 
 															<input type="text" id="aco-abandonmethod"
-																class="m-wrap span12" > <span
-																class="help-block"></span>
+																class="m-wrap span12"> <span class="help-block"></span>
 
 														</div>
 
@@ -566,8 +577,7 @@
 														<div class="controls">
 
 															<input type="text" id="aco-abandonstartdate"
-																class="m-wrap span12" > <span
-																class="help-block"></span>
+																class="m-wrap span12"> <span class="help-block"></span>
 
 														</div>
 
@@ -592,8 +602,7 @@
 														<div class="controls">
 
 															<input type="text" id="aco-entryreason"
-																class="m-wrap span12" > <span
-																class="help-block"></span>
+																class="m-wrap span12"> <span class="help-block"></span>
 
 														</div>
 

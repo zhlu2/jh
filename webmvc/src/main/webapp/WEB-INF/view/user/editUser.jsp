@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
-<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>    
+	pageEncoding="utf-8"%>
+<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -196,6 +196,21 @@
 
 					<!-- END INBOX DROPDOWN -->
 
+					<li class="dropdown user"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown"> <span class="username">${user.username}</span>
+
+							<i class="icon-angle-down"></i>
+
+					</a>
+
+						<ul class="dropdown-menu">
+
+							<li><a
+								href="${pageContext.request.contextPath }/user/logout"><i
+									class="icon-key"></i> 退出</a></li>
+
+						</ul></li>
+
 				</ul>
 
 				<!-- END TOP NAVIGATION MENU -->
@@ -337,9 +352,8 @@
 														<div class="controls">
 
 															<input type="text" id="aco-userName"
-																class="m-wrap span12" > <span
-																class="help-block"></span> <input
-																type="hidden" id="aco-dedrugBasicinfo-personId">
+																class="m-wrap span12"> <span class="help-block"></span>
+															<input type="hidden" id="aco-dedrugBasicinfo-personId">
 															<br>
 														</div>
 
@@ -358,8 +372,7 @@
 														<div class="controls">
 
 															<input type="text" id="aco-userPassword"
-																class="m-wrap span12" > <span
-																class="help-block"></span>
+																class="m-wrap span12"> <span class="help-block"></span>
 
 														</div>
 
@@ -372,9 +385,9 @@
 											</div>
 
 											<div class="form-actions">
-                                                <input type="hidden" id="aco-user-idedit" value="${id}"> 
-												<button type="submit"
-													id="aco-useredit-form-submit" class="btn blue">
+												<input type="hidden" id="aco-user-idedit" value="${id}">
+												<button type="submit" id="aco-useredit-form-submit"
+													class="btn blue">
 													<i class="icon-ok"></i> 保存
 												</button>
 
@@ -387,7 +400,7 @@
 
 										</form>
 
-										<!-- END FORM-->										
+										<!-- END FORM-->
 
 									</div>
 
