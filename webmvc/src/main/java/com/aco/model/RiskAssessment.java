@@ -6,8 +6,18 @@ public class RiskAssessment {
     private String id;
 
     private String personId;
+    
+    private String fullname;
 
-    private Date createtime;
+    public String getFullname() {
+		return fullname;
+	}
+
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
+	}
+
+	private Date createtime;
 
     private String caseStatus;
 

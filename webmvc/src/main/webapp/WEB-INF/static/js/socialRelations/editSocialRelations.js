@@ -3,6 +3,7 @@
 			// 初始化新增按钮
 			editDedrugBasicInfo.initSaveBtnClickListener();
 			editDedrugBasicInfo.initEditPage();
+			editDedrugBasicInfo.getPerson();
 		},
 
 		initEditPage : function(){
@@ -21,10 +22,17 @@
         			 $("#aco-address").val(data.address);
         			 $("#aco-relationship").val(data.relationship);
         			 $("#aco-relationcertificatenum").val(data.relationcertificatenum);		
+                 	 $("#aco-dedrugBasicinfo-fullname").val(data.fullname);
                 },
                 error : '请求异常，查询失败！'
             });
 		},
+		
+		getPerson : function(){
+			$("#aco-dedrugBasicinfo-fullname").on("focus", function() {
+				$("#dedrug-detain-prsFamilyMeetingBasicInfo-proposeMan-id").show();
+			});
+		},  
 		// 获取模式窗口表单元素值
 		getModalFormEleVal : function() {
 			var postData = {};		
@@ -35,6 +43,7 @@
 			postData.relationship = $("#aco-relationship").val();
 			postData.relationcertificatenum = $("#aco-relationcertificatenum").val();	
 			postData.id=$("#aco-socialRelations-id").val();
+			postData.fullname=$("#aco-dedrugBasicinfo-fullname").val();
 			return postData;
 		},
 

@@ -10,9 +10,10 @@
     <result column="BZ" property="remark" jdbcType="VARCHAR" />
     <result column="SZSPYJ" property="directorApprovalMark" jdbcType="VARCHAR" />
     <result column="KSPYJ" property="departmentApprovalMark" jdbcType="VARCHAR" />
+    <result column="FULLNAME" property="fullname" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    ID, RYBH, CREATETIME, AQZK, YNBXZK, BZ, SZSPYJ, KSPYJ
+    ID, RYBH, CREATETIME, AQZK, YNBXZK, BZ, SZSPYJ, KSPYJ,FULLNAME
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -30,10 +31,10 @@
   </delete>
   <insert id="insert" parameterType="com.aco.model.RiskAssessment" >
     insert into FXPGB (ID, RYBH, CREATETIME, 
-      AQZK, YNBXZK, BZ, SZSPYJ, 
+      AQZK, YNBXZK, BZ, SZSPYJ, FULLNAME,
       KSPYJ)
     values (#{id,jdbcType=VARCHAR}, #{personId,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
-      #{caseStatus,jdbcType=VARCHAR}, #{PerStatusInPrison,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{directorApprovalMark,jdbcType=VARCHAR}, 
+      #{caseStatus,jdbcType=VARCHAR}, #{PerStatusInPrison,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{directorApprovalMark,jdbcType=VARCHAR},#{fullname,jdbcType=VARCHAR}, 
       #{departmentApprovalMark,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.aco.model.RiskAssessment" >
@@ -44,6 +45,9 @@
       </if>
       <if test="personId != null" >
         RYBH,
+      </if>
+       <if test="fullname != null" >
+        FULLNAME,
       </if>
       <if test="createtime != null" >
         CREATETIME,
@@ -71,6 +75,9 @@
       <if test="personId != null" >
         #{personId,jdbcType=VARCHAR},
       </if>
+      <if test="fullname != null" >
+        #{fullname,jdbcType=VARCHAR},
+      </if>      
       <if test="createtime != null" >
         #{createtime,jdbcType=TIMESTAMP},
       </if>
@@ -97,6 +104,9 @@
       <if test="personId != null" >
         RYBH = #{personId,jdbcType=VARCHAR},
       </if>
+      <if test="fullname != null" >
+        FULLNAME = #{fullname,jdbcType=VARCHAR},
+      </if>      
       <if test="createtime != null" >
         CREATETIME = #{createtime,jdbcType=TIMESTAMP},
       </if>
@@ -121,6 +131,7 @@
   <update id="updateByPrimaryKey" parameterType="com.aco.model.RiskAssessment" >
     update FXPGB
     set RYBH = #{personId,jdbcType=VARCHAR},
+      FULLNAME = #{fullname,jdbcType=VARCHAR},
       CREATETIME = #{createtime,jdbcType=TIMESTAMP},
       AQZK = #{caseStatus,jdbcType=VARCHAR},
       YNBXZK = #{PerStatusInPrison,jdbcType=VARCHAR},

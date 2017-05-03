@@ -12,9 +12,11 @@
 			jdbcType="VARCHAR" />
 		<result column="ADDRESS" property="address" jdbcType="VARCHAR" />
 		<result column="RELATIONSHIP" property="relationship" jdbcType="VARCHAR" />
+		<result column="FULLNAME" property="fullname" jdbcType="VARCHAR" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		ID, PERSONID, RELATIONNAME, RELATIONSEX, RELATIONPHONE,
+		ID, PERSONID, RELATIONNAME, RELATIONSEX,
+		RELATIONPHONE,FULLNAME,
 		RELATIONCERTIFICATENUM, ADDRESS,
 		RELATIONSHIP
 	</sql>
@@ -33,12 +35,17 @@
 		where ID = #{id,jdbcType=VARCHAR}
 	</delete>
 	<insert id="insert" parameterType="com.aco.model.SocialRelations">
-		insert into SHGXB (ID, PERSONID, RELATIONNAME,
-		RELATIONSEX, RELATIONPHONE, RELATIONCERTIFICATENUM,
+		insert into SHGXB (ID,
+		PERSONID, RELATIONNAME,
+		RELATIONSEX, RELATIONPHONE,FULLNAME
+		RELATIONCERTIFICATENUM,
 		ADDRESS, RELATIONSHIP)
-		values (#{id,jdbcType=VARCHAR}, #{personid,jdbcType=VARCHAR},
+		values
+		(#{id,jdbcType=VARCHAR}, #{personid,jdbcType=VARCHAR},
 		#{relationname,jdbcType=VARCHAR},
-		#{relationsex,jdbcType=VARCHAR}, #{relationphone,jdbcType=VARCHAR},
+		#{relationsex,jdbcType=VARCHAR},
+		#{relationphone,jdbcType=VARCHAR},
+		#{fullname,jdbcType=VARCHAR},
 		#{relationcertificatenum,jdbcType=VARCHAR},
 		#{address,jdbcType=VARCHAR}, #{relationship,jdbcType=VARCHAR})
 	</insert>
@@ -50,6 +57,9 @@
 			</if>
 			<if test="personid != null">
 				PERSONID,
+			</if>
+			<if test="fullname != null">
+				FULLNAME,
 			</if>
 			<if test="relationname != null">
 				RELATIONNAME,
@@ -77,6 +87,9 @@
 			<if test="personid != null">
 				#{personid,jdbcType=VARCHAR},
 			</if>
+			<if test="fullname != null">
+				#{fullname,jdbcType=VARCHAR},
+			</if>
 			<if test="relationname != null">
 				#{relationname,jdbcType=VARCHAR},
 			</if>
@@ -103,6 +116,9 @@
 			<if test="personid != null">
 				PERSONID = #{personid,jdbcType=VARCHAR},
 			</if>
+			<if test="fullname != null">
+				FULLNAME = #{fullname,jdbcType=VARCHAR},
+			</if>
 			<if test="relationname != null">
 				RELATIONNAME = #{relationname,jdbcType=VARCHAR},
 			</if>
@@ -113,7 +129,8 @@
 				RELATIONPHONE = #{relationphone,jdbcType=VARCHAR},
 			</if>
 			<if test="relationcertificatenum != null">
-				RELATIONCERTIFICATENUM = #{relationcertificatenum,jdbcType=VARCHAR},
+				RELATIONCERTIFICATENUM =
+				#{relationcertificatenum,jdbcType=VARCHAR},
 			</if>
 			<if test="address != null">
 				ADDRESS = #{address,jdbcType=VARCHAR},
@@ -126,13 +143,21 @@
 	</update>
 	<update id="updateByPrimaryKey" parameterType="com.aco.model.SocialRelations">
 		update SHGXB
-		set PERSONID = #{personid,jdbcType=VARCHAR},
-		RELATIONNAME = #{relationname,jdbcType=VARCHAR},
-		RELATIONSEX = #{relationsex,jdbcType=VARCHAR},
-		RELATIONPHONE = #{relationphone,jdbcType=VARCHAR},
-		RELATIONCERTIFICATENUM = #{relationcertificatenum,jdbcType=VARCHAR},
-		ADDRESS = #{address,jdbcType=VARCHAR},
-		RELATIONSHIP = #{relationship,jdbcType=VARCHAR}
+		set
+		PERSONID = #{personid,jdbcType=VARCHAR},
+		FULLNAME = #{fullname,jdbcType=VARCHAR},
+		RELATIONNAME =
+		#{relationname,jdbcType=VARCHAR},
+		RELATIONSEX =
+		#{relationsex,jdbcType=VARCHAR},
+		RELATIONPHONE =
+		#{relationphone,jdbcType=VARCHAR},
+		RELATIONCERTIFICATENUM =
+		#{relationcertificatenum,jdbcType=VARCHAR},
+		ADDRESS =
+		#{address,jdbcType=VARCHAR},
+		RELATIONSHIP =
+		#{relationship,jdbcType=VARCHAR}
 		where ID = #{id,jdbcType=VARCHAR}
 	</update>
 </mapper>

@@ -14,6 +14,10 @@ public interface ConversationRecordMapper {
     int insertSelective(ConversationRecord record);
 
     List<ConversationRecord> selectByPrimaryKey(@Param("id")String id);
+    
+    List<ConversationRecord> selectInprisonByPrimaryKey(@Param("id")String id);
+    
+    List<ConversationRecord> selectOutprisonByPrimaryKey(@Param("id")String id);
 
     int updateByPrimaryKeySelective(ConversationRecord record);
 

@@ -10,7 +10,7 @@
 <script src="<%=request.getContextPath()%>/static/js/jQuery/jquery-2.1.4.min.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap.min.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap-paginator.min.js"></script>
-<script src="<%=request.getContextPath()%>/static/js/dedrugBasicInfo/dedrugBasicInfoList.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/conversationRecord/outPrisonConversationList.js"></script>
 <link href="<%=request.getContextPath()%>/static/media/css/bootstrap.min.css" rel="stylesheet"
 	type="text/css" />
 
@@ -265,9 +265,11 @@
 
 								<a href="inbox.html?a=view">
 
+								<span class="photo"><img src="media/image/avatar1.jpg" alt="" /></span>
+
 								<span class="subject">
 
-								<span class="from"></span>
+								<span class="from">Bob Nilson</span>
 
 								<span class="time">2 hrs</span>
 
@@ -467,7 +469,9 @@
 
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
-						<span class="username">${user.username}</span>
+						<img alt="" src="media/image/avatar1_small.jpg" />
+
+						<span class="username">Bob Nilson</span>
 
 						<i class="icon-angle-down"></i>
 
@@ -487,7 +491,7 @@
 
 							<li><a href="extra_lock.html"><i class="icon-lock"></i> Lock Screen</a></li>
 
-							<li><a href="${pageContext.request.contextPath }/user/logout"><i class="icon-key"></i> Log Out</a></li>
+							<li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
 
 						</ul>
 
@@ -606,7 +610,7 @@
 					</ul></li>
                     </shiro:hasRole> 
 
-				
+
 				</ul>
 	
 		</div>
@@ -741,7 +745,7 @@
 
 						<h3 class="page-title">
 
-							入所登记
+							谈话教育
 
 						</h3>
 
@@ -755,7 +759,7 @@
 
 							</li>
 
-							<li><a href="${pageContext.request.contextPath }/dedrugBasicInfo/list">入所登记</a></li>
+							<li><a href="${pageContext.request.contextPath }/conversationRecord/list">谈话教育</a></li>
 
 						</ul>
 
@@ -779,7 +783,7 @@
 
 							<div class="portlet-title">
 
-								<div class="caption"><i class="icon-globe"></i>入所登记表</div>
+								<div class="caption"><i class="icon-globe"></i>谈话教育表</div>
 
 								<div class="tools">
 
@@ -801,7 +805,7 @@
 
 									<div class="btn-group">										
 										 
-										 <a class="btn green"  href="<%=request.getContextPath()%>/dedrugBasicInfo/addPage">
+										 <a class="btn green"  href="<%=request.getContextPath()%>/conversationRecord/addOutPrisonConversation">
 
 										新增 <i class="icon-plus"></i>
                                         </a>
@@ -827,13 +831,13 @@
 
 											<th>序号</th>
 
-											<th class="hidden-480">姓名</th>
+											<th class="hidden-480">谈话民警</th>
 
-											<th class="hidden-480">性别</th>
+											<th class="hidden-480">谈话时间</th>
 
-											<th class="hidden-480">拘留开始日期</th>
+											<th class="hidden-480">谈话类型</th>
 											
-											<th class="hidden-480">入所原因</th>
+											<th class="hidden-480">谈话地点</th>
 
 											<th class="hidden-480">操作</th>
 

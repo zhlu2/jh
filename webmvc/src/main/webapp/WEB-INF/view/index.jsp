@@ -843,7 +843,7 @@
 									</div>
 
 									<a class="more"
-										href="${pageContext.request.contextPath }/riskAssessment/riskDirectorList">
+										href="${pageContext.request.contextPath }/conversationRecord/OutPrisonConversationList">
 										查看更多 <i class="m-icon-swapright m-icon-white"></i>
 									</a>
 
@@ -868,7 +868,34 @@
 									</div>
 
 									<a class="more"
-										href="${pageContext.request.contextPath }/riskAssessment/riskDirectorList">
+										href="${pageContext.request.contextPath }/conversationRecord/InPrisonConversationList">
+										查看更多 <i class="m-icon-swapright m-icon-white"></i>
+									</a>
+
+								</div>
+
+							</div>
+							<div class="span3 responsive" data-tablet="span6"
+								data-desktop="span3">
+
+								<div class="dashboard-stat yellow">
+
+									<div class="visual">
+
+										<i class="icon-bar-chart"></i>
+
+									</div>
+
+									<div class="details">
+
+										<div class="number">入所信息</div>
+										
+										<div class="desc">维护</div>
+
+									</div>
+
+									<a class="more"
+										href="${pageContext.request.contextPath }/dedrugBasicInfo/infoList">
 										查看更多 <i class="m-icon-swapright m-icon-white"></i>
 									</a>
 

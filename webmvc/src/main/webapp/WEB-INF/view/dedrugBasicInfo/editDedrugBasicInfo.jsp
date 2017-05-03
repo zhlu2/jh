@@ -387,9 +387,9 @@
 
 															<select id="aco-sex" class="m-wrap span12">
 
-																<option value="男">Male</option>
+																<option value="男">男</option>
 
-																<option value="女">Female</option>
+																<option value="女">女</option>
 
 															</select> <span class="help-block"></span>
 

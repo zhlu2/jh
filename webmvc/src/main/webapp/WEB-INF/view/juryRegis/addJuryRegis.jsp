@@ -11,16 +11,20 @@
 	rel="stylesheet">
 <script
 	src="<%=request.getContextPath()%>/static/js/jQuery/jquery-2.1.4.min.js"></script>
+<script
+	src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap.js"></script>
+<script
+	src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap-paginator.min.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/static/js/juryRegis/addJuryRegis.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/static/js/common/acoCommon.js"></script>
+
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/static/js/conversationRecord/addConversationRecord.js"></script>
 <link
 	href="<%=request.getContextPath()%>/static/media/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
-
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/static/js/common/acoCommonInprison.js"></script>
 <link
 	href="<%=request.getContextPath()%>/static/media/css/bootstrap-responsive.min.css"
 	rel="stylesheet" type="text/css" />
@@ -344,10 +348,9 @@
 														<div class="controls">
 
 															<input type="text" id="aco-dedrugBasicinfo-fullname"
-																class="m-wrap span12" > <span
-																class="help-block"></span> <input
-																type="hidden" id="aco-dedrugBasicinfo-personId" placeholder="点击查询戒毒人员">
-															<br>
+																class="m-wrap span12"> <span class="help-block"></span>
+															<input type="hidden" id="aco-dedrugBasicinfo-personId"
+																placeholder="点击查询戒毒人员"> <br>
 														</div>
 
 													</div>
@@ -433,7 +436,7 @@
 														<div class="controls">
 
 															<textarea id="aco-policestatementreason"
-																class="m-wrap span12" rows="3" ></textarea>
+																class="m-wrap span12" rows="3"></textarea>
 															<span class="help-block"></span>
 
 														</div>
@@ -478,8 +481,7 @@
 														<div class="controls">
 
 															<input type="text" id="aco-scpolice"
-																class="m-wrap span12" > <span
-																class="help-block"></span>
+																class="m-wrap span12"> <span class="help-block"></span>
 
 														</div>
 
@@ -509,8 +511,8 @@
 
 											<div class="form-actions">
 
-												<button type="submit"
-													id="aco-juryRegis-form-submit" class="btn blue">
+												<button type="submit" id="aco-juryRegis-form-submit"
+													class="btn blue">
 													<i class="icon-ok"></i> 保存
 												</button>
 

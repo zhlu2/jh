@@ -11,16 +11,8 @@
 	rel="stylesheet">
 <script
 	src="<%=request.getContextPath()%>/static/js/jQuery/jquery-2.1.4.min.js"></script>
-<script
-	src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap.js"></script>
-<script
-	src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap-paginator.min.js"></script>
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/static/js/prsArrgInfo/editPrsArrgInfo.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/static/js/common/acoCommonInprison.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/static/js/conversationRecord/addConversationRecord.js"></script>
+	src="${pageContext.request.contextPath}/static/js/dedrugBasicInfo/editDedrugBasicInfo.js"></script>
 <link
 	href="<%=request.getContextPath()%>/static/media/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
@@ -302,7 +294,6 @@
 					</ul></li>
 			</shiro:hasRole>
 
-
 		</ul>
 
 		<!-- END SIDEBAR MENU -->
@@ -333,10 +324,10 @@
 
 										<!-- BEGIN FORM-->
 
-										<form action="#" id="aco-prsArrgInfo-form"
+										<form action="#" id="aco-edit-dedrugBasicInfo-form"
 											class="horizontal-form">
 
-											<h3 class="form-section">临时探访编辑页面</h3>
+											<h3 class="form-section">戒毒人员基本信息编辑页面</h3>
 
 											<div class="row-fluid">
 
@@ -344,15 +335,14 @@
 
 													<div class="control-group">
 
-														<label class="control-label" for="firstName">犯罪人员姓名</label>
+														<label class="control-label" for="firstName">姓名</label>
 
 														<div class="controls">
 
-															<input type="text" id="aco-dedrugBasicinfo-fullname"
+															<input type="text" id="aco-fullname"
 																class="m-wrap span12" > <span
-																class="help-block"></span> <input
-																type="hidden" id="aco-dedrugBasicinfo-personId">
-															<br>
+																class="help-block"></span>
+
 														</div>
 
 													</div>
@@ -365,11 +355,11 @@
 
 													<div class="control-group">
 
-														<label class="control-label" for="firstName">申请民警</label>
+														<label class="control-label" for="firstName">人员编号</label>
 
 														<div class="controls">
 
-															<input type="text" id="aco-applypolice"
+															<input type="text" id="aco-personid"
 																class="m-wrap span12" > <span
 																class="help-block"></span>
 
@@ -386,26 +376,6 @@
 											<!--/row-->
 
 											<div class="row-fluid">
-
-												<div class="span6 ">
-
-													<div class="control-group">
-
-														<label class="control-label">探访人姓名</label>
-
-														<div class="controls">
-
-															<input type="text" id="aco-prsfullname"
-																class="m-wrap span12" > <span
-																class="help-block"></span>
-																
-														</div>
-
-													</div>
-
-												</div>
-
-												<!--/span-->
 
 												<div class="span6 ">
 
@@ -431,6 +401,25 @@
 
 												<!--/span-->
 
+												<div class="span6 ">
+
+													<div class="control-group">
+
+														<label class="control-label">证件号码</label>
+
+														<div class="controls">
+
+															<input type="text" id="aco-certificatenum"
+																class="m-wrap span12" placeholder="dd/mm/yyyy">
+
+														</div>
+
+													</div>
+
+												</div>
+
+												<!--/span-->
+
 											</div>
 
 											<!--/row-->
@@ -441,11 +430,77 @@
 
 													<div class="control-group">
 
-														<label class="control-label" for="firstName">年龄</label>
+														<label class="control-label">吸毒方式</label>
 
 														<div class="controls">
 
-															<input type="text" id="aco-age"
+															<select id="aco-drugabuse" class="m-wrap span12">
+
+																<option value="烟吸">烟吸</option>
+
+																<option value="烫吸">烫吸</option>
+
+																<option value="鼻嗅">鼻嗅</option>
+
+																<option value="口服">口服</option>
+
+																<option value="注射">注射</option>
+
+															</select> <span class="help-block"></span>
+
+														</div>
+
+													</div>
+
+												</div>
+
+												<div class="span6 ">
+
+													<div class="control-group">
+
+														<label class="control-label">毒品种类</label>
+
+														<div class="controls">
+
+															<select id="aco-drugtype" class="m-wrap span12">
+
+																<option value="鸦片">鸦片</option>
+
+																<option value="海洛因">海洛因</option>
+
+																<option value="甲基苯丙">甲基苯丙</option>
+
+																<option value="胺吗啡">胺吗啡</option>
+
+																<option value="罂粟">罂粟</option>
+
+																<option value="大麻">大麻</option>
+
+																<option value="杜冷丁">杜冷丁</option>
+
+																<option value="古柯">古柯</option>
+
+															</select> <span class="help-block"></span>
+
+														</div>
+
+													</div>
+
+												</div>
+
+											</div>
+
+											<div class="row-fluid">
+
+												<div class="span6 ">
+
+													<div class="control-group">
+
+														<label class="control-label" for="firstName">办案人员</label>
+
+														<div class="controls">
+
+															<input type="text" id="aco-casehandleperson"
 																class="m-wrap span12" > <span
 																class="help-block"></span>
 
@@ -461,27 +516,13 @@
 
 													<div class="control-group">
 
-														<label class="control-label" for="firstName">与被探访人关系</label>
+														<label class="control-label" for="firstName">戒毒期限</label>
 
 														<div class="controls">
 
-															<select id="aco-prsrelation" class="m-wrap span12">
-
-																<option value="父">父</option>
-
-																<option value="子">子</option>
-																
-																<option value="母">母</option>
-																
-																<option value="女">女</option>
-																
-																<option value="亲戚">亲戚</option>
-																
-																<option value="女婿">女婿</option>
-																
-																<option value="侄女">侄女</option>
-
-															</select> <span class="help-block"></span>
+															<input type="text" id="aco-abandonlimit"
+																class="m-wrap span12" > <span
+																class="help-block"></span>
 
 														</div>
 
@@ -500,11 +541,57 @@
 
 													<div class="control-group">
 
-														<label class="control-label" for="firstName">申请理由</label>
+														<label class="control-label" for="firstName">戒毒方法</label>
 
 														<div class="controls">
 
-															<input type="text" id="aco-applyreason"
+															<input type="text" id="aco-abandonmethod"
+																class="m-wrap span12" > <span
+																class="help-block"></span>
+
+														</div>
+
+													</div>
+
+												</div>
+
+												<!--/span-->
+
+												<div class="span6 ">
+
+													<div class="control-group">
+
+														<label class="control-label" for="firstName">戒毒开始日期</label>
+
+														<div class="controls">
+
+															<input type="text" id="aco-abandonstartdate"
+																class="m-wrap span12" > <span
+																class="help-block"></span>
+
+														</div>
+
+													</div>
+
+												</div>
+
+												<!--/span-->
+
+											</div>
+
+											<!--/row-->
+											<!--/row-->
+											<div class="row-fluid">
+
+												<div class="span6 ">
+
+													<div class="control-group">
+
+														<label class="control-label" for="firstName">入所原因</label>
+
+														<div class="controls">
+
+															<input type="text" id="aco-entryreason"
 																class="m-wrap span12" > <span
 																class="help-block"></span>
 
@@ -517,84 +604,23 @@
 											</div>
 
 											<div class="form-actions">
-		                                        <input type="hidden" id="aco-prsArrgInfo-id" value="${id}" >
-												<button type="submit"
-													id="aco-prsArrgInfo-form-submit" class="btn blue">
+												<input type="hidden" id="aco-dedrugBasicInfo-id"
+													value="${id}">
+												<button type="submit" id="aco-dedrugBasicInfo-form-submit"
+													class="btn blue">
 													<i class="icon-ok"></i> 保存
 												</button>
 
 												<a class="btn"
-													href="${pageContext.request.contextPath }/prsArrgInfo/list">
+													href="<%=request.getContextPath()%>/dedrugBasicInfo//infoList">
 													取消 </a>
+
 
 											</div>
 
 										</form>
 
 										<!-- END FORM-->
-										<div
-											id="dedrug-detain-prsFamilyMeetingBasicInfo-proposeMan-id"
-											class="modal" aria-hidden="true" tabindex="-1"
-											data-backdrop="static" role="dialog"
-											aria-labelledby="ModalLabel" data-width="650"
-											style="display: none">
-											<div class="modal-dialog">
-												<div class="modal-content">
-													<div class="modal-header">
-														<button type="button" class="close" data-dismiss="modal"
-															aria-hidden="true"></button>
-														<h4 class="modal-title">人员信息</h4>
-													</div>
-													<div class="modal-body"
-														style="height: 100%; overflow-y: auto;">
-														<div class="portlet box blue-hoki">
-															<div class="portlet-body">
-																<div class="row" id="resetid">
-																	<div class="col-md-3">
-																		<div class="form-group">
-																			<div class="input-icon">
-																				<input id="dedrugTextInput" type="text"
-																					placeholder="请输入用户名">
-																				<button id="queryButton" class="btn btn-primary"
-																					type="button">查询</button>
-																			</div>
-																		</div>
-																	</div>
-
-																</div>
-															</div>
-														</div>
-														<!-- BEGIN FORM-->
-														<div class="portlet-body">
-															<form id="form1">
-																<table class="table table-bordered" id='tableResult'>
-																	<caption>查询用户结果</caption>
-																	<thead>
-																		<tr>
-																			<th>序号</th>
-																			<th>姓名</th>
-																			<th>性别</th>
-																			<th>拘留开始日期</th>
-																			<th>入所原因</th>
-																			<th>操作</th>
-																		</tr>
-																	</thead>
-																	<tbody id="dedrugTableBody">
-																	</tbody>
-																</table>
-																<!-- 底部分页按钮 -->
-																<div id="bottomTab"></div>
-															</form>
-														</div>
-														<!-- END FORM-->
-													</div>
-													<div class="modal-footer">
-														<button type="button" class="btn btn-default"
-															data-dismiss="modal">关闭</button>
-													</div>
-												</div>
-											</div>
-										</div>
 
 									</div>
 

@@ -6,6 +6,7 @@
 		init : function() {
 			// 初始化新增按钮
 			addPrsArrgInfo.initSaveBtnClickListener();
+			addPrsArrgInfo.getPerson();
 		},
 
 		// 获取模式窗口表单元素值
@@ -22,6 +23,12 @@
 			return postData;
 		},
 
+		getPerson : function(){
+			$("#aco-dedrugBasicinfo-fullname").on("focus", function() {
+				$("#dedrug-detain-prsFamilyMeetingBasicInfo-proposeMan-id").show();
+			});
+		},  
+		
     	// 初始化保存新建任务按钮的click事件
 		initSaveBtnClickListener : function() {
 			$("#aco-prsArrgInfo-form-submit").on("click", function(event) {

@@ -11,14 +11,10 @@
 	rel="stylesheet">
 <script
 	src="<%=request.getContextPath()%>/static/js/jQuery/jquery-2.1.4.min.js"></script>
-<script
-	src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap.js"></script>
-<script
-	src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap-paginator.min.js"></script>
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/static/js/prsArrgInfo/editPrsArrgInfo.js"></script>
+	src="${pageContext.request.contextPath}/static/js/conversationRecord/editConversationRecord.js"></script>
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/static/js/common/acoCommonInprison.js"></script>
+	src="${pageContext.request.contextPath}/static/js/common/acoCommon.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/static/js/conversationRecord/addConversationRecord.js"></script>
 <link
@@ -302,7 +298,6 @@
 					</ul></li>
 			</shiro:hasRole>
 
-
 		</ul>
 
 		<!-- END SIDEBAR MENU -->
@@ -333,10 +328,10 @@
 
 										<!-- BEGIN FORM-->
 
-										<form action="#" id="aco-prsArrgInfo-form"
+										<form action="#" id="aco-conversationRecord-form"
 											class="horizontal-form">
 
-											<h3 class="form-section">临时探访编辑页面</h3>
+											<h3 class="form-section">谈话教育编辑页面</h3>
 
 											<div class="row-fluid">
 
@@ -365,11 +360,11 @@
 
 													<div class="control-group">
 
-														<label class="control-label" for="firstName">申请民警</label>
+														<label class="control-label" for="firstName">谈话民警</label>
 
 														<div class="controls">
 
-															<input type="text" id="aco-applypolice"
+															<input type="text" id="aco-talkPolice"
 																class="m-wrap span12" > <span
 																class="help-block"></span>
 
@@ -391,35 +386,15 @@
 
 													<div class="control-group">
 
-														<label class="control-label">探访人姓名</label>
+														<label class="control-label">谈话类型</label>
 
 														<div class="controls">
 
-															<input type="text" id="aco-prsfullname"
-																class="m-wrap span12" > <span
-																class="help-block"></span>
-																
-														</div>
+															<select id="aco-talktype" class="m-wrap span12">
 
-													</div>
+																<option value="入所谈话">入所谈话</option>
 
-												</div>
-
-												<!--/span-->
-
-												<div class="span6 ">
-
-													<div class="control-group">
-
-														<label class="control-label">性别</label>
-
-														<div class="controls">
-
-															<select id="aco-sex" class="m-wrap span12">
-
-																<option value="男">男</option>
-
-																<option value="女">女</option>
+																<option value="出所谈话">出所谈话</option>
 
 															</select> <span class="help-block"></span>
 
@@ -431,6 +406,25 @@
 
 												<!--/span-->
 
+												<div class="span6 ">
+
+													<div class="control-group">
+
+														<label class="control-label">谈话地点</label>
+
+														<div class="controls">
+
+															<input type="text" id="aco-talkplace"
+																class="m-wrap span12" placeholder="请输入谈话地点">
+
+														</div>
+
+													</div>
+
+												</div>
+
+												<!--/span-->
+
 											</div>
 
 											<!--/row-->
@@ -441,13 +435,12 @@
 
 													<div class="control-group">
 
-														<label class="control-label" for="firstName">年龄</label>
+														<label class="control-label" for="firstName">提问</label>
 
 														<div class="controls">
 
-															<input type="text" id="aco-age"
-																class="m-wrap span12" > <span
-																class="help-block"></span>
+															<input type="text" id="aco-ask" class="m-wrap span12"
+																> <span class="help-block"></span>
 
 														</div>
 
@@ -461,27 +454,12 @@
 
 													<div class="control-group">
 
-														<label class="control-label" for="firstName">与被探访人关系</label>
+														<label class="control-label" for="firstName">回答</label>
 
 														<div class="controls">
 
-															<select id="aco-prsrelation" class="m-wrap span12">
-
-																<option value="父">父</option>
-
-																<option value="子">子</option>
-																
-																<option value="母">母</option>
-																
-																<option value="女">女</option>
-																
-																<option value="亲戚">亲戚</option>
-																
-																<option value="女婿">女婿</option>
-																
-																<option value="侄女">侄女</option>
-
-															</select> <span class="help-block"></span>
+															<input type="text" id="aco-answer" class="m-wrap span12"
+																> <span class="help-block"></span>
 
 														</div>
 
@@ -500,13 +478,14 @@
 
 													<div class="control-group">
 
-														<label class="control-label" for="firstName">申请理由</label>
+														<label class="control-label" for="firstName">内容</label>
 
 														<div class="controls">
 
-															<input type="text" id="aco-applyreason"
-																class="m-wrap span12" > <span
-																class="help-block"></span>
+															<textarea id="aco-talkcontent" rows="3"
+																class="m-wrap span12"> </textarea>
+															<span class="help-block"></span>
+
 
 														</div>
 
@@ -517,14 +496,15 @@
 											</div>
 
 											<div class="form-actions">
-		                                        <input type="hidden" id="aco-prsArrgInfo-id" value="${id}" >
+												<input type="hidden" id="aco-conversationRecord-id"
+													value="${id}">
 												<button type="submit"
-													id="aco-prsArrgInfo-form-submit" class="btn blue">
+													id="aco-conversationRecord-form-submit" class="btn blue">
 													<i class="icon-ok"></i> 保存
 												</button>
 
 												<a class="btn"
-													href="${pageContext.request.contextPath }/prsArrgInfo/list">
+													href="${pageContext.request.contextPath }/conversationRecord/InPrisonConversationList">
 													取消 </a>
 
 											</div>

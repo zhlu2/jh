@@ -19,7 +19,7 @@
 			postData.entryreason = $("#aco-entryreason").val();
 			postData.abandonstartdate = new Date();
 			postData.createTime=new Date();
-			postData.personsign="0";
+			postData.personsign="5";
 			return postData;
 		},
 

@@ -15,11 +15,15 @@ public interface DedrugBasicInfoMapper {
 
     List<DedrugBasicInfo> selectByPrimaryKey(@Param("id")String id);
     
+    List<DedrugBasicInfo> selectIntalkByPrimaryKey(@Param("id")String id);
+    
     List<DedrugBasicInfo> selectByDelete(@Param("id")String id);
     
     List<DedrugBasicInfo> selectByOut(@Param("id")String id);
     
     List<DedrugBasicInfo> selectInPrison(@Param("id")String id);
+    
+    DedrugBasicInfo selectByFullname(@Param("fullname")String fullname);
 
     int updateByPrimaryKeySelective(DedrugBasicInfo record);
 

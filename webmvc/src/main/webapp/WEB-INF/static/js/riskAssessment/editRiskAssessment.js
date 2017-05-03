@@ -19,6 +19,7 @@
         			$("#aco-caseStatus").val(data.caseStatus);
         			$("#aco-PerStatusInPrison").val(data.perStatusInPrison);
         			$("#aco-remark").val(data.remark);	
+                    $("#aco-dedrugBasicinfo-fullname").val(data.fullname); 
                 },
                 error : '请求异常，查询失败！'
             });
@@ -30,6 +31,7 @@
 			postData.talkpolice = $("#aco-caseStatus").val();
 			postData.talktype = $("#aco-PerStatusInPrison").val();
 			postData.talkplace = $("#aco-remark").val();
+			postData.fullname=$("#aco-dedrugBasicinfo-fullname").val();
 			return postData;
 		},
 

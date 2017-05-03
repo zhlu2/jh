@@ -40,7 +40,7 @@ var urlRootContext = (function () {
 
 //生成表格
 function buildTable(userName,pageNumber,pageSize) {
-	 var url =  urlRootContext + "/dedrugBasicInfo/selectIntalk"; //请求的网址
+	 var url =  urlRootContext + "/dedrugBasicInfo/selectInPrison"; //请求的网址
      var reqParams = {'userName':userName, 'pageNumber':pageNumber,'pageSize':pageSize};//请求数据
      $(function () {   
      	  $.ajax({
@@ -108,7 +108,7 @@ function buildTable(userName,pageNumber,pageSize) {
 $(function() {
 	
 	//生成底部分页栏
-    $('#bottomTab').bootstrapPaginator(options);     
+    $('#bottomTab').bootstrapPaginator(options);
 	
 	buildTable("",1,10);//默认空白查全部
 	

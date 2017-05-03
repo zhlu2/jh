@@ -4,8 +4,18 @@ public class SocialRelations {
     private String id;
 
     private String personid;
+    
+    private String fullname;
 
-    private String relationname;
+    public String getFullname() {
+		return fullname;
+	}
+
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
+	}
+
+	private String relationname;
 
     private String relationsex;
 

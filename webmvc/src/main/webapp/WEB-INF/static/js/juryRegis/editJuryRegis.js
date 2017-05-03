@@ -3,6 +3,7 @@
 			// 初始化新增按钮
 			editJuryRegis.initSaveBtnClickListener();
 			editJuryRegis.initEditPage();
+			editJuryRegis.getPerson();
 		},
 
 		initEditPage : function(){
@@ -27,6 +28,12 @@
                 error : '请求异常，查询失败！'
             });
 		},
+		
+		getPerson : function(){
+			$("#aco-dedrugBasicinfo-fullname").on("focus", function() {
+				$("#dedrug-detain-prsFamilyMeetingBasicInfo-proposeMan-id").show();
+			});
+		},  
 		// 获取模式窗口表单元素值
 		getModalFormEleVal : function() {
 			var postData = {};		

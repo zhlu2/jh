@@ -1,7 +1,8 @@
-	var	addDedrugBasicInfo = {
+	var	addSocialRelations = {
 		init : function() {
 			// 初始化新增按钮
-			addDedrugBasicInfo.initSaveBtnClickListener();
+			addSocialRelations.initSaveBtnClickListener();
+			addSocialRelations.getPerson();
 		},
 
 		// 获取模式窗口表单元素值
@@ -13,9 +14,16 @@
 			postData.address = $("#aco-address").val();
 			postData.relationship = $("#aco-relationship").val();
 			postData.relationcertificatenum = $("#aco-relationcertificatenum").val();
+			postData.fullname=$("#aco-dedrugBasicinfo-fullname").val();
 			return postData;
 		},
 
+		getPerson : function(){
+			$("#aco-dedrugBasicinfo-fullname").on("focus", function() {
+				$("#dedrug-detain-prsFamilyMeetingBasicInfo-proposeMan-id").show();
+			});
+		},  
+		
     	// 初始化保存新建任务按钮的click事件
 		initSaveBtnClickListener : function() {
 
@@ -23,7 +31,7 @@
 				event.preventDefault();
 				    var strPath = window.document.location.pathname;
 		            var postPath = strPath.substring(0, strPath.substr(1).indexOf('/') + 1);
-					var postData = addDedrugBasicInfo.getModalFormEleVal();
+					var postData = addSocialRelations.getModalFormEleVal();
 					$.ajax({
 						type : "POST",
 						async : false,// 同步请求
@@ -40,4 +48,4 @@
 
 	};
 
-	$( document ).ready(addDedrugBasicInfo.init);
+	$( document ).ready(addSocialRelations.init);

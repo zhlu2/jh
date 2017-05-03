@@ -11,12 +11,14 @@
 	rel="stylesheet">
 <script
 	src="<%=request.getContextPath()%>/static/js/jQuery/jquery-2.1.4.min.js"></script>
+<script
+	src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap.js"></script>
+<script
+	src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap-paginator.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/static/js/common/acoCommonInprison.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/static/js/socialRelations/addSocialRelations.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/static/js/common/acoCommon.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/static/js/conversationRecord/addConversationRecord.js"></script>
 <link
 	href="<%=request.getContextPath()%>/static/media/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />

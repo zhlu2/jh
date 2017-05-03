@@ -22,14 +22,48 @@ public class ConversationRecordController extends BaseController{
 	private final static String List="conversationRecord/conversationRecordList";
 	private final static String ADDPAGE="conversationRecord/addConversationRecord";
 	private final static String EDITPAGE="conversationRecord/editConversationRecord";
+	private final static String InPrisonConversationList="conversationRecord/inPrisonConversationList";
+	private final static String ADDInPrisonConversation="conversationRecord/addInPrisonConversation";
+	private final static String editInPrisonConversationList="conversationRecord/editInPrisonConversationList";
+	private final static String OutPrisonConversationList="conversationRecord/outPrisonConversationList";
+	private final static String ADDOutPrisonConversation="conversationRecord/addOutPrisonConversation";
+	private final static String editOutPrisonConversationList="conversationRecord/editOutPrisonConversationList";
 	
 	@RequestMapping("/list")
 	public String List(){
 		return List;
 	}
+	@RequestMapping("/InPrisonConversationList")
+	public String InPrisonConversationList(){
+		return InPrisonConversationList;
+	}
+	@RequestMapping("/OutPrisonConversationList")
+	public String OutPrisonConversationList(){
+		return OutPrisonConversationList;
+	}
+	@RequestMapping("/addInPrisonConversation")
+	public String ADDInPrisonConversation(){
+		return ADDInPrisonConversation;
+	}
+	@RequestMapping("/addOutPrisonConversation")
+	public String ADDOutPrisonConversation(){
+		return ADDOutPrisonConversation;
+	}
 	@RequestMapping("/addpage")
 	public String addPage(){
 		return ADDPAGE;
+	}
+	@RequestMapping("/editInPrisonConversationList/{id}")
+	public ModelAndView editInPrisonConversationList(@PathVariable("id") String id){
+    	ModelAndView mav = new ModelAndView(editInPrisonConversationList);
+    	mav.addObject("id", id);
+    	return mav;
+	}
+	@RequestMapping("/editOutPrisonConversationList/{id}")
+	public ModelAndView editOutPrisonConversationList(@PathVariable("id") String id){
+    	ModelAndView mav = new ModelAndView(editOutPrisonConversationList);
+    	mav.addObject("id", id);
+    	return mav;
 	}
 	@RequestMapping("/editPage/{id}")
 	public ModelAndView editPage(@PathVariable("id") String id){
@@ -60,6 +94,30 @@ public class ConversationRecordController extends BaseController{
     @ResponseBody
     public String queryById(@PathVariable("id") String id){
     	return responseSuccess(conversationRecordService.findConversationRecord(id).get(0));
+    }
+    
+    @RequestMapping("/findInPrisonConversationList")
+    @ResponseBody
+    public String inPrisonlist(Integer pageNumber,Integer pageSize ,String id){
+        logger.info("分页查询用户信息列表请求入参：pageNumber{},pageSize{}", pageNumber,pageSize);  
+        try {  
+            PagedResult<ConversationRecord> pageResult = conversationRecordService.queryByPageForInPrison(id, pageNumber, pageSize);  
+            return responseSuccess(pageResult);  
+        } catch (Exception e) {  
+            return responseFail(e.getMessage());  
+        } 
+    }
+    
+    @RequestMapping("/findOutPrisonConversationList")
+    @ResponseBody
+    public String outPrisonlist(Integer pageNumber,Integer pageSize ,String id){
+        logger.info("分页查询用户信息列表请求入参：pageNumber{},pageSize{}", pageNumber,pageSize);  
+        try {  
+            PagedResult<ConversationRecord> pageResult = conversationRecordService.queryByPageForOutPrison(id, pageNumber, pageSize);  
+            return responseSuccess(pageResult);  
+        } catch (Exception e) {  
+            return responseFail(e.getMessage());  
+        } 
     }
     
     @RequestMapping("/findConversationRecordList")

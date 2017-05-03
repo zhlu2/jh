@@ -14,6 +14,8 @@ public interface DedrugBasicInfoService {
 	PagedResult<DedrugBasicInfo> queryOut(String userName,Integer pageNo,Integer pageSize);
 	
 	PagedResult<DedrugBasicInfo> queryInPrison(String userName,Integer pageNo,Integer pageSize);
+	
+	PagedResult<DedrugBasicInfo> queryIntalk(String userName,Integer pageNo,Integer pageSize);
 
 	String addDedrugBasicInfo(DedrugBasicInfo dedrugBasicInfo);
 	

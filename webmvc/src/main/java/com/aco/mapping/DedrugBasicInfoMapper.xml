@@ -1,289 +1,324 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.aco.dao.DedrugBasicInfoMapper" >
-  <resultMap id="BaseResultMap" type="com.aco.model.DedrugBasicInfo" >
-    <id column="ID" property="id" jdbcType="VARCHAR" />
-    <result column="FULLNAME" property="fullname" jdbcType="VARCHAR" />
-    <result column="SEX" property="sex" jdbcType="VARCHAR" />
-    <result column="CERTIFICATENUM" property="certificatenum" jdbcType="VARCHAR" />
-    <result column="PERSONID" property="personid" jdbcType="VARCHAR" />
-    <result column="DRUGABUSE" property="drugabuse" jdbcType="VARCHAR" />
-    <result column="DRUGTYPE" property="drugtype" jdbcType="VARCHAR" />
-    <result column="CASEHANDLEPERSON" property="casehandleperson" jdbcType="VARCHAR" />
-    <result column="ABANDONLIMIT" property="abandonlimit" jdbcType="VARCHAR" />
-    <result column="ABANDONMETHOD" property="abandonmethod" jdbcType="VARCHAR" />
-    <result column="PERSONSIGN" property="personsign" jdbcType="VARCHAR" />
-    <result column="PROCESSSTATE" property="processstate" jdbcType="VARCHAR" />
-    <result column="ABANDONSTARTDATE" property="abandonstartdate" jdbcType="TIMESTAMP" />
-    <result column="ENTRYREASON" property="entryreason" jdbcType="VARCHAR" />
-    <result column="CREATETIME" property="createtime" jdbcType="TIMESTAMP" />
-    <result column="EXPECTEDTIME" property="expectedtime" jdbcType="TIMESTAMP" />
-    <result column="OUTCAUSE" property="outcause" jdbcType="VARCHAR" />
-    <result column="MANAGEPOLICE" property="managepolice" jdbcType="VARCHAR" />
-    <result column="PUBLISHTYPE" property="publishtype" jdbcType="VARCHAR" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    ID, FULLNAME, SEX, CERTIFICATENUM, PERSONID, DRUGABUSE, DRUGTYPE, CASEHANDLEPERSON, 
-    ABANDONLIMIT, ABANDONMETHOD, PERSONSIGN, PROCESSSTATE, ABANDONSTARTDATE, ENTRYREASON, 
-    CREATETIME, EXPECTEDTIME, OUTCAUSE, MANAGEPOLICE, PUBLISHTYPE
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
-    <include refid="Base_Column_List" />
-    from JDRYJBXXB
-    WHERE 1=1
-	<if test="id != null and id !=''">
-	and ID = #{id,jdbcType=VARCHAR}
-	</if>
-  </select>
-    <select id="selectByDelete" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
-    <include refid="Base_Column_List" />
-    from JDRYJBXXB
-    WHERE PERSONSIGN=9
-	<if test="id != null and id !=''">
-	and ID = #{id,jdbcType=VARCHAR}
-	</if>
-  </select>
-      <select id="selectByOut" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
-    <include refid="Base_Column_List" />
-    from JDRYJBXXB
-    WHERE PERSONSIGN=2
-	<if test="id != null and id !=''">
-	and ID = #{id,jdbcType=VARCHAR}
-	</if>
-  </select>
-   <select id="selectInPrison" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
-    <include refid="Base_Column_List" />
-    from JDRYJBXXB
-    WHERE PERSONSIGN=0
-	<if test="id != null and id !=''">
-	and ID = #{id,jdbcType=VARCHAR}
-	</if>
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
-    delete from JDRYJBXXB
-    where ID = #{id,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.aco.model.DedrugBasicInfo" >
-    insert into JDRYJBXXB (ID, FULLNAME, SEX, 
-      CERTIFICATENUM, PERSONID, DRUGABUSE, 
-      DRUGTYPE, CASEHANDLEPERSON, ABANDONLIMIT, 
-      ABANDONMETHOD, PERSONSIGN, PROCESSSTATE, 
-      ABANDONSTARTDATE, ENTRYREASON, CREATETIME, 
-      EXPECTEDTIME, OUTCAUSE, MANAGEPOLICE, 
-      PUBLISHTYPE)
-    values (#{id,jdbcType=VARCHAR}, #{fullname,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
-      #{certificatenum,jdbcType=VARCHAR}, #{personid,jdbcType=VARCHAR}, #{drugabuse,jdbcType=VARCHAR}, 
-      #{drugtype,jdbcType=VARCHAR}, #{casehandleperson,jdbcType=VARCHAR}, #{abandonlimit,jdbcType=VARCHAR}, 
-      #{abandonmethod,jdbcType=VARCHAR}, #{personsign,jdbcType=VARCHAR}, #{processstate,jdbcType=VARCHAR}, 
-      #{abandonstartdate,jdbcType=TIMESTAMP}, #{entryreason,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
-      #{expectedtime,jdbcType=TIMESTAMP}, #{outcause,jdbcType=VARCHAR}, #{managepolice,jdbcType=VARCHAR}, 
-      #{publishtype,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.aco.model.DedrugBasicInfo" >
-    insert into JDRYJBXXB
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        ID,
-      </if>
-      <if test="fullname != null" >
-        FULLNAME,
-      </if>
-      <if test="sex != null" >
-        SEX,
-      </if>
-      <if test="certificatenum != null" >
-        CERTIFICATENUM,
-      </if>
-      <if test="personid != null" >
-        PERSONID,
-      </if>
-      <if test="drugabuse != null" >
-        DRUGABUSE,
-      </if>
-      <if test="drugtype != null" >
-        DRUGTYPE,
-      </if>
-      <if test="casehandleperson != null" >
-        CASEHANDLEPERSON,
-      </if>
-      <if test="abandonlimit != null" >
-        ABANDONLIMIT,
-      </if>
-      <if test="abandonmethod != null" >
-        ABANDONMETHOD,
-      </if>
-      <if test="personsign != null" >
-        PERSONSIGN,
-      </if>
-      <if test="processstate != null" >
-        PROCESSSTATE,
-      </if>
-      <if test="abandonstartdate != null" >
-        ABANDONSTARTDATE,
-      </if>
-      <if test="entryreason != null" >
-        ENTRYREASON,
-      </if>
-      <if test="createtime != null" >
-        CREATETIME,
-      </if>
-      <if test="expectedtime != null" >
-        EXPECTEDTIME,
-      </if>
-      <if test="outcause != null" >
-        OUTCAUSE,
-      </if>
-      <if test="managepolice != null" >
-        MANAGEPOLICE,
-      </if>
-      <if test="publishtype != null" >
-        PUBLISHTYPE,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=VARCHAR},
-      </if>
-      <if test="fullname != null" >
-        #{fullname,jdbcType=VARCHAR},
-      </if>
-      <if test="sex != null" >
-        #{sex,jdbcType=VARCHAR},
-      </if>
-      <if test="certificatenum != null" >
-        #{certificatenum,jdbcType=VARCHAR},
-      </if>
-      <if test="personid != null" >
-        #{personid,jdbcType=VARCHAR},
-      </if>
-      <if test="drugabuse != null" >
-        #{drugabuse,jdbcType=VARCHAR},
-      </if>
-      <if test="drugtype != null" >
-        #{drugtype,jdbcType=VARCHAR},
-      </if>
-      <if test="casehandleperson != null" >
-        #{casehandleperson,jdbcType=VARCHAR},
-      </if>
-      <if test="abandonlimit != null" >
-        #{abandonlimit,jdbcType=VARCHAR},
-      </if>
-      <if test="abandonmethod != null" >
-        #{abandonmethod,jdbcType=VARCHAR},
-      </if>
-      <if test="personsign != null" >
-        #{personsign,jdbcType=VARCHAR},
-      </if>
-      <if test="processstate != null" >
-        #{processstate,jdbcType=VARCHAR},
-      </if>
-      <if test="abandonstartdate != null" >
-        #{abandonstartdate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="entryreason != null" >
-        #{entryreason,jdbcType=VARCHAR},
-      </if>
-      <if test="createtime != null" >
-        #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="expectedtime != null" >
-        #{expectedtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="outcause != null" >
-        #{outcause,jdbcType=VARCHAR},
-      </if>
-      <if test="managepolice != null" >
-        #{managepolice,jdbcType=VARCHAR},
-      </if>
-      <if test="publishtype != null" >
-        #{publishtype,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.aco.model.DedrugBasicInfo" >
-    update JDRYJBXXB
-    <set >
-      <if test="fullname != null" >
-        FULLNAME = #{fullname,jdbcType=VARCHAR},
-      </if>
-      <if test="sex != null" >
-        SEX = #{sex,jdbcType=VARCHAR},
-      </if>
-      <if test="certificatenum != null" >
-        CERTIFICATENUM = #{certificatenum,jdbcType=VARCHAR},
-      </if>
-      <if test="personid != null" >
-        PERSONID = #{personid,jdbcType=VARCHAR},
-      </if>
-      <if test="drugabuse != null" >
-        DRUGABUSE = #{drugabuse,jdbcType=VARCHAR},
-      </if>
-      <if test="drugtype != null" >
-        DRUGTYPE = #{drugtype,jdbcType=VARCHAR},
-      </if>
-      <if test="casehandleperson != null" >
-        CASEHANDLEPERSON = #{casehandleperson,jdbcType=VARCHAR},
-      </if>
-      <if test="abandonlimit != null" >
-        ABANDONLIMIT = #{abandonlimit,jdbcType=VARCHAR},
-      </if>
-      <if test="abandonmethod != null" >
-        ABANDONMETHOD = #{abandonmethod,jdbcType=VARCHAR},
-      </if>
-      <if test="personsign != null" >
-        PERSONSIGN = #{personsign,jdbcType=VARCHAR},
-      </if>
-      <if test="processstate != null" >
-        PROCESSSTATE = #{processstate,jdbcType=VARCHAR},
-      </if>
-      <if test="abandonstartdate != null" >
-        ABANDONSTARTDATE = #{abandonstartdate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="entryreason != null" >
-        ENTRYREASON = #{entryreason,jdbcType=VARCHAR},
-      </if>
-      <if test="createtime != null" >
-        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="expectedtime != null" >
-        EXPECTEDTIME = #{expectedtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="outcause != null" >
-        OUTCAUSE = #{outcause,jdbcType=VARCHAR},
-      </if>
-      <if test="managepolice != null" >
-        MANAGEPOLICE = #{managepolice,jdbcType=VARCHAR},
-      </if>
-      <if test="publishtype != null" >
-        PUBLISHTYPE = #{publishtype,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where ID = #{id,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.aco.model.DedrugBasicInfo" >
-    update JDRYJBXXB
-    set FULLNAME = #{fullname,jdbcType=VARCHAR},
-      SEX = #{sex,jdbcType=VARCHAR},
-      CERTIFICATENUM = #{certificatenum,jdbcType=VARCHAR},
-      PERSONID = #{personid,jdbcType=VARCHAR},
-      DRUGABUSE = #{drugabuse,jdbcType=VARCHAR},
-      DRUGTYPE = #{drugtype,jdbcType=VARCHAR},
-      CASEHANDLEPERSON = #{casehandleperson,jdbcType=VARCHAR},
-      ABANDONLIMIT = #{abandonlimit,jdbcType=VARCHAR},
-      ABANDONMETHOD = #{abandonmethod,jdbcType=VARCHAR},
-      PERSONSIGN = #{personsign,jdbcType=VARCHAR},
-      PROCESSSTATE = #{processstate,jdbcType=VARCHAR},
-      ABANDONSTARTDATE = #{abandonstartdate,jdbcType=TIMESTAMP},
-      ENTRYREASON = #{entryreason,jdbcType=VARCHAR},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      EXPECTEDTIME = #{expectedtime,jdbcType=TIMESTAMP},
-      OUTCAUSE = #{outcause,jdbcType=VARCHAR},
-      MANAGEPOLICE = #{managepolice,jdbcType=VARCHAR},
-      PUBLISHTYPE = #{publishtype,jdbcType=VARCHAR}
-    where ID = #{id,jdbcType=VARCHAR}
-  </update>
+<mapper namespace="com.aco.dao.DedrugBasicInfoMapper">
+	<resultMap id="BaseResultMap" type="com.aco.model.DedrugBasicInfo">
+		<id column="ID" property="id" jdbcType="VARCHAR" />
+		<result column="FULLNAME" property="fullname" jdbcType="VARCHAR" />
+		<result column="SEX" property="sex" jdbcType="VARCHAR" />
+		<result column="CERTIFICATENUM" property="certificatenum"
+			jdbcType="VARCHAR" />
+		<result column="PERSONID" property="personid" jdbcType="VARCHAR" />
+		<result column="DRUGABUSE" property="drugabuse" jdbcType="VARCHAR" />
+		<result column="DRUGTYPE" property="drugtype" jdbcType="VARCHAR" />
+		<result column="CASEHANDLEPERSON" property="casehandleperson"
+			jdbcType="VARCHAR" />
+		<result column="ABANDONLIMIT" property="abandonlimit" jdbcType="VARCHAR" />
+		<result column="ABANDONMETHOD" property="abandonmethod"
+			jdbcType="VARCHAR" />
+		<result column="PERSONSIGN" property="personsign" jdbcType="VARCHAR" />
+		<result column="PROCESSSTATE" property="processstate" jdbcType="VARCHAR" />
+		<result column="ABANDONSTARTDATE" property="abandonstartdate"
+			jdbcType="TIMESTAMP" />
+		<result column="ENTRYREASON" property="entryreason" jdbcType="VARCHAR" />
+		<result column="CREATETIME" property="createtime" jdbcType="TIMESTAMP" />
+		<result column="EXPECTEDTIME" property="expectedtime" jdbcType="TIMESTAMP" />
+		<result column="OUTCAUSE" property="outcause" jdbcType="VARCHAR" />
+		<result column="MANAGEPOLICE" property="managepolice" jdbcType="VARCHAR" />
+		<result column="PUBLISHTYPE" property="publishtype" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		ID, FULLNAME, SEX, CERTIFICATENUM, PERSONID, DRUGABUSE, DRUGTYPE,
+		CASEHANDLEPERSON,
+		ABANDONLIMIT, ABANDONMETHOD, PERSONSIGN, PROCESSSTATE, ABANDONSTARTDATE,
+		ENTRYREASON,
+		CREATETIME, EXPECTEDTIME, OUTCAUSE, MANAGEPOLICE, PUBLISHTYPE
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from JDRYJBXXB
+		WHERE 1=1
+		<if test="id != null and id !=''">
+			and ID = #{id,jdbcType=VARCHAR}
+		</if>
+	</select>
+	<select id="selectIntalkByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from JDRYJBXXB
+		WHERE 1=1
+		and PERSONSIGN=5
+		<if test="id != null and id !=''">
+			and ID = #{id,jdbcType=VARCHAR}
+		</if>
+	</select>
+	<select id="selectByDelete" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from JDRYJBXXB
+		WHERE PERSONSIGN=9
+		<if test="id != null and id !=''">
+			and ID = #{id,jdbcType=VARCHAR}
+		</if>
+	</select>
+	<select id="selectByOut" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from JDRYJBXXB
+		WHERE PERSONSIGN=2
+		<if test="id != null and id !=''">
+			and ID = #{id,jdbcType=VARCHAR}
+		</if>
+	</select>
+		<select id="selectByFullname" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from JDRYJBXXB
+		WHERE 1=1
+		<if test="fullname != null and fullname !=''">
+			and FULLNAME = #{fullname,jdbcType=VARCHAR}
+		</if>
+	</select>
+	<select id="selectInPrison" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from JDRYJBXXB
+		WHERE PERSONSIGN=0
+		<if test="id != null and id !=''">
+			and ID = #{id,jdbcType=VARCHAR}
+		</if>
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from JDRYJBXXB
+		where ID = #{id,jdbcType=VARCHAR}
+	</delete>
+	<insert id="insert" parameterType="com.aco.model.DedrugBasicInfo">
+		insert into JDRYJBXXB (ID, FULLNAME, SEX,
+		CERTIFICATENUM, PERSONID, DRUGABUSE,
+		DRUGTYPE, CASEHANDLEPERSON, ABANDONLIMIT,
+		ABANDONMETHOD, PERSONSIGN, PROCESSSTATE,
+		ABANDONSTARTDATE, ENTRYREASON, CREATETIME,
+		EXPECTEDTIME, OUTCAUSE, MANAGEPOLICE,
+		PUBLISHTYPE)
+		values (#{id,jdbcType=VARCHAR}, #{fullname,jdbcType=VARCHAR},
+		#{sex,jdbcType=VARCHAR},
+		#{certificatenum,jdbcType=VARCHAR}, #{personid,jdbcType=VARCHAR}, #{drugabuse,jdbcType=VARCHAR},
+		#{drugtype,jdbcType=VARCHAR}, #{casehandleperson,jdbcType=VARCHAR},
+		#{abandonlimit,jdbcType=VARCHAR},
+		#{abandonmethod,jdbcType=VARCHAR}, #{personsign,jdbcType=VARCHAR}, #{processstate,jdbcType=VARCHAR},
+		#{abandonstartdate,jdbcType=TIMESTAMP},
+		#{entryreason,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP},
+		#{expectedtime,jdbcType=TIMESTAMP}, #{outcause,jdbcType=VARCHAR},
+		#{managepolice,jdbcType=VARCHAR},
+		#{publishtype,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.aco.model.DedrugBasicInfo">
+		insert into JDRYJBXXB
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				ID,
+			</if>
+			<if test="fullname != null">
+				FULLNAME,
+			</if>
+			<if test="sex != null">
+				SEX,
+			</if>
+			<if test="certificatenum != null">
+				CERTIFICATENUM,
+			</if>
+			<if test="personid != null">
+				PERSONID,
+			</if>
+			<if test="drugabuse != null">
+				DRUGABUSE,
+			</if>
+			<if test="drugtype != null">
+				DRUGTYPE,
+			</if>
+			<if test="casehandleperson != null">
+				CASEHANDLEPERSON,
+			</if>
+			<if test="abandonlimit != null">
+				ABANDONLIMIT,
+			</if>
+			<if test="abandonmethod != null">
+				ABANDONMETHOD,
+			</if>
+			<if test="personsign != null">
+				PERSONSIGN,
+			</if>
+			<if test="processstate != null">
+				PROCESSSTATE,
+			</if>
+			<if test="abandonstartdate != null">
+				ABANDONSTARTDATE,
+			</if>
+			<if test="entryreason != null">
+				ENTRYREASON,
+			</if>
+			<if test="createtime != null">
+				CREATETIME,
+			</if>
+			<if test="expectedtime != null">
+				EXPECTEDTIME,
+			</if>
+			<if test="outcause != null">
+				OUTCAUSE,
+			</if>
+			<if test="managepolice != null">
+				MANAGEPOLICE,
+			</if>
+			<if test="publishtype != null">
+				PUBLISHTYPE,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=VARCHAR},
+			</if>
+			<if test="fullname != null">
+				#{fullname,jdbcType=VARCHAR},
+			</if>
+			<if test="sex != null">
+				#{sex,jdbcType=VARCHAR},
+			</if>
+			<if test="certificatenum != null">
+				#{certificatenum,jdbcType=VARCHAR},
+			</if>
+			<if test="personid != null">
+				#{personid,jdbcType=VARCHAR},
+			</if>
+			<if test="drugabuse != null">
+				#{drugabuse,jdbcType=VARCHAR},
+			</if>
+			<if test="drugtype != null">
+				#{drugtype,jdbcType=VARCHAR},
+			</if>
+			<if test="casehandleperson != null">
+				#{casehandleperson,jdbcType=VARCHAR},
+			</if>
+			<if test="abandonlimit != null">
+				#{abandonlimit,jdbcType=VARCHAR},
+			</if>
+			<if test="abandonmethod != null">
+				#{abandonmethod,jdbcType=VARCHAR},
+			</if>
+			<if test="personsign != null">
+				#{personsign,jdbcType=VARCHAR},
+			</if>
+			<if test="processstate != null">
+				#{processstate,jdbcType=VARCHAR},
+			</if>
+			<if test="abandonstartdate != null">
+				#{abandonstartdate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="entryreason != null">
+				#{entryreason,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				#{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="expectedtime != null">
+				#{expectedtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="outcause != null">
+				#{outcause,jdbcType=VARCHAR},
+			</if>
+			<if test="managepolice != null">
+				#{managepolice,jdbcType=VARCHAR},
+			</if>
+			<if test="publishtype != null">
+				#{publishtype,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.aco.model.DedrugBasicInfo">
+		update JDRYJBXXB
+		<set>
+			<if test="fullname != null">
+				FULLNAME = #{fullname,jdbcType=VARCHAR},
+			</if>
+			<if test="sex != null">
+				SEX = #{sex,jdbcType=VARCHAR},
+			</if>
+			<if test="certificatenum != null">
+				CERTIFICATENUM = #{certificatenum,jdbcType=VARCHAR},
+			</if>
+			<if test="personid != null">
+				PERSONID = #{personid,jdbcType=VARCHAR},
+			</if>
+			<if test="drugabuse != null">
+				DRUGABUSE = #{drugabuse,jdbcType=VARCHAR},
+			</if>
+			<if test="drugtype != null">
+				DRUGTYPE = #{drugtype,jdbcType=VARCHAR},
+			</if>
+			<if test="casehandleperson != null">
+				CASEHANDLEPERSON = #{casehandleperson,jdbcType=VARCHAR},
+			</if>
+			<if test="abandonlimit != null">
+				ABANDONLIMIT = #{abandonlimit,jdbcType=VARCHAR},
+			</if>
+			<if test="abandonmethod != null">
+				ABANDONMETHOD = #{abandonmethod,jdbcType=VARCHAR},
+			</if>
+			<if test="personsign != null">
+				PERSONSIGN = #{personsign,jdbcType=VARCHAR},
+			</if>
+			<if test="processstate != null">
+				PROCESSSTATE = #{processstate,jdbcType=VARCHAR},
+			</if>
+			<if test="abandonstartdate != null">
+				ABANDONSTARTDATE = #{abandonstartdate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="entryreason != null">
+				ENTRYREASON = #{entryreason,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="expectedtime != null">
+				EXPECTEDTIME = #{expectedtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="outcause != null">
+				OUTCAUSE = #{outcause,jdbcType=VARCHAR},
+			</if>
+			<if test="managepolice != null">
+				MANAGEPOLICE = #{managepolice,jdbcType=VARCHAR},
+			</if>
+			<if test="publishtype != null">
+				PUBLISHTYPE = #{publishtype,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where ID = #{id,jdbcType=VARCHAR}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.aco.model.DedrugBasicInfo">
+		update JDRYJBXXB
+		set FULLNAME = #{fullname,jdbcType=VARCHAR},
+		SEX = #{sex,jdbcType=VARCHAR},
+		CERTIFICATENUM = #{certificatenum,jdbcType=VARCHAR},
+		PERSONID = #{personid,jdbcType=VARCHAR},
+		DRUGABUSE = #{drugabuse,jdbcType=VARCHAR},
+		DRUGTYPE = #{drugtype,jdbcType=VARCHAR},
+		CASEHANDLEPERSON = #{casehandleperson,jdbcType=VARCHAR},
+		ABANDONLIMIT = #{abandonlimit,jdbcType=VARCHAR},
+		ABANDONMETHOD = #{abandonmethod,jdbcType=VARCHAR},
+		PERSONSIGN = #{personsign,jdbcType=VARCHAR},
+		PROCESSSTATE = #{processstate,jdbcType=VARCHAR},
+		ABANDONSTARTDATE = #{abandonstartdate,jdbcType=TIMESTAMP},
+		ENTRYREASON = #{entryreason,jdbcType=VARCHAR},
+		CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+		EXPECTEDTIME = #{expectedtime,jdbcType=TIMESTAMP},
+		OUTCAUSE = #{outcause,jdbcType=VARCHAR},
+		MANAGEPOLICE = #{managepolice,jdbcType=VARCHAR},
+		PUBLISHTYPE = #{publishtype,jdbcType=VARCHAR}
+		where ID = #{id,jdbcType=VARCHAR}
+	</update>
 </mapper>

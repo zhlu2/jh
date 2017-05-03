@@ -6,12 +6,19 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>戒毒管理信息系统</title>
-<link href="<%=request.getContextPath()%>/static/js/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<script src="<%=request.getContextPath()%>/static/js/jQuery/jquery-2.1.4.min.js"></script>
+<link
+	href="<%=request.getContextPath()%>/static/js/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="<%=request.getContextPath()%>/static/js/jQuery/jquery-2.1.4.min.js"></script>
+<script
+	src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap.js"></script>
+<script
+	src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap-paginator.min.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/static/js/prsArrgInfo/addPrsArrgInfo.js"></script>
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/static/js/common/acoCommon.js"></script>
+	src="${pageContext.request.contextPath}/static/js/common/acoCommonInprison.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/static/js/conversationRecord/addConversationRecord.js"></script>
 <link
