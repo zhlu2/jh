@@ -106,11 +106,11 @@
                     $("#tableBody").append('<td>' + this.sex + '</td>');
                     $("#tableBody").append('<td>' + this.abandonstartdate + '</td>');
                     $("#tableBody").append('<td>' + this.entryreason + '</td>');
-                    $("#tableBody").append("<a href=\"javascript:jumpOnEditPage("+this.id+");\" class=\"btn default btn-xs blue-stripe\">编辑</a><a href=\"javascript:deleEvent("+this.id+");\" class=\"btn default btn-xs blue-stripe\">删除</a>");                  
+                    $("#tableBody").append("<a href=\"javascript:jumpOnEditPage("+this.id+");\" class=\"btn default btn-xs blue-stripe\">编辑</a><a href=\"javascript:deleEvent("+this.id+");\" class=\"btn default btn-xs red-stripe\">删除</a>");                  
                     $("#tableBody").append('</tr>');
              	    });  
              	    } else {             	            	
-             	          $("#tableBody").append('<tr><th colspan ="4"><center>查询无数据</center></th></tr>');
+             	          $("#tableBody").append('<tr><th colspan ="6"><center>查询无数据</center></th></tr>');
              	    }
              	    }else{
              	          alert(data.errorMsg);

@@ -23,6 +23,8 @@ public interface DedrugBasicInfoMapper {
     
     List<DedrugBasicInfo> selectInPrison(@Param("id")String id);
     
+    List<DedrugBasicInfo> selectInPrisonTalk(@Param("id")String id);
+    
     DedrugBasicInfo selectByFullname(@Param("fullname")String fullname);
 
     int updateByPrimaryKeySelective(DedrugBasicInfo record);

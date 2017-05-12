@@ -692,10 +692,10 @@
 
 		<div class="footer-inner">
 
-			2013 &copy; Metronic by keenthemes.Collect from <a
-				href="http://www.cssmoban.com/" title="网站模板" target="_blank">网站模板</a>
+			 &copy; Metronic by keenthemes.Collect from <a
+				href="http://www.cssmoban.com/" title="" target="_blank"></a>
 			- More Templates <a href="http://www.cssmoban.com/" target="_blank"
-				title="模板之家">模板之家</a>
+				title=""></a>
 
 		</div>
 

@@ -26,6 +26,8 @@
 <meta content="" name="author" />
 
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
+<script src="<%=request.getContextPath()%>/static/js/jQuery/jquery-2.1.4.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap.min.js"></script>
 
 <link
 	href="<%=request.getContextPath()%>/static/media/css/bootstrap.min.css"
@@ -807,7 +809,7 @@
 								</div>
 
 								<a class="more"
-									href="${pageContext.request.contextPath }/riskAssessment/riskDirectorList">
+									href="${pageContext.request.contextPath }/riskAssessment/riskDepartmentList">
 									查看更多 <i class="m-icon-swapright m-icon-white"></i>
 								</a>
 

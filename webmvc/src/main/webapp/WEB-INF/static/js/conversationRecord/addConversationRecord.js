@@ -23,7 +23,6 @@
 			return postData;
 		},
 
-
 		  
 		getPerson : function(){
 			$("#aco-dedrugBasicinfo-fullname").on("focus", function() {

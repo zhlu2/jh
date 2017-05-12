@@ -16,7 +16,7 @@
 <script
 	src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap-paginator.min.js"></script>
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/static/js/common/acoCommonInprison.js"></script>
+	src="${pageContext.request.contextPath}/static/js/common/acoCommonInprisonAndSex.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/static/js/socialRelations/addSocialRelations.js"></script>
 <link
@@ -430,6 +430,7 @@
 														<label class="control-label">关系人性别</label>
 
 														<div class="controls">
+														    <input type="hidden" id="aco-sex">
 
 															<select id="aco-relationsex" class="m-wrap span12">
 
@@ -644,10 +645,10 @@
 
 		<div class="footer-inner">
 
-			2013 &copy; Metronic by keenthemes.Collect from <a
-				href="http://www.cssmoban.com/" title="网站模板" target="_blank">网站模板</a>
+			 &copy; Metronic by keenthemes.Collect from <a
+				href="http://www.cssmoban.com/" title="" target="_blank"></a>
 			- More Templates <a href="http://www.cssmoban.com/" target="_blank"
-				title="模板之家">模板之家</a>
+				title=""></a>
 
 		</div>
 

@@ -94,7 +94,7 @@
                     $("#tableBody").append('</tr>');
              	    });  
              	    } else {             	            	
-             	          $("#tableBody").append('<tr><th colspan ="4"><center>查询无数据</center></th></tr>');
+             	          $("#tableBody").append('<tr><th colspan ="6"><center>查询无数据</center></th></tr>');
              	    }
              	    }else{
              	          alert(data.errorMsg);

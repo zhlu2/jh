@@ -12,8 +12,7 @@
 <script
 	src="<%=request.getContextPath()%>/static/js/jQuery/jquery-2.1.4.min.js"></script>
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/static/js/policeBasicInfo/editPolice.js"></script>
-
+	src="${pageContext.request.contextPath}/static/js/dedrugBasicInfo/showDedrugBasicInfo.js"></script>
 <link
 	href="<%=request.getContextPath()%>/static/media/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
@@ -55,6 +54,7 @@
 
 <link rel="shortcut icon"
 	href="<%=request.getContextPath()%>/static/media/image/favicon.ico" />
+
 </head>
 <body class="page-header-fixed">
 
@@ -67,6 +67,7 @@
 		<div class="navbar-inner">
 
 			<div class="container-fluid">
+
 
 				<!-- BEGIN RESPONSIVE MENU TOGGLER -->
 
@@ -195,22 +196,25 @@
 							</a></li>
 
 						</ul></li>
+						
+						<li class="dropdown user">
 
-					<li class="dropdown user"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"> <span class="username">${user.username}</span>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
-							<i class="icon-angle-down"></i>
+						<span class="username">${user.username}</span>
 
-					</a>
+						<i class="icon-angle-down"></i>
+
+						</a>
 
 						<ul class="dropdown-menu">
 
-							<li><a
-								href="${pageContext.request.contextPath }/user/logout"><i
-									class="icon-key"></i> 退出</a></li>
+							<li><a href="${pageContext.request.contextPath }/user/logout"><i class="icon-key"></i> 退出</a></li>
 
-						</ul></li>
+						</ul>
 
+					</li>
+						
 
 					<!-- END INBOX DROPDOWN -->
 
@@ -309,7 +313,6 @@
 					</ul></li>
 			</shiro:hasRole>
 
-
 		</ul>
 
 		<!-- END SIDEBAR MENU -->
@@ -340,9 +343,10 @@
 
 										<!-- BEGIN FORM-->
 
-										<form action="#" id="aco-police-form" class="horizontal-form">
+										<form action="#" id="aco-edit-dedrugBasicInfo-form"
+											class="horizontal-form">
 
-											<h3 class="form-section">民警基本信息编辑页面</h3>
+											<h3 class="form-section">戒毒人员基本信息查看页面</h3>
 
 											<div class="row-fluid">
 
@@ -350,12 +354,13 @@
 
 													<div class="control-group">
 
-														<label class="control-label" for="firstName">民警编号</label>
+														<label class="control-label" for="firstName">姓名</label>
 
 														<div class="controls">
 
-															<input type="text" id="aco-policenum"
-																class="m-wrap span12"> <span class="help-block"></span>
+															<input type="text" disabled id="aco-fullname"
+																class="m-wrap span12" > <span
+																class="help-block"></span>
 
 														</div>
 
@@ -369,12 +374,13 @@
 
 													<div class="control-group">
 
-														<label class="control-label" for="firstName">民警姓名</label>
+														<label class="control-label" for="firstName">人员编号</label>
 
 														<div class="controls">
-															<input type="hidden" id="aco-police-id" value="${id}">
-															<input type="text" id="aco-policename"
-																class="m-wrap span12"> <span class="help-block"></span>
+
+															<input type="text" disabled id="aco-personid"
+																class="m-wrap span12" > <span
+																class="help-block"></span>
 
 														</div>
 
@@ -394,11 +400,11 @@
 
 													<div class="control-group">
 
-														<label class="control-label">民警性别</label>
+														<label class="control-label">性别</label>
 
 														<div class="controls">
 
-															<select id="aco-policesex" class="m-wrap span12">
+															<select id="aco-sex" disabled class="m-wrap span12">
 
 																<option value="男">男</option>
 
@@ -418,11 +424,11 @@
 
 													<div class="control-group">
 
-														<label class="control-label">政治面貌</label>
+														<label class="control-label">证件号码</label>
 
 														<div class="controls">
 
-															<input type="text" id="aco-politicaloutlook"
+															<input type="text" disabled id="aco-certificatenum"
 																class="m-wrap span12" placeholder="dd/mm/yyyy">
 
 														</div>
@@ -443,12 +449,170 @@
 
 													<div class="control-group">
 
-														<label class="control-label">证件号码</label>
+														<label class="control-label">吸毒方式</label>
 
 														<div class="controls">
 
-															<input type="text" id="aco-certificatenum"
-																class="m-wrap span12" placeholder="dd/mm/yyyy">
+															<select id="aco-drugabuse" disabled class="m-wrap span12">
+
+																<option value="烟吸">烟吸</option>
+
+																<option value="烫吸">烫吸</option>
+
+																<option value="鼻嗅">鼻嗅</option>
+
+																<option value="口服">口服</option>
+
+																<option value="注射">注射</option>
+
+															</select> <span class="help-block"></span>
+
+														</div>
+
+													</div>
+
+												</div>
+
+												<div class="span6 ">
+
+													<div class="control-group">
+
+														<label class="control-label">毒品种类</label>
+
+														<div class="controls">
+
+															<select id="aco-drugtype" disabled class="m-wrap span12">
+
+																<option value="鸦片">鸦片</option>
+
+																<option value="海洛因">海洛因</option>
+
+																<option value="甲基苯丙">甲基苯丙</option>
+
+																<option value="胺吗啡">胺吗啡</option>
+
+																<option value="罂粟">罂粟</option>
+
+																<option value="大麻">大麻</option>
+
+																<option value="杜冷丁">杜冷丁</option>
+
+																<option value="古柯">古柯</option>
+
+															</select> <span class="help-block"></span>
+
+														</div>
+
+													</div>
+
+												</div>
+
+											</div>
+
+											<div class="row-fluid">
+
+												<div class="span6 ">
+
+													<div class="control-group">
+
+														<label class="control-label" for="firstName">办案人员</label>
+
+														<div class="controls">
+
+															<input type="text" disabled id="aco-casehandleperson"
+																class="m-wrap span12" > <span
+																class="help-block"></span>
+
+														</div>
+
+													</div>
+
+												</div>
+
+												<!--/span-->
+
+												<div class="span6 ">
+
+													<div class="control-group">
+
+														<label class="control-label" for="firstName">戒毒期限</label>
+
+														<div class="controls">
+
+															<input type="text" disabled id="aco-abandonlimit"
+																class="m-wrap span12" > <span
+																class="help-block"></span>
+
+														</div>
+
+													</div>
+
+												</div>
+
+												<!--/span-->
+
+											</div>
+
+											<!--/row-->
+											<div class="row-fluid">
+
+												<div class="span6 ">
+
+													<div class="control-group">
+
+														<label class="control-label" for="firstName">戒毒方法</label>
+
+														<div class="controls">
+
+															<input type="text" disabled id="aco-abandonmethod"
+																class="m-wrap span12" > <span
+																class="help-block"></span>
+
+														</div>
+
+													</div>
+
+												</div>
+
+												<!--/span-->
+
+												<div class="span6 ">
+
+													<div class="control-group">
+
+														<label class="control-label" for="firstName">戒毒开始日期</label>
+
+														<div class="controls">
+
+															<input type="text" disabled id="aco-abandonstartdate"
+																class="m-wrap span12" > <span
+																class="help-block"></span>
+
+														</div>
+
+													</div>
+
+												</div>
+
+												<!--/span-->
+
+											</div>
+
+											<!--/row-->
+											<!--/row-->
+											<div class="row-fluid">
+
+												<div class="span6 ">
+
+													<div class="control-group">
+
+														<label class="control-label" for="firstName">入所原因</label>
+
+														<div class="controls">
+
+															<input type="text" disabled id="aco-entryreason"
+																class="m-wrap span12" > <span
+																class="help-block"></span>
 
 														</div>
 
@@ -459,15 +623,14 @@
 											</div>
 
 											<div class="form-actions">
+												<input type="hidden" id="aco-dedrugBasicInfo-id"
+													value="${id}">
 
-												<button type="submit" id="aco-police-form-submit"
-													class="btn blue">
-													<i class="icon-ok"></i> 保存
-												</button>
 
-												<a class="btn"
-													href="<%=request.getContextPath()%>/policeBasicInfo/list">
-													取消 </a>
+												<a class="btn blue"
+													href="<%=request.getContextPath()%>/dedrugBasicInfo/list">
+													返回 </a>
+
 
 											</div>
 
@@ -498,8 +661,6 @@
 	</div>
 
 	<!-- END PAGE -->
-
-	</div>
 
 	<!-- END CONTAINER -->
 

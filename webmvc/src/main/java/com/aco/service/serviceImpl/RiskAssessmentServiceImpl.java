@@ -52,4 +52,23 @@ public class RiskAssessmentServiceImpl implements RiskAssessmentService {
 		return null;
 	}
 
+	@Override
+	public PagedResult<RiskAssessment> queryByPageForRiskDepartmentList(String userName, Integer pageNo,
+			Integer pageSize) {
+		// TODO Auto-generated method stub
+		pageNo = pageNo == null ? 1 : pageNo;
+		pageSize = pageSize == null ? 10 : pageSize;
+		PageHelper.startPage(pageNo, pageSize);
+		return BeanUtil.toPagedResult(riskAssessmentMapper.selectForRiskDepartment(userName));
+	}
+
+	@Override
+	public PagedResult<RiskAssessment> queryByPageForDirector(String userName, Integer pageNo, Integer pageSize) {
+		// TODO Auto-generated method stub
+		pageNo = pageNo == null ? 1 : pageNo;
+		pageSize = pageSize == null ? 10 : pageSize;
+		PageHelper.startPage(pageNo, pageSize);
+		return BeanUtil.toPagedResult(riskAssessmentMapper.selectForDirector(userName));
+	}
+
 }

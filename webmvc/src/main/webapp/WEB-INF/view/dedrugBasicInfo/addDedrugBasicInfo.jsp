@@ -11,8 +11,14 @@
 	rel="stylesheet">
 <script
 	src="<%=request.getContextPath()%>/static/js/jQuery/jquery-2.1.4.min.js"></script>
+<script
+	src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap.js"></script>
+<script
+	src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap-paginator.min.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/static/js/dedrugBasicInfo/addDedrugBasicInfo.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/static/js/common/acoPolice.js"></script>	
 <link
 	href="<%=request.getContextPath()%>/static/media/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
@@ -665,10 +671,10 @@
 
 		<div class="footer-inner">
 
-			2013 &copy; Metronic by keenthemes.Collect from <a
-				href="http://www.cssmoban.com/" title="网站模板" target="_blank">网站模板</a>
+			 &copy; Metronic by keenthemes.Collect from <a
+				href="http://www.cssmoban.com/" title="" target="_blank"></a>
 			- More Templates <a href="http://www.cssmoban.com/" target="_blank"
-				title="模板之家">模板之家</a>
+				title=""></a>
 
 		</div>
 
@@ -683,7 +689,68 @@
 	</div>
 
 
+	<div id="dedrug-acopolice-id" class="modal" aria-hidden="true"
+		tabindex="-1" data-backdrop="static" role="dialog"
+		aria-labelledby="ModalLabel" data-width="650" style="display: none">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true"></button>
+					<h4 class="modal-title">人员信息</h4>
+				</div>
+				<div class="modal-body" style="height: 100%; overflow-y: auto;">
+					<div class="portlet box blue-hoki">
+						<div class="portlet-body">
+							<div class="row" id="resetid">
+								<div class="col-md-3">
+									<div class="form-group">
+										<div class="input-icon">
+											<input id="dedrugTextInput" type="text" placeholder="请输入用户名">
+											<button id="queryButton" class="btn btn-primary"
+												type="button">查询</button>
+										</div>
+									</div>
+								</div>
 
+							</div>
+						</div>
+					</div>
+					<!-- BEGIN FORM-->
+					<div class="portlet-body">
+						<form id="form1">
+							<table class="table table-bordered" id='tableResult'>
+								<caption>查询用户结果</caption>
+								<thead>
+									<tr>
+										<th>序号</th>
+										<th class="hidden-480">民警编号</th>
+
+										<th class="hidden-480">民警姓名</th>
+
+										<th class="hidden-480">民警性别</th>
+
+										<th class="hidden-480">政治面貌</th>
+
+										<th class="hidden-480">参与工作时间</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody id="dedrugTableBody">
+								</tbody>
+							</table>
+							<!-- 底部分页按钮 -->
+							<div id="bottomTab"></div>
+						</form>
+					</div>
+					<!-- END FORM-->
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- END JAVASCRIPTS -->
 
 </body>

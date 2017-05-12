@@ -732,7 +732,7 @@
 
 						<h3 class="page-title">
 
-							谈话教育
+							出所谈话
 
 						</h3>
 
@@ -746,7 +746,7 @@
 
 							</li>
 
-							<li><a href="${pageContext.request.contextPath }/conversationRecord/list">谈话教育</a></li>
+							<li><a href="${pageContext.request.contextPath }/conversationRecord/list">出所谈话</a></li>
 
 						</ul>
 
@@ -770,7 +770,7 @@
 
 							<div class="portlet-title">
 
-								<div class="caption"><i class="icon-globe"></i>谈话教育表</div>
+								<div class="caption"><i class="icon-globe"></i>出所谈话表</div>
 
 								<div class="tools">
 
@@ -871,7 +871,7 @@
 
 		<div class="footer-inner">
 
-			2013 &copy; Metronic by keenthemes.Collect from <a href="http://www.cssmoban.com/" title="网站模板" target="_blank">网站模板</a> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a>
+			 &copy; Metronic by keenthemes.Collect from <a href="http://www.cssmoban.com/" title="" target="_blank"></a> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title=""></a>
 
 		</div>
 

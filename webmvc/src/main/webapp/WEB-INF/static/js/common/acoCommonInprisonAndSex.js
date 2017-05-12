@@ -1,7 +1,7 @@
 
-var getOne = function(personId,fullname) {
-    $("#aco-dedrugBasicinfo-personId").val(personId);
+var getOne = function(sex,fullname) {
 	$("#aco-dedrugBasicinfo-fullname").val(fullname);
+	$("#aco-sex").val(sex);
 	$("#dedrug-detain-prsFamilyMeetingBasicInfo-proposeMan-id").modal();
 	$("#dedrug-detain-prsFamilyMeetingBasicInfo-proposeMan-id").modal('hide');
 }
@@ -40,7 +40,7 @@ var urlRootContext = (function () {
 
 //生成表格
 function buildTable(userName,pageNumber,pageSize) {
-	 var url =  urlRootContext + "/dedrugBasicInfo/selectIntalk"; //请求的网址
+	 var url =  urlRootContext + "/dedrugBasicInfo/selectInPrison"; //请求的网址
      var reqParams = {'userName':userName, 'pageNumber':pageNumber,'pageSize':pageSize};//请求数据
      $(function () {   
      	  $.ajax({
@@ -87,7 +87,7 @@ function buildTable(userName,pageNumber,pageSize) {
             $("#dedrugTableBody").append('<td>' + this.sex + '</td>');
             $("#dedrugTableBody").append('<td>' + this.abandonstartdate + '</td>');
             $("#dedrugTableBody").append('<td>' + this.entryreason + '</td>');
-            $("#dedrugTableBody").append("<a href=\"javascript:getOne("+this.personid+",'"+this.fullname+"');\" class=\"btn default btn-xs blue-stripe\">选择</a>");                  
+            $("#dedrugTableBody").append("<a href=\"javascript:getOne('"+this.sex+"','"+this.fullname+"');\" class=\"btn default btn-xs blue-stripe\">选择</a>");                  
             $("#dedrugTableBody").append('</tr>');
      	    });  
      	    } else {             	            	
@@ -108,7 +108,7 @@ function buildTable(userName,pageNumber,pageSize) {
 $(function() {
 	
 	//生成底部分页栏
-    $('#bottomTab').bootstrapPaginator(options);     
+    $('#bottomTab').bootstrapPaginator(options);
 	
 	buildTable("",1,10);//默认空白查全部
 	

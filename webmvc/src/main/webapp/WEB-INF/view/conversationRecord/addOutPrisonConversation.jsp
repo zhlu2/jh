@@ -17,9 +17,9 @@
 <script
 	src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap-paginator.min.js"></script>
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/static/js/common/acoCommon.js"></script>
+	src="${pageContext.request.contextPath}/static/js/common/acoCommonInprison.js"></script>
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/static/js/conversationRecord/addConversationRecord.js"></script>
+	src="${pageContext.request.contextPath}/static/js/conversationRecord/addOutPrisonConversation.js"></script>
 <link
 	href="<%=request.getContextPath()%>/static/media/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
@@ -351,7 +351,7 @@
 										<form action="#" id="aco-conversationRecord-form"
 											class="horizontal-form">
 
-											<h3 class="form-section">入所谈话新增页面</h3>
+											<h3 class="form-section">出所谈话新增页面</h3>
 
 											<div class="row-fluid">
 
@@ -627,10 +627,10 @@
 
 		<div class="footer-inner">
 
-			2013 &copy; Metronic by keenthemes.Collect from <a
-				href="http://www.cssmoban.com/" title="网站模板" target="_blank">网站模板</a>
+			 &copy; Metronic by keenthemes.Collect from <a
+				href="http://www.cssmoban.com/" title="" target="_blank"></a>
 			- More Templates <a href="http://www.cssmoban.com/" target="_blank"
-				title="模板之家">模板之家</a>
+				title=""></a>
 
 		</div>
 

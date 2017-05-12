@@ -26,6 +26,8 @@
 <meta content="" name="author" />
 
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
+<script src="<%=request.getContextPath()%>/static/js/jQuery/jquery-2.1.4.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap.min.js"></script>
 
 <link
 	href="<%=request.getContextPath()%>/static/media/css/bootstrap.min.css"
@@ -618,7 +620,7 @@
 
 		<div class="footer-inner">
 
-			2013 &copy; Metronic by keenthemes.Collect from <a>戒毒人员管理信息系统</a>
+			 &copy; Metronic by keenthemes.Collect from <a>戒毒人员管理信息系统</a>
 		</div>
 
 		<div class="footer-tools">

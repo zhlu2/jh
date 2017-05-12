@@ -828,6 +828,7 @@
 	                         	
                         	<input type="button" id="aco-userRoleAdd-form-submit" class="btn blue" onclick="saveUserRole()" value="保存">  
 		
+							<input type="hidden" id="aco-user-id" value="${id}">
 							</div>
 
 						</div>
@@ -858,7 +859,7 @@
 
 		<div class="footer-inner">
 
-			2013 &copy; Metronic by keenthemes.Collect from <a href="http://www.cssmoban.com/" title="网站模板" target="_blank">网站模板</a> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a>
+			 &copy; Metronic by keenthemes.Collect from <a href="http://www.cssmoban.com/" title="" target="_blank"></a> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title=""></a>
 
 		</div>
 

@@ -1,9 +1,8 @@
 
-var getOne = function(personId,fullname) {
-    $("#aco-dedrugBasicinfo-personId").val(personId);
-	$("#aco-dedrugBasicinfo-fullname").val(fullname);
-	$("#dedrug-detain-prsFamilyMeetingBasicInfo-proposeMan-id").modal();
-	$("#dedrug-detain-prsFamilyMeetingBasicInfo-proposeMan-id").modal('hide');
+var getOne = function(policename) {
+	$("#aco-casehandleperson").val(policename);
+	$("#dedrug-acopolice-id").modal();
+	$("#dedrug-acopolice-id").modal('hide');
 }
 var PAGESIZE = 10;
 var options = {  
@@ -40,7 +39,7 @@ var urlRootContext = (function () {
 
 //生成表格
 function buildTable(userName,pageNumber,pageSize) {
-	 var url =  urlRootContext + "/dedrugBasicInfo/selectIntalk"; //请求的网址
+	 var url =  urlRootContext + "/policeBasicInfo/findPoliceBasicInfoList"; //请求的网址
      var reqParams = {'userName':userName, 'pageNumber':pageNumber,'pageSize':pageSize};//请求数据
      $(function () {   
      	  $.ajax({
@@ -83,11 +82,12 @@ function buildTable(userName,pageNumber,pageSize) {
      $(dataList).each(function(){//重新生成
      	    $("#dedrugTableBody").append('<tr>');
             $("#dedrugTableBody").append('<td>' + this.id + '</td>');
-            $("#dedrugTableBody").append('<td>' + this.fullname + '</td>');
-            $("#dedrugTableBody").append('<td>' + this.sex + '</td>');
-            $("#dedrugTableBody").append('<td>' + this.abandonstartdate + '</td>');
-            $("#dedrugTableBody").append('<td>' + this.entryreason + '</td>');
-            $("#dedrugTableBody").append("<a href=\"javascript:getOne("+this.personid+",'"+this.fullname+"');\" class=\"btn default btn-xs blue-stripe\">选择</a>");                  
+            $("#dedrugTableBody").append('<td>' + this.policenum + '</td>');
+            $("#dedrugTableBody").append('<td>' + this.policename + '</td>');
+            $("#dedrugTableBody").append('<td>' + this.policesex + '</td>');
+            $("#dedrugTableBody").append('<td>' + this.politicaloutlook + '</td>');
+            $("#dedrugTableBody").append('<td>' + this.createTime + '</td>');
+            $("#dedrugTableBody").append("<a href=\"javascript:getOne('"+this.policename+"');\" class=\"btn default btn-xs blue-stripe\">选择</a>");                  
             $("#dedrugTableBody").append('</tr>');
      	    });  
      	    } else {             	            	

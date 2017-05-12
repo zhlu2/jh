@@ -26,9 +26,29 @@
 		
     	// 初始化保存新建任务按钮的click事件
 		initSaveBtnClickListener : function() {
-
 			$("#aco-socialRelations-form-submit").on("click", function(event) {
 				event.preventDefault();
+	            if($("#aco-relationsex").val()=="男"&&$("#aco-sex").val()=="男"){
+	            	if($("#aco-relationship").val()=="母"||$("#aco-relationship").val()=="女"||$("#aco-relationship").val()=="侄女"){
+	            		alert("关系冲突，不能选择");
+	            		return false;
+	            	}
+	            }else if($("#aco-relationsex").val()=="女"&&$("#aco-sex").val()=="女"){
+	            	if($("#aco-relationship").val()=="父"||$("#aco-relationship").val()=="子"||$("#aco-relationship").val()=="女婿"){
+	            		alert("关系冲突，不能选择");
+	            		return false;
+	            	}
+	            }else if($("#aco-relationsex").val()=="男"&&$("#aco-sex").val()=="女"){
+	            	if($("#aco-relationship").val()=="父"||$("#aco-relationship").val()=="子"||$("#aco-relationship").val()=="女婿"){
+	            		alert("关系冲突，不能选择");
+	            		return false;
+	            	}
+	            }else if($("#aco-relationsex").val()=="女"&&$("#aco-sex").val()=="男"){
+	            	if($("#aco-relationship").val()=="父"||$("#aco-relationship").val()=="子"||$("#aco-relationship").val()=="女婿"){
+	            		alert("关系冲突，不能选择");
+	            		return false;
+	            	}
+	            }
 				    var strPath = window.document.location.pathname;
 		            var postPath = strPath.substring(0, strPath.substr(1).indexOf('/') + 1);
 					var postData = addSocialRelations.getModalFormEleVal();

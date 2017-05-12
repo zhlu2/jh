@@ -78,6 +78,12 @@ public class ConversationRecordController extends BaseController{
 		return conversationRecordService.addConversationRecord(conversationRecord);
 	}
 	
+	@RequestMapping("/addOut")
+	@ResponseBody
+	public String addOut(ConversationRecord conversationRecord){
+		return conversationRecordService.addOutPrisonConversationRecord(conversationRecord);
+	}
+	
 	@RequestMapping("/edit")
 	@ResponseBody
 	public String edit(ConversationRecord conversationRecord){

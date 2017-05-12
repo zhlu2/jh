@@ -1,4 +1,4 @@
-	    var PAGESIZE = 10;
+ var PAGESIZE = 10;
         var options = {  
             currentPage: 1,  //当前页数
             totalPages: 10,  //总页数，这里只是暂时的，后头会根据查出来的条件进行更改
@@ -33,7 +33,7 @@
         
         function jumpOnEditPage(id){
         	if(!!id){
-        		window.location.href=urlRootContext+"/socialRelations/editPage/"+id;	
+        		window.location.href=urlRootContext+"/riskAssessment/editriskDepartment/"+id;	
         	}        	
         }
         
@@ -42,12 +42,12 @@
 			    var strPath = window.document.location.pathname;
 	            var postPath = strPath.substring(0, strPath.substr(1).indexOf('/') + 1);
                 $.ajax({
-                    url: postPath + "/socialRelations/delete",
+                    url: postPath + "/riskAssessment/delete",
                     type: "POST",
                     async: false,// 同步请求
                     data:{"id":id},
                     success: function () {
-                            alert("删除社会关系成功！");
+                            alert("删除民警成功！");
                             window.location.reload();
                     },
                     error: '请求异常，删除伤情信息失败！'
@@ -59,7 +59,7 @@
     }
         //生成表格
         function buildTable(userName,pageNumber,pageSize) {
-        	 var url =  urlRootContext + "/socialRelations/findSocialRelationsList"; //请求的网址
+        	 var url =  urlRootContext + "/riskAssessment/findRiskDepartmentList"; //请求的网址
              var reqParams = {'userName':userName, 'pageNumber':pageNumber,'pageSize':pageSize};//请求数据
              $(function () {   
              	  $.ajax({
@@ -102,11 +102,10 @@
              $(dataList).each(function(){//重新生成
              	    $("#tableBody").append('<tr>');
                     $("#tableBody").append('<td>' + this.id + '</td>');
-                    $("#tableBody").append('<td>' + this.relationname + '</td>');
-                    $("#tableBody").append('<td>' + this.relationsex + '</td>');
-                    $("#tableBody").append('<td>' + this.relationphone + '</td>');
-                    $("#tableBody").append('<td>' + this.address + '</td>');
-                    $("#tableBody").append('<td>' + this.relationship + '</td>');
+                    $("#tableBody").append('<td>' + this.caseStatus + '</td>');
+                    $("#tableBody").append('<td>' + this.perStatusInPrison + '</td>');
+                    $("#tableBody").append('<td>' + this.directorApprovalMark + '</td>');
+                    $("#tableBody").append('<td>' + this.departmentApprovalMark + '</td>');
                     $("#tableBody").append("<a href=\"javascript:jumpOnEditPage("+this.id+");\" class=\"btn default btn-xs blue-stripe\">编辑</a><a href=\"javascript:deleEvent("+this.id+");\" class=\"btn default btn-xs red-stripe\">删除</a>");                  
                     $("#tableBody").append('</tr>');
              	    });  

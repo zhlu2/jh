@@ -12,8 +12,7 @@
 <script
 	src="<%=request.getContextPath()%>/static/js/jQuery/jquery-2.1.4.min.js"></script>
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/static/js/policeBasicInfo/editPolice.js"></script>
-
+	src="${pageContext.request.contextPath}/static/js/riskAssessment/viewpage.js"></script>
 <link
 	href="<%=request.getContextPath()%>/static/media/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
@@ -55,6 +54,7 @@
 
 <link rel="shortcut icon"
 	href="<%=request.getContextPath()%>/static/media/image/favicon.ico" />
+
 </head>
 <body class="page-header-fixed">
 
@@ -195,22 +195,25 @@
 							</a></li>
 
 						</ul></li>
+						
+						<li class="dropdown user">
 
-					<li class="dropdown user"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"> <span class="username">${user.username}</span>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
-							<i class="icon-angle-down"></i>
+						<span class="username">${user.username}</span>
 
-					</a>
+						<i class="icon-angle-down"></i>
+
+						</a>
 
 						<ul class="dropdown-menu">
 
-							<li><a
-								href="${pageContext.request.contextPath }/user/logout"><i
-									class="icon-key"></i> 退出</a></li>
+							<li><a href="${pageContext.request.contextPath }/user/logout"><i class="icon-key"></i> 退出</a></li>
 
-						</ul></li>
+						</ul>
 
+					</li>
+						
 
 					<!-- END INBOX DROPDOWN -->
 
@@ -340,9 +343,10 @@
 
 										<!-- BEGIN FORM-->
 
-										<form action="#" id="aco-police-form" class="horizontal-form">
+										<form action="#" id="aco-riskAssessment-form"
+											class="horizontal-form">
 
-											<h3 class="form-section">民警基本信息编辑页面</h3>
+											<h3 class="form-section">风险评估查看页面</h3>
 
 											<div class="row-fluid">
 
@@ -350,39 +354,20 @@
 
 													<div class="control-group">
 
-														<label class="control-label" for="firstName">民警编号</label>
+														<label class="control-label" for="firstName">犯罪人员姓名</label>
 
 														<div class="controls">
 
-															<input type="text" id="aco-policenum"
-																class="m-wrap span12"> <span class="help-block"></span>
-
+															<input type="text" id="aco-dedrugBasicinfo-fullname" disabled
+																class="m-wrap span12" > <span
+																class="help-block"></span> <input
+																type="hidden" id="aco-dedrugBasicinfo-personId">
+															<br>
 														</div>
 
 													</div>
 
 												</div>
-
-												<!--/span-->
-
-												<div class="span6 ">
-
-													<div class="control-group">
-
-														<label class="control-label" for="firstName">民警姓名</label>
-
-														<div class="controls">
-															<input type="hidden" id="aco-police-id" value="${id}">
-															<input type="text" id="aco-policename"
-																class="m-wrap span12"> <span class="help-block"></span>
-
-														</div>
-
-													</div>
-
-												</div>
-
-												<!--/span-->
 
 											</div>
 
@@ -394,15 +379,17 @@
 
 													<div class="control-group">
 
-														<label class="control-label">民警性别</label>
+														<label class="control-label">案件情况</label>
 
 														<div class="controls">
 
-															<select id="aco-policesex" class="m-wrap span12">
+															<select id="aco-caseStatus" disabled class="m-wrap span12">
 
-																<option value="男">男</option>
+																<option value="优">优</option>
 
-																<option value="女">女</option>
+																<option value="良">良</option>
+
+																<option value="差">差</option>
 
 															</select> <span class="help-block"></span>
 
@@ -418,12 +405,19 @@
 
 													<div class="control-group">
 
-														<label class="control-label">政治面貌</label>
+														<label class="control-label">狱内表现情况</label>
 
 														<div class="controls">
 
-															<input type="text" id="aco-politicaloutlook"
-																class="m-wrap span12" placeholder="dd/mm/yyyy">
+															<select id="aco-PerStatusInPrison" disabled class="m-wrap span12">
+
+																<option value="优">优</option>
+
+																<option value="良">良</option>
+
+																<option value="差">差</option>
+
+															</select> <span class="help-block"></span>
 
 														</div>
 
@@ -443,12 +437,60 @@
 
 													<div class="control-group">
 
-														<label class="control-label">证件号码</label>
+														<label class="control-label" for="firstName">科室审批意见</label>
 
 														<div class="controls">
 
-															<input type="text" id="aco-certificatenum"
-																class="m-wrap span12" placeholder="dd/mm/yyyy">
+															<select id="aco-directorApprovalMark"  disabled class="m-wrap span12">
+
+																<option value="同意">同意</option>
+
+																<option value="不同意">不同意</option>
+
+															</select> <span class="help-block"></span>
+
+														</div>
+
+													</div>
+
+												</div>
+
+												<div class="span6 ">
+
+													<div class="control-group">
+
+														<label class="control-label"  for="firstName">备注</label>
+
+														<div class="controls">
+
+															<input type="text" id="aco-remark" disabled class="m-wrap span12"
+																> <span class="help-block"></span>
+
+														</div>
+
+													</div>
+
+												</div>
+
+											</div>
+											
+											<div class="row-fluid">
+
+												<div class="span6 ">
+
+													<div class="control-group">
+
+														<label class="control-label" for="firstName">所长审批意见</label>
+
+														<div class="controls">
+
+															<select id="aco-departmentApprovalMark" disabled class="m-wrap span12">
+
+																<option value="同意">同意</option>
+
+																<option value="不同意">不同意</option>
+
+															</select> <span class="help-block"></span>
 
 														</div>
 
@@ -459,14 +501,11 @@
 											</div>
 
 											<div class="form-actions">
-
-												<button type="submit" id="aco-police-form-submit"
-													class="btn blue">
-													<i class="icon-ok"></i> 保存
-												</button>
+												<input type="hidden" id="aco-riskAssessment-id"
+													value="${id}">
 
 												<a class="btn"
-													href="<%=request.getContextPath()%>/policeBasicInfo/list">
+													href="${pageContext.request.contextPath }/riskAssessment/list">
 													取消 </a>
 
 											</div>
@@ -474,6 +513,69 @@
 										</form>
 
 										<!-- END FORM-->
+										<div
+											id="dedrug-detain-prsFamilyMeetingBasicInfo-proposeMan-id"
+											class="modal" aria-hidden="true" tabindex="-1"
+											data-backdrop="static" role="dialog"
+											aria-labelledby="ModalLabel" data-width="650"
+											style="display: none">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal"
+															aria-hidden="true"></button>
+														<h4 class="modal-title">人员信息</h4>
+													</div>
+													<div class="modal-body"
+														style="height: 100%; overflow-y: auto;">
+														<div class="portlet box blue-hoki">
+															<div class="portlet-body">
+																<div class="row" id="resetid">
+																	<div class="col-md-3">
+																		<div class="form-group">
+																			<div class="input-icon">
+																				<input id="dedrugTextInput" type="text"
+																					placeholder="请输入用户名">
+																				<button id="queryButton" class="btn btn-primary"
+																					type="button">查询</button>
+																			</div>
+																		</div>
+																	</div>
+
+																</div>
+															</div>
+														</div>
+														<!-- BEGIN FORM-->
+														<div class="portlet-body">
+															<form id="form1">
+																<table class="table table-bordered" id='tableResult'>
+																	<caption>查询用户结果</caption>
+																	<thead>
+																		<tr>
+																			<th>序号</th>
+																			<th>姓名</th>
+																			<th>性别</th>
+																			<th>拘留开始日期</th>
+																			<th>入所原因</th>
+																			<th>操作</th>
+																		</tr>
+																	</thead>
+																	<tbody id="dedrugTableBody">
+																	</tbody>
+																</table>
+																<!-- 底部分页按钮 -->
+																<div id="bottomTab"></div>
+															</form>
+														</div>
+														<!-- END FORM-->
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-default"
+															data-dismiss="modal">关闭</button>
+													</div>
+												</div>
+											</div>
+										</div>
 
 									</div>
 
@@ -498,8 +600,6 @@
 	</div>
 
 	<!-- END PAGE -->
-
-	</div>
 
 	<!-- END CONTAINER -->
 

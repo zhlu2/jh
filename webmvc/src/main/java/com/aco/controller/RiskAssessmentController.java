@@ -24,6 +24,9 @@ public class RiskAssessmentController extends BaseController{
 	private final static String EDITPAGE="riskAssessment/editRiskAssessment";
 	private final static String riskDirectorList="riskDirector/riskDirectorList";
 	private final static String editRiskDirector="riskDirector/editRiskDirector";
+	private final static String riskDepartmentList="riskDirector/riskDepartmentList";
+	private final static String editriskDepartment="riskDirector/editriskDepartment";
+	private final static String viewPage="riskAssessment/viewpage";
 	
 	@RequestMapping("/list")
 	public String List(){
@@ -37,6 +40,25 @@ public class RiskAssessmentController extends BaseController{
 	@RequestMapping("/riskDirectorList")
 	public String riskDirectorList(){
 		return riskDirectorList;
+	}
+	
+	@RequestMapping("/riskDepartmentList")
+	public String riskDepartmentList(){
+		return riskDepartmentList;
+	}
+	
+	@RequestMapping("/editriskDepartment/{id}")
+	public ModelAndView editriskDepartment(@PathVariable("id") String id){
+    	ModelAndView mav = new ModelAndView(editriskDepartment);
+    	mav.addObject("id", id);
+    	return mav;
+	}
+	
+	@RequestMapping("/viewPage/{id}")
+	public ModelAndView viewPage(@PathVariable("id") String id){
+    	ModelAndView mav = new ModelAndView(viewPage);
+    	mav.addObject("id", id);
+    	return mav;
 	}
 	
 	@RequestMapping("/editRiskDirector/{id}")
@@ -83,6 +105,30 @@ public class RiskAssessmentController extends BaseController{
         logger.info("分页查询用户信息列表请求入参：pageNumber{},pageSize{}", pageNumber,pageSize);  
         try {  
             PagedResult<RiskAssessment> pageResult = riskAssessmentService.queryByPage(id, pageNumber, pageSize);  
+            return responseSuccess(pageResult);  
+        } catch (Exception e) {  
+            return responseFail(e.getMessage());  
+        } 
+    }
+    
+    @RequestMapping("/findRiskDepartmentList")
+    @ResponseBody
+    public String findRiskDepartmentList(Integer pageNumber,Integer pageSize ,String id){
+        logger.info("分页查询用户信息列表请求入参：pageNumber{},pageSize{}", pageNumber,pageSize);  
+        try {  
+            PagedResult<RiskAssessment> pageResult = riskAssessmentService.queryByPageForRiskDepartmentList(id, pageNumber, pageSize);  
+            return responseSuccess(pageResult);  
+        } catch (Exception e) {  
+            return responseFail(e.getMessage());  
+        } 
+    }
+    
+    @RequestMapping("/findRiskDirector")
+    @ResponseBody
+    public String findRiskDirector(Integer pageNumber,Integer pageSize ,String id){
+        logger.info("分页查询用户信息列表请求入参：pageNumber{},pageSize{}", pageNumber,pageSize);  
+        try {  
+            PagedResult<RiskAssessment> pageResult = riskAssessmentService.queryByPageForDirector(id, pageNumber, pageSize);  
             return responseSuccess(pageResult);  
         } catch (Exception e) {  
             return responseFail(e.getMessage());  

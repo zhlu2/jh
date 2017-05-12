@@ -1,9 +1,8 @@
 
-var getOne = function(personId,fullname) {
-    $("#aco-dedrugBasicinfo-personId").val(personId);
-	$("#aco-dedrugBasicinfo-fullname").val(fullname);
-	$("#dedrug-detain-prsFamilyMeetingBasicInfo-proposeMan-id").modal();
-	$("#dedrug-detain-prsFamilyMeetingBasicInfo-proposeMan-id").modal('hide');
+var getOne = function(policename) {
+	$("#aco-talkPolice").val(policename);
+	$("#dedrug-acopolice-id").modal();
+	$("#dedrug-acopolice-id").modal('hide');
 }
 var PAGESIZE = 10;
 var options = {  
@@ -26,7 +25,7 @@ var options = {
         }                 
     },  
     onPageClicked: function (e, originalEvent, type, page) {  
-    	var userName = $("#dedrugTextInput").val(); //取内容
+    	var userName = $("#conversationTextInput").val(); //取内容
     	buildTable(userName,page,PAGESIZE);//默认每页最多10条
     }  
 }  
@@ -40,7 +39,7 @@ var urlRootContext = (function () {
 
 //生成表格
 function buildTable(userName,pageNumber,pageSize) {
-	 var url =  urlRootContext + "/dedrugBasicInfo/selectIntalk"; //请求的网址
+	 var url =  urlRootContext + "/policeBasicInfo/findPoliceBasicInfoList"; //请求的网址
      var reqParams = {'userName':userName, 'pageNumber':pageNumber,'pageSize':pageSize};//请求数据
      $(function () {   
      	  $.ajax({
@@ -72,26 +71,27 @@ function buildTable(userName,pageNumber,pageSize) {
         }                 
     },  
     onPageClicked: function (e, originalEvent, type, page) {  
-    	var userName = $("#dedrugTextInput").val(); //取内容
+    	var userName = $("#conversationTextInput").val(); //取内容
     	buildTable(userName,page,PAGESIZE);//默认每页最多10条
     }  
  }             	           
- $('#bottomTab').bootstrapPaginator("setOptions",newoptions); //重新设置总页面数目
+ $('#ConversationbottomTab').bootstrapPaginator("setOptions",newoptions); //重新设置总页面数目
  var dataList = data.dataList;
- $("#dedrugTableBody").empty();//清空表格内容
+ $("#conversationBody").empty();//清空表格内容
  if (dataList.length > 0 ) {
      $(dataList).each(function(){//重新生成
-     	    $("#dedrugTableBody").append('<tr>');
-            $("#dedrugTableBody").append('<td>' + this.id + '</td>');
-            $("#dedrugTableBody").append('<td>' + this.fullname + '</td>');
-            $("#dedrugTableBody").append('<td>' + this.sex + '</td>');
-            $("#dedrugTableBody").append('<td>' + this.abandonstartdate + '</td>');
-            $("#dedrugTableBody").append('<td>' + this.entryreason + '</td>');
-            $("#dedrugTableBody").append("<a href=\"javascript:getOne("+this.personid+",'"+this.fullname+"');\" class=\"btn default btn-xs blue-stripe\">选择</a>");                  
-            $("#dedrugTableBody").append('</tr>');
+     	    $("#conversationBody").append('<tr>');
+            $("#conversationBody").append('<td>' + this.id + '</td>');
+            $("#conversationBody").append('<td>' + this.policenum + '</td>');
+            $("#conversationBody").append('<td>' + this.policename + '</td>');
+            $("#conversationBody").append('<td>' + this.policesex + '</td>');
+            $("#conversationBody").append('<td>' + this.politicaloutlook + '</td>');
+            $("#conversationBody").append('<td>' + this.createTime + '</td>');
+            $("#conversationBody").append("<a href=\"javascript:getOne('"+this.policename+"');\" class=\"btn default btn-xs blue-stripe\">选择</a>");                  
+            $("#conversationBody").append('</tr>');
      	    });  
      	    } else {             	            	
-     	          $("#dedrugTableBody").append('<tr><th colspan ="6"><center>查询无数据</center></th></tr>');
+     	          $("#conversationBody").append('<tr><th colspan ="6"><center>查询无数据</center></th></tr>');
      	    }
      	    }else{
      	          alert(data.errorMsg);
@@ -108,13 +108,13 @@ function buildTable(userName,pageNumber,pageSize) {
 $(function() {
 	
 	//生成底部分页栏
-    $('#bottomTab').bootstrapPaginator(options);     
+    $('#ConversationbottomTab').bootstrapPaginator(options);     
 	
 	buildTable("",1,10);//默认空白查全部
 	
     //创建结算规则
-    $("#queryButton").bind("click",function(){
-    	var userName = $("#dedrugTextInput").val();	
+    $("#ConversationqueryButton").bind("click",function(){
+    	var userName = $("#conversationTextInput").val();	
     	buildTable(userName,1,PAGESIZE);
     });
 });

@@ -87,4 +87,13 @@ public class DedrugBasicInfoServiceImpl implements DedrugBasicInfoService {
 		return BeanUtil.toPagedResult(dedrugBasicInfoMapper.selectIntalkByPrimaryKey(userName));
 	}
 
+	@Override
+	public PagedResult<DedrugBasicInfo> queryInPrisonTalk(String userName, Integer pageNo, Integer pageSize) {
+		// TODO Auto-generated method stub
+		pageNo = pageNo == null ? 1 : pageNo;
+		pageSize = pageSize == null ? 10 : pageSize;
+		PageHelper.startPage(pageNo, pageSize);
+		return BeanUtil.toPagedResult(dedrugBasicInfoMapper.selectInPrisonTalk(userName));
+	}
+
 }

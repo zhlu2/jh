@@ -19,7 +19,7 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/static/js/common/acoCommon.js"></script>
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/static/js/conversationRecord/addConversationRecord.js"></script>
+	src="${pageContext.request.contextPath}/static/js/conversationRecord/addInPrisonConversation.js"></script>
 <link
 	href="<%=request.getContextPath()%>/static/media/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
@@ -631,10 +631,10 @@
 
 		<div class="footer-inner">
 
-			2013 &copy; Metronic by keenthemes.Collect from <a
-				href="http://www.cssmoban.com/" title="网站模板" target="_blank">网站模板</a>
+			 &copy; Metronic by keenthemes.Collect from <a
+				href="http://www.cssmoban.com/" title="" target="_blank"></a>
 			- More Templates <a href="http://www.cssmoban.com/" target="_blank"
-				title="模板之家">模板之家</a>
+				title=""></a>
 
 		</div>
 

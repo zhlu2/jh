@@ -8,6 +8,10 @@ import com.aco.util.PagedResult;
 public interface RiskAssessmentService {
 	
 	PagedResult<RiskAssessment> queryByPage(String userName,Integer pageNo,Integer pageSize);
+	
+	PagedResult<RiskAssessment> queryByPageForRiskDepartmentList(String userName,Integer pageNo,Integer pageSize);
+	
+	PagedResult<RiskAssessment> queryByPageForDirector(String userName,Integer pageNo,Integer pageSize);
 
 	String addRiskAssessment(RiskAssessment riskAssessment);
 	

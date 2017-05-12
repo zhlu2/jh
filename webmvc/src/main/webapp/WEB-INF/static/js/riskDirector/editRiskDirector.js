@@ -26,6 +26,7 @@ var editDedrugBasicInfo = {
 	// 获取模式窗口表单元素值
 	getModalFormEleVal : function() {
 		var postData = {};
+		postData.id=$("#aco-riskAssessment-id").val();
 		postData.caseStatus = $("#aco-caseStatus").val();
 		postData.perStatusInPrison = $("#aco-PerStatusInPrison").val();
 		postData.remark = $("#aco-remark").val();
@@ -38,7 +39,6 @@ var editDedrugBasicInfo = {
 		$("#aco-riskAssessment-form-submit").on("click",
 				function(event) {
 					event.preventDefault();
-					debugger;
 					var strPath = window.document.location.pathname;
 					var postPath = strPath.substring(0, strPath.substr(1)
 							.indexOf('/') + 1);
@@ -50,7 +50,7 @@ var editDedrugBasicInfo = {
 						data : postData,
 						success : function() {
 							alert("编辑成功！");
-							parent.location.href = postPath + "/riskAssessment/list";
+							parent.location.href = postPath + "/riskAssessment/riskDirectorList";
 						},
 						error : '请求异常，新建考核登记失败！'
 					});

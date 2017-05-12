@@ -81,4 +81,16 @@ public class ConversationRecordServiceImpl implements ConversationRecordService 
 		return BeanUtil.toPagedResult(conversationRecordMapper.selectOutprisonByPrimaryKey(userName));
 	}
 
+	@Override
+	public String addOutPrisonConversationRecord(ConversationRecord conversationRecord) {
+		// TODO Auto-generated method stub
+		conversationRecordMapper.insertSelective(conversationRecord);
+		if (StringUtils.isNotBlank(conversationRecord.getFullname())) {
+			DedrugBasicInfo dedrugBasicInfo = dedrugBasicInfoMapper.selectByFullname(conversationRecord.getFullname());
+			dedrugBasicInfo.setPersonsign("4");
+			dedrugBasicInfoMapper.updateByPrimaryKeySelective(dedrugBasicInfo);
+		}
+		return null;
+	}
+
 }

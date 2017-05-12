@@ -14,6 +14,10 @@ public interface RiskAssessmentMapper {
     int insertSelective(RiskAssessment record);
 
     List<RiskAssessment> selectByPrimaryKey(@Param("id")String id);
+    
+    List<RiskAssessment> selectForRiskDepartment(@Param("id")String id);
+    
+    List<RiskAssessment> selectForDirector(@Param("id")String id);    
 
     int updateByPrimaryKeySelective(RiskAssessment record);
 

@@ -23,6 +23,7 @@ public class DedrugBasicInfoController extends BaseController {
 	private static final String List = "dedrugBasicInfo/dedrugBasicInfoList";
 	private static final String ADDPAGE = "dedrugBasicInfo/addDedrugBasicInfo";
 	private static final String EDITPAGE = "dedrugBasicInfo/editDedrugBasicInfo";
+	private static final String VIEWPAGE = "dedrugBasicInfo/showDedrugBasicInfo";
 	private static final String outPrison="outPrison/outPrisonList";
 	private static final String editOutPrison="outPrison/editOutPrison";
 	private static final String deletePrison="deletePrison/deletePrisonList";
@@ -48,6 +49,14 @@ public class DedrugBasicInfoController extends BaseController {
 		mav.addObject("id", id);
 		return mav;
 	}
+	
+	@RequestMapping("/showPage/{id}")
+	public ModelAndView showPage(@PathVariable("id") String id) {
+		ModelAndView mav = new ModelAndView(VIEWPAGE);
+		mav.addObject("id", id);
+		return mav;
+	}
+	
 	@RequestMapping("/outPrisonList")
 	public String outPrison(){
 		return outPrison;
@@ -163,6 +172,20 @@ public class DedrugBasicInfoController extends BaseController {
 		logger.info("分页查询用户信息列表请求入参：pageNumber{},pageSize{}", pageNumber, pageSize);
 		try {
 			PagedResult<DedrugBasicInfo> pageResult = dedrugBasicInfoService.queryInPrison(userName, pageNumber,
+					pageSize);
+			return responseSuccess(pageResult);
+		} catch (Exception e) {
+			return responseFail(e.getMessage());
+		}
+	}
+	
+	@RequestMapping("/selectInPrisonTalk")
+    @MethodDescription(value = "分页查询病室号列表", opeartion = "search")
+	@ResponseBody
+	public String inPrisonTalkList(Integer pageNumber, Integer pageSize, String userName) {
+		logger.info("分页查询用户信息列表请求入参：pageNumber{},pageSize{}", pageNumber, pageSize);
+		try {
+			PagedResult<DedrugBasicInfo> pageResult = dedrugBasicInfoService.queryInPrisonTalk(userName, pageNumber,
 					pageSize);
 			return responseSuccess(pageResult);
 		} catch (Exception e) {

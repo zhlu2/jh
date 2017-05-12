@@ -25,6 +25,29 @@
     </if>
 
   </select>
+    <select id="selectForRiskDepartment" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from FXPGB
+    where 1=1
+    and SZSPYJ='同意'
+    and KSPYJ is NULL
+    <if test="id != null and id !=''">
+	and ID = #{id,jdbcType=VARCHAR}
+    </if>
+
+  </select>
+      <select id="selectForDirector" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from FXPGB
+    where 1=1
+    and SZSPYJ is NULL
+    <if test="id != null and id !=''">
+	and ID = #{id,jdbcType=VARCHAR}
+    </if>
+
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from FXPGB
     where ID = #{id,jdbcType=VARCHAR}

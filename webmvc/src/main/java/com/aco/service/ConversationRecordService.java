@@ -15,6 +15,8 @@ public interface ConversationRecordService {
 
 	String addConversationRecord(ConversationRecord conversationRecord);
 	
+	String addOutPrisonConversationRecord(ConversationRecord conversationRecord);
+	
 	String editConversationRecord(ConversationRecord conversationRecord);
 	
 	String deleteConversationRecord(String id);

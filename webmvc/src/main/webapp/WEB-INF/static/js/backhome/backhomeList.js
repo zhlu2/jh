@@ -39,7 +39,7 @@
 
         //生成表格
         function buildTable(userName,pageNumber,pageSize) {
-        	 var url =  urlRootContext + "/dedrugBasicInfo/selectInPrison"; //请求的网址
+        	 var url =  urlRootContext + "/dedrugBasicInfo/selectInPrisonTalk"; //请求的网址
              var reqParams = {'userName':userName, 'pageNumber':pageNumber,'pageSize':pageSize};//请求数据
              $(function () {   
              	  $.ajax({
@@ -90,7 +90,7 @@
                     $("#tableBody").append('</tr>');
              	    });  
              	    } else {             	            	
-             	          $("#tableBody").append('<tr><th colspan ="4"><center>查询无数据</center></th></tr>');
+             	          $("#tableBody").append('<tr><th colspan ="6"><center>查询无数据</center></th></tr>');
              	    }
              	    }else{
              	          alert(data.errorMsg);

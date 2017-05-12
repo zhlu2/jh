@@ -40,7 +40,7 @@
 					$.ajax({
 						type : "POST",
 						async : false,// 同步请求
-						url : postPath+ "/conversationRecord/add",
+						url : postPath+ "/conversationRecord/addOut",
 						data : postData,
 						success : function() {
 							alert("新建戒毒人员成功！");

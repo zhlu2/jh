@@ -91,7 +91,7 @@ function buildTable(userName,pageNumber,pageSize) {
             $("#dedrugTableBody").append('</tr>');
      	    });  
      	    } else {             	            	
-     	          $("#dedrugTableBody").append('<tr><th colspan ="4"><center>查询无数据</center></th></tr>');
+     	          $("#dedrugTableBody").append('<tr><th colspan ="6"><center>查询无数据</center></th></tr>');
      	    }
      	    }else{
      	          alert(data.errorMsg);
