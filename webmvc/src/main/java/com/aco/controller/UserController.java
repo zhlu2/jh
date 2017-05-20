@@ -28,6 +28,9 @@ public class UserController extends BaseController{
     private static final String roleList="role/roleList";
     private static final String index="index";
     private static final String index2="index2";
+    private static final String index3="index3";
+    private static final String index4="index4";
+    private static final String index5="index5";
 	//用户登录
 	@Autowired
 	private UserService userService;
@@ -40,6 +43,18 @@ public class UserController extends BaseController{
 	public String index2(){
 		return index2;
 	}
+	@RequestMapping("/index3")
+	public String index3(){
+		return index3;
+	}
+	@RequestMapping("/index4")
+	public String index4(){
+		return index4;
+	}
+	@RequestMapping("/index5")
+	public String index5(){
+		return index5;
+	}	
     @RequestMapping("/login")
     public String login(User user, HttpServletRequest request) {
         Subject subject = SecurityUtils.getSubject();

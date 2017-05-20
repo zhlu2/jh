@@ -42,10 +42,10 @@
 						url : postPath+ "/conversationRecord/add",
 						data : postData,
 						success : function() {
-							alert("新建戒毒人员成功！");
+							alert("新建谈话教育成功！");
 							parent.location.href=postPath+"/conversationRecord/list";
 						},
-						error : '请求异常，新建考核登记失败！'
+						error : '请求异常，新建谈话教育失败！'
 					});				
 			});
 		},

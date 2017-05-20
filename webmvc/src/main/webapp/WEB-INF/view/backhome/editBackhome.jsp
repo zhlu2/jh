@@ -260,7 +260,21 @@
 						class="arrow "></span>
 
 				</a>
+				<li class=""><a href="${pageContext.request.contextPath }/user/index3"> <i class="icon-bookmark-empty"></i>
 
+						<span class="title">入所流程 </span> <span class="arrow "></span>
+
+				</a></li>
+				<li class=""><a href="${pageContext.request.contextPath }/user/index4"> <i class="icon-table"></i>
+
+						<span class="title">风险分析流程 </span> <span class="arrow "></span>
+
+				</a></li>
+				<li class=""><a href="${pageContext.request.contextPath }/user/index5"> <i class="icon-coffee"></i>
+
+						<span class="title">出所流程 </span> <span class="arrow "></span>
+
+				</a></li>	
 					<ul class="sub-menu">
 
 						<li><a href="layout_horizontal_sidebar_menu.html">

@@ -60,7 +60,7 @@
 						url : postPath+ "/dedrugBasicInfo/edit",
 						data : postData,
 						success : function() {
-							alert("编辑用户成功！");
+							alert("误出所恢复成功！");
 								parent.location.href=postPath+"/dedrugBasicInfo/outPrisonList";
 						},
 						error : '请求异常，新建考核登记失败！'

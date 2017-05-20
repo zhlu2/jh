@@ -319,7 +319,21 @@
 
 					</ul></li>
 			</shiro:hasRole>
+				<li class=""><a href="${pageContext.request.contextPath }/user/index3"> <i class="icon-bookmark-empty"></i>
 
+						<span class="title">入所流程 </span> <span class="arrow "></span>
+
+				</a></li>
+				<li class=""><a href="${pageContext.request.contextPath }/user/index4"> <i class="icon-table"></i>
+
+						<span class="title">风险分析流程 </span> <span class="arrow "></span>
+
+				</a></li>
+				<li class=""><a href="${pageContext.request.contextPath }/user/index5"> <i class="icon-coffee"></i>
+
+						<span class="title">出所流程 </span> <span class="arrow "></span>
+
+				</a></li>	
 		</ul>
 
 		<!-- END SIDEBAR MENU -->
@@ -474,7 +488,7 @@
 														<div class="controls">
 
 															<input type="text" id="aco-detainedpolice"
-																class="m-wrap span12" placeholder="点击查询登记人"> <span
+																class="m-wrap span12" > <span
 																class="help-block"></span>
 
 														</div>

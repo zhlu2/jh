@@ -1,10 +1,27 @@
 	var	addDedrugBasicInfo = {
 		init : function() {
 			// 初始化新增按钮
+			$('#aco-abandonstartdate').datetimepicker();
+			addDedrugBasicInfo.findPersonId();
 			addDedrugBasicInfo.initSaveBtnClickListener();
 			addDedrugBasicInfo.getPolice();
 		},
 
+		findPersonId : function(){
+			    var strPath = window.document.location.pathname;
+	            var postPath = strPath.substring(0, strPath.substr(1).indexOf('/') + 1);
+	            $.ajax({
+	                type : "POST",
+	                async : false,// 同步请求
+	                url : postPath + '/dedrugBasicInfo/findPersonId',
+	                dataType:"json",
+	                success : function(data) {         
+	                	$("#aco-personid").val(data);		
+	                },
+	                error : '请求异常，查询失败！'
+	            });
+		},
+		
 		getPolice : function(){
 			$("#aco-casehandleperson").on("focus", function() {
 				$("#dedrug-acopolice-id").show();

@@ -1,22 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
+<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>  	
 <!DOCTYPE html>
-<html lang="en">
+
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta charset="utf-8" />
+
 <title>戒毒管理信息系统</title>
-<link
-	href="<%=request.getContextPath()%>/static/js/bootstrap//css/bootstrap.min.css"
-	rel="stylesheet">
-<script
-	src="<%=request.getContextPath()%>/static/js/jQuery/jquery-2.1.4.min.js"></script>
-<script
-	src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap.min.js"></script>
-<script
-	src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap-paginator.min.js"></script>
-<script
-	src="<%=request.getContextPath()%>/static/js/permission/permissionList.js"></script>
+
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+<meta content="" name="description" />
+
+<meta content="" name="author" />
+
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+<script src="<%=request.getContextPath()%>/static/js/jQuery/jquery-2.1.4.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap.min.js"></script>
+
 <link
 	href="<%=request.getContextPath()%>/static/media/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
@@ -51,17 +63,36 @@
 
 <!-- BEGIN PAGE LEVEL STYLES -->
 
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/static/media/css/select2_metro.css" />
+<link
+	href="<%=request.getContextPath()%>/static/media/css/jquery.gritter.css"
+	rel="stylesheet" type="text/css" />
 
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/static/media/css/DT_bootstrap.css" />
+<link
+	href="<%=request.getContextPath()%>/static/media/css/daterangepicker.css"
+	rel="stylesheet" type="text/css" />
+
+<link
+	href="<%=request.getContextPath()%>/static/media/css/fullcalendar.css"
+	rel="stylesheet" type="text/css" />
+
+<link href="<%=request.getContextPath()%>/static/media/css/jqvmap.css"
+	rel="stylesheet" type="text/css" media="screen" />
+
+<link
+	href="<%=request.getContextPath()%>/static/media/css/jquery.easy-pie-chart.css"
+	rel="stylesheet" type="text/css" media="screen" />
 
 <!-- END PAGE LEVEL STYLES -->
 
 <link rel="shortcut icon"
 	href="<%=request.getContextPath()%>/static/media/image/favicon.ico" />
+
 </head>
+
+<!-- END HEAD -->
+
+<!-- BEGIN BODY -->
+
 <body class="page-header-fixed">
 
 	<!-- BEGIN HEADER -->
@@ -74,12 +105,12 @@
 
 			<div class="container-fluid">
 
-
 				<!-- BEGIN RESPONSIVE MENU TOGGLER -->
 
 				<a href="javascript:;" class="btn-navbar collapsed"
 					data-toggle="collapse" data-target=".nav-collapse"> <img
-					src="media/image/menu-toggler.png" alt="" />
+					src="<%=request.getContextPath()%>/static/media/image/menu-toggler.png"
+					alt="" />
 
 				</a>
 
@@ -176,10 +207,9 @@
 							</a></li>
 
 							<li><a href="inbox.html?a=view"> <span class="photo"><img
-										src="media/image/avatar3.jpg" alt="" /></span> <span class="subject">
-
-										<span class="from">Richard Doe</span> <span class="time">16
-											mins</span>
+										src="./media/image/avatar3.jpg" alt="" /></span> <span
+									class="subject"> <span class="from">Richard Doe</span> <span
+										class="time">16 mins</span>
 
 								</span> <span class="message"> Vivamus sed congue nibh auctor
 										nibh congue nibh. auctor nibh auctor nibh... </span>
@@ -187,10 +217,9 @@
 							</a></li>
 
 							<li><a href="inbox.html?a=view"> <span class="photo"><img
-										src="media/image/avatar1.jpg" alt="" /></span> <span class="subject">
-
-										<span class="from">Bob Nilson</span> <span class="time">2
-											hrs</span>
+										src="./media/image/avatar1.jpg" alt="" /></span> <span
+									class="subject"> <span class="from">Bob Nilson</span> <span
+										class="time">2 hrs</span>
 
 								</span> <span class="message"> Vivamus sed nibh auctor nibh
 										congue nibh. auctor nibh auctor nibh... </span>
@@ -293,21 +322,23 @@
 
 					<!-- BEGIN USER LOGIN DROPDOWN -->
 
-					<li class="dropdown user"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"> <span class="username">${user.username}</span>
+                        <li class="dropdown user">
 
-							<i class="icon-angle-down"></i>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
-					</a>
+						<span class="username">${user.username}</span>
+
+						<i class="icon-angle-down"></i>
+
+						</a>
 
 						<ul class="dropdown-menu">
 
-							<li><a
-								href="${pageContext.request.contextPath }/user/logout"><i
-									class="icon-key"></i> 退出</a></li>
+							<li><a href="${pageContext.request.contextPath }/user/logout"><i class="icon-key"></i> 退出</a></li>
 
-						</ul></li>
+						</ul>
 
+					</li>
 
 					<!-- END USER LOGIN DROPDOWN -->
 
@@ -324,10 +355,13 @@
 	</div>
 
 	<!-- END HEADER -->
+	<div class="copyrights">
+		Collect from <a href="http://www.cssmoban.com/">网页模板</a>
+	</div>
 
 	<!-- BEGIN CONTAINER -->
 
-	<div class="page-container row-fluid">
+	<div class="page-container">
 
 		<!-- BEGIN SIDEBAR -->
 
@@ -361,53 +395,17 @@
 
 				</li>
 
-				<li class="start "><a
-					href="${pageContext.request.contextPath }/user/index"> <i
-						class="icon-home"></i> <span class="title">主界面</span>
+				<li class="start "><a href="${pageContext.request.contextPath }/user/index"> <i
+						class="icon-home"></i> <span class="title">主界面</span> 
 
 				</a></li>
 
-				<shiro:hasRole name="admin">
-					<li class=""><a
-						href="${pageContext.request.contextPath }/user/index2"> <i
-							class="icon-cogs"></i> <span class="title">用户权限管理</span> <span
-							class="arrow "></span>
+				<li class=""><a href="${pageContext.request.contextPath }/user/index2"> <i class="icon-cogs"></i>
 
-					</a>
+						<span class="title">用户权限管理 </span> <span class="arrow "></span>
 
-						<ul class="sub-menu">
-
-							<li><a href="layout_horizontal_sidebar_menu.html">
-
-									Horzontal & Sidebar Menu</a></li>
-
-							<li><a href="layout_horizontal_menu1.html"> Horzontal
-									Menu 1</a></li>
-
-							<li><a href="layout_horizontal_menu2.html"> Horzontal
-									Menu 2</a></li>
-
-							<li><a href="layout_promo.html"> Promo Page</a></li>
-
-							<li><a href="layout_email.html"> Email Templates</a></li>
-
-							<li><a href="layout_ajax.html"> Content Loading via Ajax</a>
-
-							</li>
-
-							<li><a href="layout_sidebar_closed.html"> Sidebar Closed
-									Page</a></li>
-
-							<li><a href="layout_blank_page.html"> Blank Page</a></li>
-
-							<li><a href="layout_boxed_page.html"> Boxed Page</a></li>
-
-							<li><a href="layout_boxed_not_responsive.html">
-
-									Non-Responsive Boxed Layout</a></li>
-
-						</ul></li>
-				</shiro:hasRole>
+				</a></li>
+				
 				<li class=""><a href="${pageContext.request.contextPath }/user/index3"> <i class="icon-bookmark-empty"></i>
 
 						<span class="title">入所流程 </span> <span class="arrow "></span>
@@ -420,36 +418,24 @@
 				</a></li>
 				<li class=""><a href="${pageContext.request.contextPath }/user/index5"> <i class="icon-coffee"></i>
 
-						<span class="title">出所流程 </span> <span class="arrow "></span>
+						<span class="title">风险分析流程 </span> <span class="arrow "></span>
 
-				</a></li>	
+				</a></li>				
+
+
 			</ul>
 
+			<!-- END SIDEBAR MENU -->
+
 		</div>
+
+		<!-- END SIDEBAR -->
 
 		<!-- BEGIN PAGE -->
 
 		<div class="page-content">
 
-			<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
 
-			<div id="portlet-config" class="modal hide">
-
-				<div class="modal-header">
-
-					<button data-dismiss="modal" class="close" type="button"></button>
-
-					<h3>portlet Settings</h3>
-
-				</div>
-
-				<div class="modal-body">
-
-					<p>Here will be a configuration form</p>
-
-				</div>
-
-			</div>
 
 			<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
 
@@ -463,98 +449,38 @@
 
 					<div class="span12">
 
-						<!-- BEGIN STYLE CUSTOMIZER -->
-
-						<div class="color-panel hidden-phone">
-
-							<div class="color-mode-icons icon-color"></div>
-
-							<div class="color-mode-icons icon-color-close"></div>
-
-							<div class="color-mode">
-
-								<p>THEME COLOR</p>
-
-								<ul class="inline">
-
-									<li class="color-black current color-default"
-										data-style="default"></li>
-
-									<li class="color-blue" data-style="blue"></li>
-
-									<li class="color-brown" data-style="brown"></li>
-
-									<li class="color-purple" data-style="purple"></li>
-
-									<li class="color-grey" data-style="grey"></li>
-
-									<li class="color-white color-light" data-style="light"></li>
-
-								</ul>
-
-								<label> <span>Layout</span> <select
-									class="layout-option m-wrap small">
-
-										<option value="fluid" selected>Fluid</option>
-
-										<option value="boxed">Boxed</option>
-
-								</select>
-
-								</label> <label> <span>Header</span> <select
-									class="header-option m-wrap small">
-
-										<option value="fixed" selected>Fixed</option>
-
-										<option value="default">Default</option>
-
-								</select>
-
-								</label> <label> <span>Sidebar</span> <select
-									class="sidebar-option m-wrap small">
-
-										<option value="fixed">Fixed</option>
-
-										<option value="default" selected>Default</option>
-
-								</select>
-
-								</label> <label> <span>Footer</span> <select
-									class="footer-option m-wrap small">
-
-										<option value="fixed">Fixed</option>
-
-										<option value="default" selected>Default</option>
-
-								</select>
-
-								</label>
-
-							</div>
-
-						</div>
-
-						<!-- END BEGIN STYLE CUSTOMIZER -->
 
 						<!-- BEGIN PAGE TITLE & BREADCRUMB-->
 
 						<h3 class="page-title">
 
-							权限 
+							风险分析流程 <small>模块展示页面</small>
 
 						</h3>
 
 						<ul class="breadcrumb">
 
-							<li><a
-								href="${pageContext.request.contextPath }/user/index2">用户权限管理</a> <i
-								class="icon-angle-right"></i></li>
+							<li><i class="icon-home"></i> <a href="${pageContext.request.contextPath }/user/index4">风险分析流程 </a>
 
-							<li><a href="${pageContext.request.contextPath }/permission/list">权限</a></li>
+								<i class="icon-angle-right"></i></li>
+
+							<li><a href="#">模块展示页面</a></li>
+
+							<li class="pull-right no-text-shadow">
+
+								<div id="dashboard-report-range"
+									class="dashboard-date-range tooltips no-tooltip-on-touch-device responsive"
+									data-tablet="" data-desktop="tooltips" data-placement="top"
+									data-original-title="Change dashboard date range">
+
+									<i class="icon-calendar"></i> <span></span> <i
+										class="icon-angle-down"></i>
+
+								</div>
+
+							</li>
 
 						</ul>
-
-						<!-- END PAGE TITLE & BREADCRUMB-->
 
 					</div>
 
@@ -562,106 +488,109 @@
 
 				<!-- END PAGE HEADER-->
 
-				<!-- BEGIN PAGE CONTENT-->
+				<div id="dashboard">
 
-				<div class="row-fluid">
+					<!-- BEGIN DASHBOARD STATS -->
 
-					<div class="span12">
+					<div class="row-fluid">
 
-						<!-- BEGIN EXAMPLE TABLE PORTLET-->
+						<div class="span3 responsive" data-tablet="span6"
+							data-desktop="span3">
 
-						<div class="portlet box light-grey">
+							<div class="dashboard-stat green">
 
-							<div class="portlet-title">
+								<div class="visual">
 
-								<div class="caption">
-									<i class="icon-globe"></i>权限表
-								</div>
-
-								<div class="tools">
-
-									<a href="javascript:;" class="collapse"></a> <a
-										href="#portlet-config" data-toggle="modal" class="config"></a>
-
-									<a href="javascript:;" class="reload"></a> <a
-										href="javascript:;" class="remove"></a>
+									<i class="icon-bar-chart"></i>
 
 								</div>
 
-							</div>
+								<div class="details">
 
-							<div class="portlet-body">
+									<div class="number">风险评估</div>
 
-								<div class="clearfix">
-
-									<div class="btn-group">
-
-										<a class="btn green"
-											href="<%=request.getContextPath()%>/permission/addPage">
-
-											新增 <i class="icon-plus"></i>
-										</a>
-
-									</div>
-
+									<div class="desc">申请</div>
 
 								</div>
-								<div class="dataTables_filter">
-									<label>
-										<button id="queryButton" class="btn dropdown-toggle"
-											type="button">查询</button>
-									</label> <label> <input id="textInput" type="text"
-										placeholder="请输入用户名">
-									</label>
-								</div>
 
-								<table class="table table-striped table-bordered table-hover"
-									id="tableResult">
-
-									<thead>
-
-										<tr>
-
-											<th>序号</th>
-
-											<th class="hidden-480">权限名</th>
-
-											<th class="hidden-480">权限描述</th>
-
-											<th class="hidden-480">操作</th>
-
-										</tr>
-
-									</thead>
-
-									<tbody id="tableBody">
-
-
-									</tbody>
-
-								</table>
-
-								<div id="bottomTab"></div>
+								<a class="more"
+									href="${pageContext.request.contextPath }/riskAssessment/list">
+									查看更多 <i class="m-icon-swapright m-icon-white"></i>
+								</a>
 
 							</div>
 
 						</div>
 
-						<!-- END EXAMPLE TABLE PORTLET-->
+						<div class="span3 responsive" data-tablet="span6"
+							data-desktop="span3">
+
+							<div class="dashboard-stat purple">
+
+								<div class="visual">
+
+									<i class="icon-bar-chart"></i>
+
+								</div>
+
+								<div class="details">
+
+									<div class="number">风险评估</div>
+
+									<div class="desc">科室审批</div>
+
+								</div>
+
+								<a class="more"
+									href="${pageContext.request.contextPath }/riskAssessment/riskDirectorList">
+									查看更多 <i class="m-icon-swapright m-icon-white"></i>
+								</a>
+
+							</div>
+
+						</div>
+
+						<div class="span3 responsive" data-tablet="span6"
+							data-desktop="span3">
+
+							<div class="dashboard-stat blue">
+
+								<div class="visual">
+
+									<i class="icon-bar-chart"></i>
+
+								</div>
+
+								<div class="details">
+
+									<div class="number">风险评估</div>
+
+									<div class="desc">所长审批</div>
+
+								</div>
+
+								<a class="more"
+									href="${pageContext.request.contextPath }/riskAssessment/riskDepartmentList">
+									查看更多 <i class="m-icon-swapright m-icon-white"></i>
+								</a>
+
+							</div>
+
+						</div>
 
 					</div>
-
+					
 				</div>
-
-				<!-- END PAGE CONTENT-->
 
 			</div>
 
-			<!-- END PAGE CONTAINER-->
-
 		</div>
 
-		<!-- END PAGE -->
+		<!-- END PAGE CONTAINER-->
+
+	</div>
+
+	<!-- END PAGE -->
 
 	</div>
 
@@ -673,11 +602,7 @@
 
 		<div class="footer-inner">
 
-			 &copy; Metronic by keenthemes.Collect from <a
-				href="http://www.cssmoban.com/" title="" target="_blank"></a>
-			- More Templates <a href="http://www.cssmoban.com/" target="_blank"
-				title=""></a>
-
+			 &copy; Metronic by keenthemes.Collect from <a>戒毒人员管理信息系统</a>
 		</div>
 
 		<div class="footer-tools">
@@ -690,7 +615,8 @@
 
 	</div>
 
-
-
 </body>
+
+<!-- END BODY -->
+
 </html>

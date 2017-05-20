@@ -2,6 +2,7 @@ package com.aco.service.serviceImpl;
 
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -94,6 +95,20 @@ public class DedrugBasicInfoServiceImpl implements DedrugBasicInfoService {
 		pageSize = pageSize == null ? 10 : pageSize;
 		PageHelper.startPage(pageNo, pageSize);
 		return BeanUtil.toPagedResult(dedrugBasicInfoMapper.selectInPrisonTalk(userName));
+	}
+
+	@Override
+	public String findPersonId() {
+		// TODO Auto-generated method stub
+		String personId=dedrugBasicInfoMapper.selectPersonId();
+		if(StringUtils.isBlank(personId)){
+			return "33030570136001";
+		}else{
+			
+			long number= Long.parseLong(personId)+1;
+			return String.valueOf(number);
+		}
+		
 	}
 
 }

@@ -313,7 +313,21 @@
 
 					</ul></li>
 			</shiro:hasRole>
+				<li class=""><a href="${pageContext.request.contextPath }/user/index3"> <i class="icon-bookmark-empty"></i>
 
+						<span class="title">入所流程 </span> <span class="arrow "></span>
+
+				</a></li>
+				<li class=""><a href="${pageContext.request.contextPath }/user/index4"> <i class="icon-table"></i>
+
+						<span class="title">风险分析流程 </span> <span class="arrow "></span>
+
+				</a></li>
+				<li class=""><a href="${pageContext.request.contextPath }/user/index5"> <i class="icon-coffee"></i>
+
+						<span class="title">出所流程 </span> <span class="arrow "></span>
+
+				</a></li>	
 		</ul>
 
 		<!-- END SIDEBAR MENU -->
@@ -430,50 +444,6 @@
 
 															<input type="text" id="aco-talkplace"
 																class="m-wrap span12" placeholder="请输入谈话地点">
-
-														</div>
-
-													</div>
-
-												</div>
-
-												<!--/span-->
-
-											</div>
-
-											<!--/row-->
-
-											<div class="row-fluid">
-
-												<div class="span6 ">
-
-													<div class="control-group">
-
-														<label class="control-label" for="firstName">提问</label>
-
-														<div class="controls">
-
-															<input type="text" id="aco-ask" class="m-wrap span12">
-															<span class="help-block"></span>
-
-														</div>
-
-													</div>
-
-												</div>
-
-												<!--/span-->
-
-												<div class="span6 ">
-
-													<div class="control-group">
-
-														<label class="control-label" for="firstName">回答</label>
-
-														<div class="controls">
-
-															<input type="text" id="aco-answer" class="m-wrap span12">
-															<span class="help-block"></span>
 
 														</div>
 

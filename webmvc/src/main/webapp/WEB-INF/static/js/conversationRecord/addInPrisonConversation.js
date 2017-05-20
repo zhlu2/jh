@@ -43,10 +43,10 @@
 						url : postPath+ "/conversationRecord/add",
 						data : postData,
 						success : function() {
-							alert("新建戒毒人员成功！");
+							alert("新建入所谈话成功！");
 							parent.location.href=postPath+"/conversationRecord/InPrisonConversationList";
 						},
-						error : '请求异常，新建考核登记失败！'
+						error : '请求异常，新建入所谈话失败！'
 					});				
 			});
 		},

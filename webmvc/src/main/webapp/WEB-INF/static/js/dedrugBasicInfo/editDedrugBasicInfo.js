@@ -1,6 +1,7 @@
 	var	editDedrugBasicInfo = {
 		init : function() {
-			// 初始化新增按钮
+			// 初始化新增按钮			
+			$('#aco-abandonstartdate').datetimepicker();
 			editDedrugBasicInfo.initSaveBtnClickListener();
 			editDedrugBasicInfo.initEditPage();
 		},
@@ -60,7 +61,7 @@
 						data : postData,
 						success : function() {
 							alert("编辑用户成功！");
-								parent.location.href=postPath+"/dedrugBasicInfo/list";
+								parent.location.href=postPath+"/dedrugBasicInfo/infoList";
 						},
 						error : '请求异常，新建考核登记失败！'
 					});				

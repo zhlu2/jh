@@ -399,46 +399,28 @@
 						class="icon-home"></i> <span class="title">主界面</span> 
 
 				</a></li>
-
+				<shiro:hasRole name="admin">
 				<li class=""><a href="${pageContext.request.contextPath }/user/index2"> <i class="icon-cogs"></i>
 
 						<span class="title">用户权限管理 </span> <span class="arrow "></span>
 
-				</a>
+				</a></li>
+				</shiro:hasRole>				
+				<li class=""><a href="${pageContext.request.contextPath }/user/index3"> <i class="icon-bookmark-empty"></i>
 
-					<ul class="sub-menu">
+						<span class="title">入所流程 </span> <span class="arrow "></span>
 
-						<li><a href="layout_horizontal_sidebar_menu.html">
+				</a></li>
+				<li class=""><a href="${pageContext.request.contextPath }/user/index4"> <i class="icon-table"></i>
 
-								Horzontal & Sidebar Menu</a></li>
+						<span class="title">风险分析流程 </span> <span class="arrow "></span>
 
-						<li><a href="layout_horizontal_menu1.html"> Horzontal
-								Menu 1</a></li>
+				</a></li>
+				<li class=""><a href="${pageContext.request.contextPath }/user/index5"> <i class="icon-coffee"></i>
 
-						<li><a href="layout_horizontal_menu2.html"> Horzontal
-								Menu 2</a></li>
+						<span class="title">出所流程 </span> <span class="arrow "></span>
 
-						<li><a href="layout_promo.html"> Promo Page</a></li>
-
-						<li><a href="layout_email.html"> Email Templates</a></li>
-
-						<li><a href="layout_ajax.html"> Content Loading via Ajax</a>
-
-						</li>
-
-						<li><a href="layout_sidebar_closed.html"> Sidebar Closed
-								Page</a></li>
-
-						<li><a href="layout_blank_page.html"> Blank Page</a></li>
-
-						<li><a href="layout_boxed_page.html"> Boxed Page</a></li>
-
-						<li><a href="layout_boxed_not_responsive.html">
-
-								Non-Responsive Boxed Layout</a></li>
-
-					</ul></li>
-
+				</a></li>
 
 			</ul>
 

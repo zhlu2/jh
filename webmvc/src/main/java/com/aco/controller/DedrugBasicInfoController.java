@@ -24,7 +24,7 @@ public class DedrugBasicInfoController extends BaseController {
 	private static final String ADDPAGE = "dedrugBasicInfo/addDedrugBasicInfo";
 	private static final String EDITPAGE = "dedrugBasicInfo/editDedrugBasicInfo";
 	private static final String VIEWPAGE = "dedrugBasicInfo/showDedrugBasicInfo";
-	private static final String outPrison="outPrison/outPrisonList";
+	private static final String outPrison="outPrison/outPrisonList"; 	
 	private static final String editOutPrison="outPrison/editOutPrison";
 	private static final String deletePrison="deletePrison/deletePrisonList";
 	private static final String editDeletePrison="deletePrison/editDeletePrison";
@@ -101,15 +101,23 @@ public class DedrugBasicInfoController extends BaseController {
 	}
 	
 	@RequestMapping("/add")
+    @MethodDescription(value = "添加人员信息", opeartion = "add")
 	@ResponseBody
 	public String add(DedrugBasicInfo dedrugBasicInfo) {
 		return dedrugBasicInfoService.addDedrugBasicInfo(dedrugBasicInfo);
 	}
 
 	@RequestMapping("/edit")
+    @MethodDescription(value = "修改人员信息", opeartion = "edit")
 	@ResponseBody
 	public String edit(DedrugBasicInfo dedrugBasicInfo) {
 		return dedrugBasicInfoService.editDedrugBasicInfo(dedrugBasicInfo);
+	}
+	
+	@RequestMapping("/findPersonId")
+	@ResponseBody
+	public String findPersonId() {
+		return dedrugBasicInfoService.findPersonId();
 	}
 
     @RequestMapping(value="/view/{id}",method = RequestMethod.POST)
@@ -119,12 +127,13 @@ public class DedrugBasicInfoController extends BaseController {
     }
     
 	@RequestMapping("/delete")
+    @MethodDescription(value = "删除人员信息", opeartion = "deleteById")
 	@ResponseBody
 	public String delete(String id){
 		return dedrugBasicInfoService.deleteDedrugBasicInfo(id);
 	}
 	@RequestMapping("/findDedrugBasicInfoList")
-    @MethodDescription(value = "分页查询病室号列表", opeartion = "search")
+    @MethodDescription(value = "分页查询入所信息列表", opeartion = "search")
 	@ResponseBody
 	public String list(Integer pageNumber, Integer pageSize, String userName) {
 		logger.info("分页查询用户信息列表请求入参：pageNumber{},pageSize{}", pageNumber, pageSize);

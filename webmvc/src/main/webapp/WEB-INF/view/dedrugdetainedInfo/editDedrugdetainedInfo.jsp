@@ -9,8 +9,10 @@
 <link
 	href="<%=request.getContextPath()%>/static/js/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/static/js/bootstrap/css/jquery.datetimepicker.css">	
 <script
 	src="<%=request.getContextPath()%>/static/js/jQuery/jquery-2.1.4.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/jQuery/jquery.datetimepicker.full.js"></script>		
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/static/js/dedrugBasicInfo/editDedrugBasicInfo.js"></script>
 <link
@@ -309,7 +311,21 @@
 
 					</ul></li>
 			</shiro:hasRole>
+				<li class=""><a href="${pageContext.request.contextPath }/user/index3"> <i class="icon-bookmark-empty"></i>
 
+						<span class="title">入所流程 </span> <span class="arrow "></span>
+
+				</a></li>
+				<li class=""><a href="${pageContext.request.contextPath }/user/index4"> <i class="icon-table"></i>
+
+						<span class="title">风险分析流程 </span> <span class="arrow "></span>
+
+				</a></li>
+				<li class=""><a href="${pageContext.request.contextPath }/user/index5"> <i class="icon-coffee"></i>
+
+						<span class="title">出所流程 </span> <span class="arrow "></span>
+
+				</a></li>	
 		</ul>
 
 		<!-- END SIDEBAR MENU -->

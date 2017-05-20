@@ -62,6 +62,12 @@ public class PoliceBasicInfoController extends BaseController{
     	return responseSuccess(policeBasicInfoService.findPolice(id).get(0));
     }
     
+	@RequestMapping("/findPoliceNum")
+	@ResponseBody
+	public String findPoliceNum() {
+		return policeBasicInfoService.findPoliceNum();
+	}
+	
     @RequestMapping("/findPoliceBasicInfoList")
     @ResponseBody
     public String rolelist(Integer pageNumber,Integer pageSize ,String id){

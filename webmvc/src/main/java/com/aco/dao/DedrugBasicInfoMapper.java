@@ -30,4 +30,6 @@ public interface DedrugBasicInfoMapper {
     int updateByPrimaryKeySelective(DedrugBasicInfo record);
 
     int updateByPrimaryKey(DedrugBasicInfo record);
+    
+    String selectPersonId();
 }

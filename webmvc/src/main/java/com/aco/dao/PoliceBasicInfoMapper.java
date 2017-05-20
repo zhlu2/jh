@@ -18,4 +18,6 @@ public interface PoliceBasicInfoMapper {
     int updateByPrimaryKeySelective(PoliceBasicInfo record);
 
     int updateByPrimaryKey(PoliceBasicInfo record);
+    
+    String selectPoliceNum();
 }

@@ -50,7 +50,7 @@
 						url : postPath+ "/policeBasicInfo/edit",
 						data : postData,
 						success : function() {
-							alert("编辑用户成功！");
+							alert("编辑民警成功！");
 								parent.location.href=postPath+"/policeBasicInfo/list";
 						},
 						error : '请求异常，新建考核登记失败！'

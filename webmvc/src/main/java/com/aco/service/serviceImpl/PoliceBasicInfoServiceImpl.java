@@ -2,6 +2,7 @@ package com.aco.service.serviceImpl;
 
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -50,6 +51,19 @@ public class PoliceBasicInfoServiceImpl implements PoliceBasicInfoService {
 		// TODO Auto-generated method stub
 		policeBasicInfoMapper.updateByPrimaryKeySelective(policeBasicInfo);
 		return null;
+	}
+
+	@Override
+	public String findPoliceNum() {
+		// TODO Auto-generated method stub
+		String policeNum=policeBasicInfoMapper.selectPoliceNum();
+		if(StringUtils.isBlank(policeNum)){
+			return "3303057013601001";
+		}else{
+			
+			long number= Long.parseLong(policeNum)+1;
+			return String.valueOf(number);
+		}
 	}
 	
 }

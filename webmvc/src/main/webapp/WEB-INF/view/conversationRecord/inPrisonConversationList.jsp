@@ -63,7 +63,7 @@
 
 				<a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
 
-				<img src="media/image/menu-toggler.png" alt="" />
+				
 
 				</a>          
 
@@ -213,7 +213,7 @@
 
 								<a href="inbox.html?a=view">
 
-								<span class="photo"><img src="media/image/avatar2.jpg" alt="" /></span>
+								<span class="photo"></span>
 
 								<span class="subject">
 
@@ -239,7 +239,7 @@
 
 								<a href="inbox.html?a=view">
 
-								<span class="photo"><img src="media/image/avatar3.jpg" alt="" /></span>
+								<span class="photo"></span>
 
 								<span class="subject">
 
@@ -265,7 +265,7 @@
 
 								<a href="inbox.html?a=view">
 
-								<span class="photo"><img src="media/image/avatar1.jpg" alt="" /></span>
+								<span class="photo"></span>
 
 								<span class="subject">
 
@@ -596,7 +596,21 @@
 
 					</ul></li>
                     </shiro:hasRole> 
+				<li class=""><a href="${pageContext.request.contextPath }/user/index3"> <i class="icon-bookmark-empty"></i>
 
+						<span class="title">入所流程 </span> <span class="arrow "></span>
+
+				</a></li>
+				<li class=""><a href="${pageContext.request.contextPath }/user/index4"> <i class="icon-table"></i>
+
+						<span class="title">风险分析流程 </span> <span class="arrow "></span>
+
+				</a></li>
+				<li class=""><a href="${pageContext.request.contextPath }/user/index5"> <i class="icon-coffee"></i>
+
+						<span class="title">出所流程 </span> <span class="arrow "></span>
+
+				</a></li>	
 
 				</ul>
 	

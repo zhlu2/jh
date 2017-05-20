@@ -25,5 +25,7 @@ public interface DedrugBasicInfoService {
 	
 	String deleteDedrugBasicInfo(String id);
 	
+	String findPersonId();
+	
 	List<DedrugBasicInfo> findDedrugBasicInfo(String id);
 }

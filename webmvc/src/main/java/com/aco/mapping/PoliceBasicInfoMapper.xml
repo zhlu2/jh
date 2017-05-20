@@ -14,6 +14,12 @@
   <sql id="Base_Column_List" >
     ID, POLICENUM, POLICENAME, POLICESEX, POLITICALOUTLOOK, WORKTIME, CREATETIME, CERTIFICATENUM
   </sql>
+  	<select id="selectPoliceNum" resultType="String"
+		parameterType="java.lang.String">
+		select
+		MAX(POLICENUM)
+		from MJJBXXB
+	</select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />

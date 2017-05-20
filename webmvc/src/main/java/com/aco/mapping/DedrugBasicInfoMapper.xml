@@ -27,12 +27,21 @@
 		<result column="PUBLISHTYPE" property="publishtype" jdbcType="VARCHAR" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		ID, FULLNAME, SEX, CERTIFICATENUM, PERSONID, DRUGABUSE, DRUGTYPE,
+		ID, FULLNAME, SEX, CERTIFICATENUM, PERSONID, DRUGABUSE,
+		DRUGTYPE,
 		CASEHANDLEPERSON,
-		ABANDONLIMIT, ABANDONMETHOD, PERSONSIGN, PROCESSSTATE, ABANDONSTARTDATE,
+		ABANDONLIMIT, ABANDONMETHOD, PERSONSIGN,
+		PROCESSSTATE, ABANDONSTARTDATE,
 		ENTRYREASON,
-		CREATETIME, EXPECTEDTIME, OUTCAUSE, MANAGEPOLICE, PUBLISHTYPE
+		CREATETIME, EXPECTEDTIME,
+		OUTCAUSE, MANAGEPOLICE, PUBLISHTYPE
 	</sql>
+	<select id="selectPersonId" resultType="String"
+		parameterType="java.lang.String">
+		select
+		MAX(PERSONID)
+		from JDRYJBXXB
+	</select>
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
 		parameterType="java.lang.String">
 		select
@@ -74,7 +83,7 @@
 			and ID = #{id,jdbcType=VARCHAR}
 		</if>
 	</select>
-		<select id="selectByFullname" resultMap="BaseResultMap"
+	<select id="selectByFullname" resultMap="BaseResultMap"
 		parameterType="java.lang.String">
 		select
 		<include refid="Base_Column_List" />
@@ -94,7 +103,7 @@
 			and ID = #{id,jdbcType=VARCHAR}
 		</if>
 	</select>
-		<select id="selectInPrisonTalk" resultMap="BaseResultMap"
+	<select id="selectInPrisonTalk" resultMap="BaseResultMap"
 		parameterType="java.lang.String">
 		select
 		<include refid="Base_Column_List" />
@@ -105,23 +114,32 @@
 		</if>
 	</select>
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-		delete from JDRYJBXXB
+		delete from
+		JDRYJBXXB
 		where ID = #{id,jdbcType=VARCHAR}
 	</delete>
 	<insert id="insert" parameterType="com.aco.model.DedrugBasicInfo">
-		insert into JDRYJBXXB (ID, FULLNAME, SEX,
+		insert into JDRYJBXXB (ID,
+		FULLNAME, SEX,
 		CERTIFICATENUM, PERSONID, DRUGABUSE,
-		DRUGTYPE, CASEHANDLEPERSON, ABANDONLIMIT,
-		ABANDONMETHOD, PERSONSIGN, PROCESSSTATE,
+		DRUGTYPE,
+		CASEHANDLEPERSON, ABANDONLIMIT,
+		ABANDONMETHOD, PERSONSIGN,
+		PROCESSSTATE,
 		ABANDONSTARTDATE, ENTRYREASON, CREATETIME,
-		EXPECTEDTIME, OUTCAUSE, MANAGEPOLICE,
+		EXPECTEDTIME,
+		OUTCAUSE, MANAGEPOLICE,
 		PUBLISHTYPE)
-		values (#{id,jdbcType=VARCHAR}, #{fullname,jdbcType=VARCHAR},
+		values (#{id,jdbcType=VARCHAR},
+		#{fullname,jdbcType=VARCHAR},
 		#{sex,jdbcType=VARCHAR},
-		#{certificatenum,jdbcType=VARCHAR}, #{personid,jdbcType=VARCHAR}, #{drugabuse,jdbcType=VARCHAR},
-		#{drugtype,jdbcType=VARCHAR}, #{casehandleperson,jdbcType=VARCHAR},
+		#{certificatenum,jdbcType=VARCHAR}, #{personid,jdbcType=VARCHAR},
+		#{drugabuse,jdbcType=VARCHAR},
+		#{drugtype,jdbcType=VARCHAR},
+		#{casehandleperson,jdbcType=VARCHAR},
 		#{abandonlimit,jdbcType=VARCHAR},
-		#{abandonmethod,jdbcType=VARCHAR}, #{personsign,jdbcType=VARCHAR}, #{processstate,jdbcType=VARCHAR},
+		#{abandonmethod,jdbcType=VARCHAR},
+		#{personsign,jdbcType=VARCHAR}, #{processstate,jdbcType=VARCHAR},
 		#{abandonstartdate,jdbcType=TIMESTAMP},
 		#{entryreason,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP},
 		#{expectedtime,jdbcType=TIMESTAMP}, #{outcause,jdbcType=VARCHAR},
@@ -286,7 +304,8 @@
 				PROCESSSTATE = #{processstate,jdbcType=VARCHAR},
 			</if>
 			<if test="abandonstartdate != null">
-				ABANDONSTARTDATE = #{abandonstartdate,jdbcType=TIMESTAMP},
+				ABANDONSTARTDATE =
+				#{abandonstartdate,jdbcType=TIMESTAMP},
 			</if>
 			<if test="entryreason != null">
 				ENTRYREASON = #{entryreason,jdbcType=VARCHAR},
@@ -312,23 +331,38 @@
 	<update id="updateByPrimaryKey" parameterType="com.aco.model.DedrugBasicInfo">
 		update JDRYJBXXB
 		set FULLNAME = #{fullname,jdbcType=VARCHAR},
-		SEX = #{sex,jdbcType=VARCHAR},
-		CERTIFICATENUM = #{certificatenum,jdbcType=VARCHAR},
-		PERSONID = #{personid,jdbcType=VARCHAR},
-		DRUGABUSE = #{drugabuse,jdbcType=VARCHAR},
+		SEX =
+		#{sex,jdbcType=VARCHAR},
+		CERTIFICATENUM =
+		#{certificatenum,jdbcType=VARCHAR},
+		PERSONID =
+		#{personid,jdbcType=VARCHAR},
+		DRUGABUSE =
+		#{drugabuse,jdbcType=VARCHAR},
 		DRUGTYPE = #{drugtype,jdbcType=VARCHAR},
 		CASEHANDLEPERSON = #{casehandleperson,jdbcType=VARCHAR},
-		ABANDONLIMIT = #{abandonlimit,jdbcType=VARCHAR},
-		ABANDONMETHOD = #{abandonmethod,jdbcType=VARCHAR},
-		PERSONSIGN = #{personsign,jdbcType=VARCHAR},
-		PROCESSSTATE = #{processstate,jdbcType=VARCHAR},
-		ABANDONSTARTDATE = #{abandonstartdate,jdbcType=TIMESTAMP},
-		ENTRYREASON = #{entryreason,jdbcType=VARCHAR},
-		CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-		EXPECTEDTIME = #{expectedtime,jdbcType=TIMESTAMP},
-		OUTCAUSE = #{outcause,jdbcType=VARCHAR},
-		MANAGEPOLICE = #{managepolice,jdbcType=VARCHAR},
-		PUBLISHTYPE = #{publishtype,jdbcType=VARCHAR}
+		ABANDONLIMIT =
+		#{abandonlimit,jdbcType=VARCHAR},
+		ABANDONMETHOD =
+		#{abandonmethod,jdbcType=VARCHAR},
+		PERSONSIGN =
+		#{personsign,jdbcType=VARCHAR},
+		PROCESSSTATE =
+		#{processstate,jdbcType=VARCHAR},
+		ABANDONSTARTDATE =
+		#{abandonstartdate,jdbcType=TIMESTAMP},
+		ENTRYREASON =
+		#{entryreason,jdbcType=VARCHAR},
+		CREATETIME =
+		#{createtime,jdbcType=TIMESTAMP},
+		EXPECTEDTIME =
+		#{expectedtime,jdbcType=TIMESTAMP},
+		OUTCAUSE =
+		#{outcause,jdbcType=VARCHAR},
+		MANAGEPOLICE =
+		#{managepolice,jdbcType=VARCHAR},
+		PUBLISHTYPE =
+		#{publishtype,jdbcType=VARCHAR}
 		where ID = #{id,jdbcType=VARCHAR}
 	</update>
 </mapper>

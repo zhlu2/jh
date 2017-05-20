@@ -53,7 +53,7 @@
 						url : postPath+ "/conversationRecord/edit",
 						data : postData,
 						success : function() {
-							alert("编辑用户成功！");
+							alert("编辑入所谈话成功！");
 								parent.location.href=postPath+"/conversationRecord/InPrisonConversationList";
 						},
 						error : '请求异常，新建考核登记失败！'

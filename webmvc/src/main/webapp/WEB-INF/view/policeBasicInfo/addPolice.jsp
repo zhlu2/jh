@@ -400,7 +400,21 @@
 
 					</ul></li>
 			</shiro:hasRole>
+				<li class=""><a href="${pageContext.request.contextPath }/user/index3"> <i class="icon-bookmark-empty"></i>
 
+						<span class="title">入所流程 </span> <span class="arrow "></span>
+
+				</a></li>
+				<li class=""><a href="${pageContext.request.contextPath }/user/index4"> <i class="icon-table"></i>
+
+						<span class="title">风险分析流程 </span> <span class="arrow "></span>
+
+				</a></li>
+				<li class=""><a href="${pageContext.request.contextPath }/user/index5"> <i class="icon-coffee"></i>
+
+						<span class="title">出所流程 </span> <span class="arrow "></span>
+
+				</a></li>	
 
 		</ul>
 
@@ -515,9 +529,30 @@
 														<label class="control-label">政治面貌</label>
 
 														<div class="controls">
+																
+															<select id="aco-politicaloutlook" class="m-wrap span12">
 
-															<input type="text" id="aco-politicaloutlook"
-																class="m-wrap span12" placeholder="请输入政治面貌">
+																<option value="中共党员">中共党员</option>
+
+																<option value="中共预备党员">中共预备党员</option>
+
+																<option value="共青团员">共青团员</option>
+
+																<option value="民革党员">民革党员</option>
+
+																<option value="民盟盟员">民盟盟员</option>
+
+																<option value="民建会员">民建会员</option>
+
+																<option value="民进会员">民进会员</option>
+
+																<option value="农工党党员">农工党党员</option>
+																
+																<option value="致公党党员">致公党党员</option>
+
+																<option value="无党派人士">无党派人士</option>																																																																
+
+															</select> <span class="help-block"></span>	
 
 														</div>
 

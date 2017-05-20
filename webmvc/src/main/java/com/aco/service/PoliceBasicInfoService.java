@@ -19,5 +19,5 @@ public interface PoliceBasicInfoService {
 	
 	List<PoliceBasicInfo> findPolice(String id);
 	
-	
+	String findPoliceNum();
 }
